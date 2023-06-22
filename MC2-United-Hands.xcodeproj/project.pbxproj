@@ -25,6 +25,9 @@
 		D74679512A449964009C712B /* ExpenseCategoryPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74679502A449964009C712B /* ExpenseCategoryPicker.swift */; };
 		D74679532A44AC74009C712B /* FormDoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74679522A44AC73009C712B /* FormDoneButton.swift */; };
 		D74679562A44B035009C712B /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74679552A44B035009C712B /* ColorExtension.swift */; };
+		D74679B12A44C139009C712B /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74679B02A44C139009C712B /* StringConstants.swift */; };
+		D74679B52A44C15D009C712B /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74679B42A44C15D009C712B /* Placeholder.swift */; };
+		D74679B72A44C16C009C712B /* PlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74679B62A44C16C009C712B /* PlaceHolder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +69,9 @@
 		D74679502A449964009C712B /* ExpenseCategoryPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCategoryPicker.swift; sourceTree = "<group>"; };
 		D74679522A44AC73009C712B /* FormDoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDoneButton.swift; sourceTree = "<group>"; };
 		D74679552A44B035009C712B /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		D74679B02A44C139009C712B /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
+		D74679B42A44C15D009C712B /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
+		D74679B62A44C16C009C712B /* PlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHolder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,11 +122,11 @@
 		D746790A2A442F0B009C712B /* MC2-United-Hands */ = {
 			isa = PBXGroup;
 			children = (
+				D74679B32A44C150009C712B /* ViewModel */,
+				D74679B22A44C14C009C712B /* Model */,
+				D74679AF2A44C12D009C712B /* Constants */,
 				D74679542A44B01F009C712B /* Extension */,
 				D74679482A444BB6009C712B /* Enums */,
-				D746793A2A44370D009C712B /* Model */,
-				D74679392A4434F5009C712B /* ViewModel */,
-				D74679372A4434E9009C712B /* Constants */,
 				D74679352A4434D5009C712B /* Views */,
 				D746790B2A442F0B009C712B /* MC2_United_HandsApp.swift */,
 				D746790D2A442F0B009C712B /* ContentView.swift */,
@@ -178,27 +184,6 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		D74679372A4434E9009C712B /* Constants */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Constants;
-			sourceTree = "<group>";
-		};
-		D74679392A4434F5009C712B /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		D746793A2A44370D009C712B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		D74679482A444BB6009C712B /* Enums */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +207,30 @@
 				D74679552A44B035009C712B /* ColorExtension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		D74679AF2A44C12D009C712B /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				D74679B02A44C139009C712B /* StringConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		D74679B22A44C14C009C712B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D74679B42A44C15D009C712B /* Placeholder.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D74679B32A44C150009C712B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D74679B62A44C16C009C712B /* PlaceHolder.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,13 +369,16 @@
 				D746794A2A444BC6009C712B /* FieldTypeEnum + FieldView.swift in Sources */,
 				D74679432A444161009C712B /* CategoryLabel.swift in Sources */,
 				D74679452A444AB7009C712B /* FormView.swift in Sources */,
+				D74679B12A44C139009C712B /* StringConstants.swift in Sources */,
 				D746793E2A443895009C712B /* ExpenseCard.swift in Sources */,
 				D74679412A4438E6009C712B /* RoundedImage.swift in Sources */,
 				D746790E2A442F0B009C712B /* ContentView.swift in Sources */,
 				D74679532A44AC74009C712B /* FormDoneButton.swift in Sources */,
+				D74679B52A44C15D009C712B /* Placeholder.swift in Sources */,
 				D746790C2A442F0B009C712B /* MC2_United_HandsApp.swift in Sources */,
 				D746794D2A447C03009C712B /* CustomTextFiledModifier.swift in Sources */,
 				D74679562A44B035009C712B /* ColorExtension.swift in Sources */,
+				D74679B72A44C16C009C712B /* PlaceHolder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
