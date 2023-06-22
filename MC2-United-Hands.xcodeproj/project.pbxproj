@@ -14,6 +14,17 @@
 		D746791D2A442F0C009C712B /* MC2_United_HandsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D746791C2A442F0C009C712B /* MC2_United_HandsTests.swift */; };
 		D74679272A442F0C009C712B /* MC2_United_HandsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74679262A442F0C009C712B /* MC2_United_HandsUITests.swift */; };
 		D74679292A442F0C009C712B /* MC2_United_HandsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74679282A442F0C009C712B /* MC2_United_HandsUITestsLaunchTests.swift */; };
+		D746793E2A443895009C712B /* ExpenseCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D746793D2A443895009C712B /* ExpenseCard.swift */; };
+		D74679412A4438E6009C712B /* RoundedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74679402A4438E6009C712B /* RoundedImage.swift */; };
+		D74679432A444161009C712B /* CategoryLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74679422A444161009C712B /* CategoryLabel.swift */; };
+		D74679452A444AB7009C712B /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74679442A444AB7009C712B /* FormView.swift */; };
+		D74679472A444ACD009C712B /* FormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74679462A444ACD009C712B /* FormField.swift */; };
+		D746794A2A444BC6009C712B /* FieldTypeEnum + FieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74679492A444BC6009C712B /* FieldTypeEnum + FieldView.swift */; };
+		D746794D2A447C03009C712B /* CustomTextFiledModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D746794C2A447C03009C712B /* CustomTextFiledModifier.swift */; };
+		D746794F2A449734009C712B /* ExpenseCategoryEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D746794E2A449734009C712B /* ExpenseCategoryEnum.swift */; };
+		D74679512A449964009C712B /* ExpenseCategoryPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74679502A449964009C712B /* ExpenseCategoryPicker.swift */; };
+		D74679532A44AC74009C712B /* FormDoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74679522A44AC73009C712B /* FormDoneButton.swift */; };
+		D74679562A44B035009C712B /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74679552A44B035009C712B /* ColorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +55,17 @@
 		D74679222A442F0C009C712B /* MC2-United-HandsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MC2-United-HandsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D74679262A442F0C009C712B /* MC2_United_HandsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC2_United_HandsUITests.swift; sourceTree = "<group>"; };
 		D74679282A442F0C009C712B /* MC2_United_HandsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC2_United_HandsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D746793D2A443895009C712B /* ExpenseCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCard.swift; sourceTree = "<group>"; };
+		D74679402A4438E6009C712B /* RoundedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImage.swift; sourceTree = "<group>"; };
+		D74679422A444161009C712B /* CategoryLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLabel.swift; sourceTree = "<group>"; };
+		D74679442A444AB7009C712B /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
+		D74679462A444ACD009C712B /* FormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormField.swift; sourceTree = "<group>"; };
+		D74679492A444BC6009C712B /* FieldTypeEnum + FieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FieldTypeEnum + FieldView.swift"; sourceTree = "<group>"; };
+		D746794C2A447C03009C712B /* CustomTextFiledModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFiledModifier.swift; sourceTree = "<group>"; };
+		D746794E2A449734009C712B /* ExpenseCategoryEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCategoryEnum.swift; sourceTree = "<group>"; };
+		D74679502A449964009C712B /* ExpenseCategoryPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCategoryPicker.swift; sourceTree = "<group>"; };
+		D74679522A44AC73009C712B /* FormDoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDoneButton.swift; sourceTree = "<group>"; };
+		D74679552A44B035009C712B /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +116,12 @@
 		D746790A2A442F0B009C712B /* MC2-United-Hands */ = {
 			isa = PBXGroup;
 			children = (
+				D74679542A44B01F009C712B /* Extension */,
+				D74679482A444BB6009C712B /* Enums */,
+				D746793A2A44370D009C712B /* Model */,
+				D74679392A4434F5009C712B /* ViewModel */,
+				D74679372A4434E9009C712B /* Constants */,
+				D74679352A4434D5009C712B /* Views */,
 				D746790B2A442F0B009C712B /* MC2_United_HandsApp.swift */,
 				D746790D2A442F0B009C712B /* ContentView.swift */,
 				D746790F2A442F0B009C712B /* Assets.xcassets */,
@@ -125,6 +153,75 @@
 				D74679282A442F0C009C712B /* MC2_United_HandsUITestsLaunchTests.swift */,
 			);
 			path = "MC2-United-HandsUITests";
+			sourceTree = "<group>";
+		};
+		D74679352A4434D5009C712B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D74679362A4434E4009C712B /* Components */,
+				D74679442A444AB7009C712B /* FormView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D74679362A4434E4009C712B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D746794B2A447BE8009C712B /* Extension + Custom Modifier */,
+				D746793D2A443895009C712B /* ExpenseCard.swift */,
+				D74679402A4438E6009C712B /* RoundedImage.swift */,
+				D74679422A444161009C712B /* CategoryLabel.swift */,
+				D74679462A444ACD009C712B /* FormField.swift */,
+				D74679502A449964009C712B /* ExpenseCategoryPicker.swift */,
+				D74679522A44AC73009C712B /* FormDoneButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		D74679372A4434E9009C712B /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		D74679392A4434F5009C712B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D746793A2A44370D009C712B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D74679482A444BB6009C712B /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				D74679492A444BC6009C712B /* FieldTypeEnum + FieldView.swift */,
+				D746794E2A449734009C712B /* ExpenseCategoryEnum.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		D746794B2A447BE8009C712B /* Extension + Custom Modifier */ = {
+			isa = PBXGroup;
+			children = (
+				D746794C2A447C03009C712B /* CustomTextFiledModifier.swift */,
+			);
+			path = "Extension + Custom Modifier";
+			sourceTree = "<group>";
+		};
+		D74679542A44B01F009C712B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D74679552A44B035009C712B /* ColorExtension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +354,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D74679512A449964009C712B /* ExpenseCategoryPicker.swift in Sources */,
+				D74679472A444ACD009C712B /* FormField.swift in Sources */,
+				D746794F2A449734009C712B /* ExpenseCategoryEnum.swift in Sources */,
+				D746794A2A444BC6009C712B /* FieldTypeEnum + FieldView.swift in Sources */,
+				D74679432A444161009C712B /* CategoryLabel.swift in Sources */,
+				D74679452A444AB7009C712B /* FormView.swift in Sources */,
+				D746793E2A443895009C712B /* ExpenseCard.swift in Sources */,
+				D74679412A4438E6009C712B /* RoundedImage.swift in Sources */,
 				D746790E2A442F0B009C712B /* ContentView.swift in Sources */,
+				D74679532A44AC74009C712B /* FormDoneButton.swift in Sources */,
 				D746790C2A442F0B009C712B /* MC2_United_HandsApp.swift in Sources */,
+				D746794D2A447C03009C712B /* CustomTextFiledModifier.swift in Sources */,
+				D74679562A44B035009C712B /* ColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
