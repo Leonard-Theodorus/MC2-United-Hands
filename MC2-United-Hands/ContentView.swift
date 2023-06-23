@@ -9,10 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            FormView()
+        GeometryReader { geo in
+            VStack {
+//                FormView()
+                AddMomentView(width: geo.size.width, height: geo.size.height)
+            }
+//            .padding()
         }
-        .padding()
     }
 }
 
