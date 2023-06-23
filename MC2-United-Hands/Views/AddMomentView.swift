@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct AddMomentView: View {
     @Environment(\.presentationMode) private var presentationMode
 
-    @State var capturedImage: UIImage? = nil
+    @State private var capturedImage: UIImage? = nil
     @State var isEditMomentsViewPresented = false
+    @State private var selectedItem: PhotosPickerItem? = nil
+    @State private var selectedImageData: Data? = nil
     
     let cameraService = CameraService()
     var width: CGFloat
@@ -53,27 +56,54 @@ struct AddMomentView: View {
                 
                 Spacer()
                 
-                HStack {
-                    Button {
-                        cameraService.capturePhoto()
-                        isEditMomentsViewPresented.toggle()
-                    } label: {
-                        Image(systemName: "circle.inset.filled")
-                            .resizable()
-                            .scaledToFit()
-                            .padding()
-                            .foregroundColor(.white)
-                            .frame(width: width * 0.3)
+                ZStack {
+                    HStack {
+                        PhotosPicker(selection: $selectedItem, matching: .images, photoLibrary: .shared()) {
+                            Image(systemName: "photo.on.rectangle")
+                                .resizable()
+                                .scaledToFit()
+                                .padding()
+                                .foregroundColor(.white)
+                        }
+                        .frame(width: width * 0.25)
+                        .padding(.leading)
+                        .onChange(of: selectedItem) { newValue in
+                            Task {
+                                if let data = try? await newValue?.loadTransferable(type: Data.self) {
+                                    capturedImage = UIImage(data: data)
+                                    isEditMomentsViewPresented.toggle()
+                                }
+                            }
+                        }
+                        
+                        Spacer()
                     }
-                    .padding(.top)
-                    .frame(width: width, height: height * 0.2)
-                    .background(.black)
+                    
+                    HStack {
+                        Button {
+                            cameraService.capturePhoto()
+                            isEditMomentsViewPresented.toggle()
+                        } label: {
+                            Image(systemName: "circle.inset.filled")
+                                .resizable()
+                                .scaledToFit()
+                                .padding()
+                                .foregroundColor(.white)
+                                .frame(width: width * 0.3)
+                        }
+                    }
                 }
+                .padding(.top)
+                .frame(width: width, height: height * 0.2)
+                .background(.black)
             }
             
-            if isEditMomentsViewPresented && capturedImage != nil {
-                AddMomentRenameView(isEditMomentsViewPresented: $isEditMomentsViewPresented, capturedImage: capturedImage!, width: width, height: height)
+            .navigationDestination(isPresented: $isEditMomentsViewPresented) {
+                if capturedImage != nil {
+                    AddMomentRenameView(isEditMomentsViewPresented: $isEditMomentsViewPresented, capturedImage: capturedImage!, width: width, height: height)
+                }
             }
         }
+        .navigationBarBackButtonHidden()
     }
 }

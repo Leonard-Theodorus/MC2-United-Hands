@@ -32,7 +32,8 @@ struct AddMomentRenameView: View {
                 
                 HStack {
                     VStack {
-                        Button {
+                        NavigationLink() {
+                            // TODO: Pindah ke halaman selanjutnya
                             
                         } label: {
                             Text("Done")
@@ -40,9 +41,12 @@ struct AddMomentRenameView: View {
                                 .frame(width: width * 0.9)
                                 .background(.blue)
                                 .foregroundColor(.white)
+                                .cornerRadius(30)
                         }
-                        .clipShape(Capsule())
                         .padding()
+                        .simultaneousGesture(TapGesture().onEnded{
+                            isEditMomentsViewPresented.toggle()
+                        })
                         
                         Button {
                             isEditMomentsViewPresented.toggle()
@@ -62,5 +66,6 @@ struct AddMomentRenameView: View {
                 .background(.black)
             }
         }
+        .navigationBarBackButtonHidden()
     }
 }
