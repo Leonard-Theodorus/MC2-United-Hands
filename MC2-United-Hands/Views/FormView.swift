@@ -12,10 +12,12 @@ struct FormView: View {
     
     var body: some View {
         VStack(spacing: 24) {
-            ForEach(formTypes, id: \.fieldName){ types in
-                FormField(fieldType: types)
+            Group{
+                FormField(fieldType: .nominal)
+                FormField(fieldType: .category)
+                FormField(fieldType: .photo)
+                FormField(fieldType: .date)
             }
-            
             Spacer()
             FormDoneButton()
             

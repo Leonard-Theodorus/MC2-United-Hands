@@ -27,6 +27,8 @@ struct FormDoneButton: View {
             )
             .padding(.horizontal)
         }
+        .accessibilityLabel(Text("Done"))
+        
     }
 }
 

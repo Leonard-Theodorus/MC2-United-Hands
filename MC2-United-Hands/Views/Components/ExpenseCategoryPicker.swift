@@ -17,6 +17,7 @@ struct ExpenseCategoryPicker: View {
                     .bold()
                     .foregroundColor(categoryType.foregroundColor)
             }
+            
             Spacer()
         }
         .modifier(BorderedFieldStyle(cornerRadius: 8, strokeColor: categoryType.foregroundColor))

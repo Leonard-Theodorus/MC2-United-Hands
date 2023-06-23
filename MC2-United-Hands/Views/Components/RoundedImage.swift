@@ -14,6 +14,8 @@ struct RoundedImage: View {
             .aspectRatio(contentMode: .fit)
             .clipShape(Circle())
             .frame(width: 80, height: 80)
+            .accessibilityLabel("image")
+        
         
     }
 }

@@ -18,13 +18,17 @@ struct ExpenseCard: View {
                 Text("Rp. 25.000")
                     .bold()
                     .padding(.leading)
+                    .accessibilityLabel(Text("Expense Nominal"))
                 //Jam
                 Text("08.00 AM")
                     .font(.caption)
                     .padding(.trailing)
+                    .accessibilityLabel(Text("Time added"))
                 //label
                 CategoryLabel(stringLabel: expenseCategory.categoryText)
                     .padding(.leading)
+                    .accessibilityLabel(Text("Expense Category"))
+                    .accessibilityValue(Text(expenseCategory.categoryText))
             }
         }
         .padding()
