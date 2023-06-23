@@ -36,6 +36,8 @@ extension FormField{
                 ZStack(alignment: .leading){
                     TextField("", text: $expenseAmount)
                         .keyboardType(.numberPad)
+                        .accessibilityLabel(Text("Expense Nominal"))
+                        .accessibilityAddTraits(.isKeyboardKey)
                 }
                 
             }.modifier(BorderedFieldStyle(cornerRadius: 8, strokeColor: formForegroundColor))
@@ -49,6 +51,7 @@ extension FormField{
                 
                 Spacer()
             }
+            .accessibilityAddTraits([.isButton, .isModal])
             .onTapGesture {
                 withAnimation {
                     showCategoryModal.toggle()
@@ -59,6 +62,9 @@ extension FormField{
                 ForEach(categories, id: \.categoryText){category in
                     VStack(spacing: 16){
                         ExpenseCategoryPicker(categoryType: category)
+                            .accessibilityLabel(Text("category"))
+                            .accessibilityValue(Text(category.categoryText))
+                            .accessibilityAddTraits(.isButton)
                     }
                 }
             }
@@ -93,19 +99,18 @@ extension FormField{
                             .foregroundColor(.blue)
                         Text("Date").foregroundColor(formForegroundColor)
                     }
-                    
                 }
                 Spacer()
                 DatePicker("", selection: $expenseDate, displayedComponents: .date).accentColor(formForegroundColor)
                 
             }.modifier(BorderedFieldStyle(cornerRadius: 8, strokeColor: formForegroundColor))
-//            if showDate{
-//                HStack{
-//                    DatePicker("", selection: $expenseDate, displayedComponents: .date).datePickerStyle(.graphical)
-//                }
-//
-//
-//            }
+            //            if showDate{
+            //                HStack{
+            //                    DatePicker("", selection: $expenseDate, displayedComponents: .date).datePickerStyle(.graphical)
+            //                }
+            //
+            //
+            //            }
         }
     }
     
