@@ -6,15 +6,13 @@
 //
 
 import SwiftUI
-
 struct ContentView: View {
+    @State var pageNavigator : PageNavigation = .expenses
     var body: some View {
         NavigationStack{
             GeometryReader { geo in
                 VStack {
-//                    FormView()
-//                    AddMomentView(width: geo.size.width, height: geo.size.height)
-                    HomeView(width: geo.size.width, height: geo.size.height)
+                    HomeView(width: geo.size.width, height: geo.size.height, pageNavigator: $pageNavigator)
                 }
             }
         }

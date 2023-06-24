@@ -10,13 +10,17 @@ import SwiftUI
 struct HomeView: View {
     var width: CGFloat
     var height: CGFloat
-    
-    @State private var isExpenseActive: Bool = true
-    
+    @Binding var pageNavigator : PageNavigation
     var body: some View {
         VStack {
+            if pageNavigator == .expenses{
+                //TODO: Expense View
+            }
+            else{
+                //TODO: Report View
+            }
             Spacer()
-            TabBarView(width: width, height: height, isExpenseActive: $isExpenseActive)
+            TabBarView(width: width, height: height, pageNavigator: $pageNavigator)
         }
     }
 }
