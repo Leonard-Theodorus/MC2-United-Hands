@@ -11,16 +11,32 @@ struct HomeView: View {
     var width: CGFloat
     var height: CGFloat
     @Binding var pageNavigator : PageNavigation
+    @State var isDatePicker: Bool = false
+    @State var date = Date.now
+    
     var body: some View {
-        VStack {
-            if pageNavigator == .expenses{
-                //TODO: Expense View
+        ZStack {
+            VStack {
+                TopBarView(width: width, height: height, pageNavigator: $pageNavigator, userName: .constant("Kucing"), isDatePicker: $isDatePicker)
+
+                if pageNavigator == .expenses{
+                    //TODO: Expense View
+                    ExpensesView()
+                        .frame(width: width, height: height * 0.74)
+                }
+                else{
+                    //TODO: Report View
+                    ReportView()
+                        .frame(width: width, height: height * 0.74)
+                }
+
+                TabBarView(width: width, height: height, pageNavigator: $pageNavigator)
             }
-            else{
-                //TODO: Report View
+            .frame(width: width, height: height)
+            
+            if isDatePicker {
+                DatePickerView(date: $date, isDatePicker: $isDatePicker)
             }
-            Spacer()
-            TabBarView(width: width, height: height, pageNavigator: $pageNavigator)
         }
     }
 }
