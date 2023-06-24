@@ -13,21 +13,20 @@ struct HomeView: View {
     @Binding var pageNavigator : PageNavigation
     @State var isDatePicker: Bool = false
     @State var date = Date.now
+    @State var totalExpenses: Int = 0
     
     var body: some View {
         ZStack {
             VStack {
-                TopBarView(width: width, height: height, pageNavigator: $pageNavigator, userName: .constant("Kucing"), isDatePicker: $isDatePicker)
-
                 if pageNavigator == .expenses{
                     //TODO: Expense View
-                    ExpensesView()
-                        .frame(width: width, height: height * 0.74)
+                    ExpensesView(width: width, height: height, pageNavigator: $pageNavigator, userName: .constant("Kucing"), isDatePicker: $isDatePicker, totalExpenses: $totalExpenses)
+                        .frame(width: width, height: height * 0.9)
                 }
                 else{
                     //TODO: Report View
-                    ReportView()
-                        .frame(width: width, height: height * 0.74)
+                    ReportView(width: width, height: height, pageNavigator: $pageNavigator, userName: .constant("Kucing"), isDatePicker: $isDatePicker, totalExpenses: $totalExpenses)
+                        .frame(width: width, height: height * 0.9)
                 }
 
                 TabBarView(width: width, height: height, pageNavigator: $pageNavigator)

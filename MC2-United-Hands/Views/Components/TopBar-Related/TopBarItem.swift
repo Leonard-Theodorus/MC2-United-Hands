@@ -14,6 +14,8 @@ struct TopBarItem: View {
     var title: String
     var dateInterval: String
     var pagenavigator: PageNavigation
+    
+    @Binding var totalExpenses: Int
     @Binding var isDatePicker: Bool
     
     var body: some View {
@@ -23,7 +25,7 @@ struct TopBarItem: View {
                     .font(.title2)
                     .frame(height: height * 0.02)
                 
-                Text("Rp.4.000.000")
+                Text("Rp.4000.000")
                     .font(.title)
                     .fontWeight(.bold)
                     .padding(.bottom, 1)

@@ -8,13 +8,17 @@
 import SwiftUI
 
 struct ReportView: View {
+    var width: CGFloat
+    var height: CGFloat
+    @Binding var pageNavigator: PageNavigation
+    @Binding var userName: String
+    @Binding var isDatePicker: Bool
+    @Binding var totalExpenses: Int
+    
     var body: some View {
-        Text("Report View")
-    }
-}
-
-struct ReportView_Previews: PreviewProvider {
-    static var previews: some View {
-        ReportView()
+        VStack {
+            TopBarView(width: width, height: height, pageNavigator: $pageNavigator, userName: .constant("Kucing"), isDatePicker: $isDatePicker, totalExpenses: $totalExpenses)
+            Spacer()
+        }
     }
 }
