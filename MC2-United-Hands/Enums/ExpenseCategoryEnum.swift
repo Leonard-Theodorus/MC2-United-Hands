@@ -56,7 +56,7 @@ extension ExpenseCategoryPicker{
         var categoryText : String{
             switch self{
             case .food:
-                return "Food & Drink"
+                return "Food & Drink"   
             case .groceries:
                 return "Groceries"
             case .shopping:
