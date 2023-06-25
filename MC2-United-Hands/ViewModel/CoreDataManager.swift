@@ -62,6 +62,23 @@ class CoreDataManager {
         return expenseData(image: image, category: category, amount: amount, timestamp: timestamp)
     }
     
+    func fetchExpenseById(by id: UUID) -> ExpenseEntity? {
+        let context = CoreDataManager.shared.persistentContainer.newBackgroundContext()
+        let fetchRequest: NSFetchRequest<ExpenseEntity> = ExpenseEntity.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+        fetchRequest.fetchLimit = 1
+        
+        do {
+            let expenses = try context.fetch(fetchRequest)
+            print(expenses.first as Any)
+            return expenses.first
+        } catch {
+            print("Failed to fetch expense: \(error.localizedDescription)")
+            return nil
+        }
+    }
+
+    
     
     func fetchExpenses() -> [expenseData] {
         let context = CoreDataManager.shared.persistentContainer.newBackgroundContext()
@@ -79,7 +96,7 @@ class CoreDataManager {
     }
     
     func editExpense(expense: ExpenseEntity, imageData: Data?, category: String, amount: Int, timestamp: Date) -> ExpenseEntity? {
-        let context = persistentContainer.newBackgroundContext()
+        let context = expense.managedObjectContext
         
         do {
             // Update valuenya
@@ -104,7 +121,7 @@ class CoreDataManager {
                 expense.imageFilePath = imageFileName
             }
             
-            try context.save()
+            try context!.save()
             
             return expense
         } catch {
@@ -114,26 +131,32 @@ class CoreDataManager {
     }
     
     func deleteExpense(expense: ExpenseEntity) {
-        let context = persistentContainer.newBackgroundContext()
+        let context = expense.managedObjectContext
         
-        // Cek image terus deleteeee
         if let imageFilePath = expense.imageFilePath {
             let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
             let imagePath = documentsDirectory.appendingPathComponent(imageFilePath)
-            
+
             do {
-                try FileManager.default.removeItem(at: imagePath)
+                if FileManager.default.fileExists(atPath: imagePath.path) {
+                    try FileManager.default.removeItem(at: imagePath)
+                } else {
+                    print("Image file does not exist at path: \(imagePath.path)")
+                }
             } catch {
                 print("Failed to delete image file: \(error.localizedDescription)")
             }
         }
-        context.delete(expense)
+        
+        context!.delete(expense)
         
         do {
-            try context.save()
+            try context!.save()
         } catch {
             print("Failed to delete expense: \(error.localizedDescription)")
         }
     }
+
+
     
 }
