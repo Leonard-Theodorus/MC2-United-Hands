@@ -10,20 +10,19 @@ import SwiftUI
 struct TopBarView: View {
     var width: CGFloat
     var height: CGFloat
+    var date: String
     
     @Binding var pageNavigator : PageNavigation
-    @Binding var userName: String
     @Binding var isDatePicker: Bool
     @Binding var totalExpenses: Int
-    
-    var dateInterval: String = "16-23 June 2023"
+    @State var isCatButtonClicked: Bool = false
     
     var body: some View {
         VStack {
             ZStack {
-                TopBarItem(width: width, height: height, userName: userName, title: pageNavigator.topBarTitle, dateInterval: dateInterval, pagenavigator: pageNavigator, totalExpenses: $totalExpenses, isDatePicker: $isDatePicker)
+                TopBarItem(width: width, height: height, title: pageNavigator.topBarTitle, dateInterval: date, pagenavigator: pageNavigator, totalExpenses: $totalExpenses, isDatePicker: $isDatePicker)
                 
-                topBarSymbol(width: width, height: height, imageName: pageNavigator.topBarCat)
+                TopBarSymbol(width: width, height: height, isCatButtonClicked: $isCatButtonClicked)
             }
             Divider()
         }
@@ -34,7 +33,7 @@ struct TopBarView: View {
 
 struct TopBarView_Preview : PreviewProvider{
     static var previews: some View{
-        TopBarView(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, pageNavigator: .constant(.expenses), userName: .constant("Kucing"), isDatePicker: .constant(false), totalExpenses: .constant(4000000))
+        TopBarView(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, date: "June 2023", pageNavigator: .constant(.report), isDatePicker: .constant(false), totalExpenses: .constant(4000000))
     }
     
 }

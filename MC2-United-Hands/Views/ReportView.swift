@@ -10,14 +10,15 @@ import SwiftUI
 struct ReportView: View {
     var width: CGFloat
     var height: CGFloat
+    var date: Date
+    
     @Binding var pageNavigator: PageNavigation
-    @Binding var userName: String
     @Binding var isDatePicker: Bool
     @Binding var totalExpenses: Int
     
     var body: some View {
         VStack {
-            TopBarView(width: width, height: height, pageNavigator: $pageNavigator, userName: .constant("Kucing"), isDatePicker: $isDatePicker, totalExpenses: $totalExpenses)
+            TopBarView(width: width, height: height, date: Formatter.monthFormatter.string(from: date), pageNavigator: $pageNavigator, isDatePicker: $isDatePicker, totalExpenses: $totalExpenses)
             Spacer()
         }
     }

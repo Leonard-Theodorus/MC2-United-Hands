@@ -15,6 +15,7 @@
 		262976D52A4729AD007E2595 /* TopBarSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262976D42A4729AD007E2595 /* TopBarSymbol.swift */; };
 		262976D72A472C84007E2595 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262976D62A472C84007E2595 /* DatePickerView.swift */; };
 		26500E6A2A47103C004B8FF4 /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26500E692A47103C004B8FF4 /* TopBarView.swift */; };
+		2662ED992A48B28E002FB7E9 /* FormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2662ED982A48B28E002FB7E9 /* FormatterExtension.swift */; };
 		26A72D0A2A459C35008AC025 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A72D092A459C35008AC025 /* CameraService.swift */; };
 		26A72D0C2A459C91008AC025 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A72D0B2A459C91008AC025 /* CameraView.swift */; };
 		26A72D0E2A459D18008AC025 /* AddMomentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A72D0D2A459D18008AC025 /* AddMomentView.swift */; };
@@ -73,6 +74,7 @@
 		262976D42A4729AD007E2595 /* TopBarSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarSymbol.swift; sourceTree = "<group>"; };
 		262976D62A472C84007E2595 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		26500E692A47103C004B8FF4 /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
+		2662ED982A48B28E002FB7E9 /* FormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterExtension.swift; sourceTree = "<group>"; };
 		26A72D092A459C35008AC025 /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
 		26A72D0B2A459C91008AC025 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		26A72D0D2A459D18008AC025 /* AddMomentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMomentView.swift; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 		D74679542A44B01F009C712B /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				2662ED982A48B28E002FB7E9 /* FormatterExtension.swift */,
 				D74679552A44B035009C712B /* ColorExtension.swift */,
 			);
 			path = Extension;
@@ -485,6 +488,7 @@
 				26A72D102A459D23008AC025 /* AddMomentRenameView.swift in Sources */,
 				D746794D2A447C03009C712B /* CustomTextFiledModifier.swift in Sources */,
 				D704759D2A46D9C100BAC7F1 /* TabBarPlusButton.swift in Sources */,
+				2662ED992A48B28E002FB7E9 /* FormatterExtension.swift in Sources */,
 				D74679562A44B035009C712B /* ColorExtension.swift in Sources */,
 				D74679B72A44C16C009C712B /* CoreDataManager.swift in Sources */,
 			);

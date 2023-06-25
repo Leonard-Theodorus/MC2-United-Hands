@@ -11,7 +11,6 @@ struct ExpensesView: View {
     var width: CGFloat
     var height: CGFloat
     @Binding var pageNavigator: PageNavigation
-    @Binding var userName: String
     @Binding var isDatePicker: Bool
     @Binding var totalExpenses: Int
     
@@ -38,8 +37,9 @@ struct ExpensesView: View {
                     .foregroundColor(.secondary)
             }
             else {
-                TopBarView(width: width, height: height, pageNavigator: $pageNavigator, userName: $userName, isDatePicker: $isDatePicker, totalExpenses: $totalExpenses)
+                TopBarView(width: width, height: height, date: dateInterval, pageNavigator: $pageNavigator, isDatePicker: $isDatePicker, totalExpenses: $totalExpenses)
                 Spacer()
+//                Text(dateInterval)
             }
         }
     }

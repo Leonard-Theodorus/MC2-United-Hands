@@ -7,15 +7,15 @@
 
 import Foundation
 
-let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
-
-let dateFormat: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .long
-    return formatter
+// TODO: Harusnya masukin ke view model
+let dateInterval: String = {
+    var customCalendar = Calendar(identifier: .gregorian)
+    customCalendar.firstWeekday = 2
+    
+    var startDate = Date()
+    var interval = TimeInterval()
+    customCalendar.dateInterval(of: .weekOfMonth, start: &startDate, interval: &interval, for: Date())
+    let endDate = startDate.addingTimeInterval(interval - 1)
+    
+    return Formatter.dateInterval.string(from: startDate, to: endDate)
 }()

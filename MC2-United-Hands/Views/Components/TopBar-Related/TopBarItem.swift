@@ -10,7 +10,6 @@ import SwiftUI
 struct TopBarItem: View {
     var width: CGFloat
     var height: CGFloat
-    var userName: String
     var title: String
     var dateInterval: String
     var pagenavigator: PageNavigation
@@ -21,11 +20,11 @@ struct TopBarItem: View {
     var body: some View {
         HStack {
             VStack (alignment: .leading) {
-                Text( userName + " " + title)
+                Text( title)
                     .font(.title2)
                     .frame(height: height * 0.02)
                 
-                Text("Rp.4000.000")
+                Text("Rp.\(Formatter.currencyFormatter.string(from: totalExpenses as NSNumber)!)")
                     .font(.title)
                     .fontWeight(.bold)
                     .padding(.bottom, 1)
@@ -45,7 +44,7 @@ struct TopBarItem: View {
                 } else {
                     Text("\(dateInterval)")
                         .foregroundColor(.blue)
-                        .padding(.vertical, 8)
+                        .padding(.vertical, 7)
                 }
             }
             Spacer()
