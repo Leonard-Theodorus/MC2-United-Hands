@@ -45,9 +45,9 @@ class CoreDataManager {
         }
     }
     
-    func retrieveExpenseData(expenseEntity: ExpenseEntity) -> expenseData? {
+    func retrieveExpenseData(expenseEntity: ExpenseEntity) -> ExpenseData? {
         guard let imageFileName = expenseEntity.imageFilePath else {
-            return expenseData(image: nil, category: nil, amount: nil, timestamp: nil)
+            return ExpenseData(image: nil, category: nil, amount: nil, timestamp: nil)
             }
             
             let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -59,7 +59,7 @@ class CoreDataManager {
             let amount = Int(expenseEntity.amount)
             let timestamp = expenseEntity.timestamp
             
-        return expenseData(image: image, category: category, amount: amount, timestamp: timestamp)
+        return ExpenseData(image: image, category: category, amount: amount, timestamp: timestamp)
     }
     
     func fetchExpenseById(by id: UUID) -> ExpenseEntity? {
@@ -80,7 +80,7 @@ class CoreDataManager {
 
     
     
-    func fetchExpenses() -> [expenseData] {
+    func fetchExpenses() -> [ExpenseData] {
         let context = CoreDataManager.shared.persistentContainer.newBackgroundContext()
         let fetchRequest: NSFetchRequest<ExpenseEntity> = ExpenseEntity.fetchRequest()
         

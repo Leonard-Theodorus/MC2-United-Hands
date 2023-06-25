@@ -9,13 +9,14 @@ import SwiftUI
 struct ContentView: View {
     @State var pageNavigator : PageNavigation = .expenses
     var body: some View {
-        NavigationStack{
-            GeometryReader { geo in
-                VStack {
-                    HomeView(width: geo.size.width, height: geo.size.height, pageNavigator: $pageNavigator)
-                }
-            }
-        }
+//        NavigationStack{
+//            GeometryReader { geo in
+//                VStack {
+//                    HomeView(width: geo.size.width, height: geo.size.height, pageNavigator: $pageNavigator)
+//                }
+//            }
+//        }
+        ExpensesHorizontalScrollView()
     }
 }
 
