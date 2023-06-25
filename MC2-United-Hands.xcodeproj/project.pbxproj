@@ -25,6 +25,7 @@
 		D70475A42A46ED9400BAC7F1 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D70475A22A46ED9400BAC7F1 /* CoreDataModel.xcdatamodeld */; };
 		D70475A72A46EF2B00BAC7F1 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70475A62A46EF2B00BAC7F1 /* DateFormatter.swift */; };
 		D70475B32A4891E000BAC7F1 /* EmptyExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70475B22A4891E000BAC7F1 /* EmptyExpenseView.swift */; };
+		D70475B62A4896DB00BAC7F1 /* ExpensesHorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70475B52A4896DB00BAC7F1 /* ExpensesHorizontalScrollView.swift */; };
 		D746790C2A442F0B009C712B /* MC2_United_HandsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D746790B2A442F0B009C712B /* MC2_United_HandsApp.swift */; };
 		D746790E2A442F0B009C712B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D746790D2A442F0B009C712B /* ContentView.swift */; };
 		D74679102A442F0B009C712B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D746790F2A442F0B009C712B /* Assets.xcassets */; };
@@ -84,6 +85,7 @@
 		D70475A32A46ED9400BAC7F1 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		D70475A62A46EF2B00BAC7F1 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		D70475B22A4891E000BAC7F1 /* EmptyExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyExpenseView.swift; sourceTree = "<group>"; };
+		D70475B52A4896DB00BAC7F1 /* ExpensesHorizontalScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesHorizontalScrollView.swift; sourceTree = "<group>"; };
 		D74679082A442F0B009C712B /* MC2-United-Hands.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MC2-United-Hands.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D746790B2A442F0B009C712B /* MC2_United_HandsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC2_United_HandsApp.swift; sourceTree = "<group>"; };
 		D746790D2A442F0B009C712B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -181,10 +183,8 @@
 		D70475AF2A488FBB00BAC7F1 /* ExpenseView-related */ = {
 			isa = PBXGroup;
 			children = (
+				D70475B42A48933C00BAC7F1 /* ExpenseCard-Related */,
 				262976D62A472C84007E2595 /* DatePickerView.swift */,
-				D74679402A4438E6009C712B /* RoundedImage.swift */,
-				D74679422A444161009C712B /* CategoryLabel.swift */,
-				D746793D2A443895009C712B /* ExpenseCard.swift */,
 				26500E692A47103C004B8FF4 /* TopBarView.swift */,
 				262388CE2A45FD0700BA3298 /* TabBarView.swift */,
 				D70475B22A4891E000BAC7F1 /* EmptyExpenseView.swift */,
@@ -210,6 +210,17 @@
 				26A72D0F2A459D23008AC025 /* AddMomentRenameView.swift */,
 			);
 			path = "Camera-Related";
+			sourceTree = "<group>";
+		};
+		D70475B42A48933C00BAC7F1 /* ExpenseCard-Related */ = {
+			isa = PBXGroup;
+			children = (
+				D74679402A4438E6009C712B /* RoundedImage.swift */,
+				D74679422A444161009C712B /* CategoryLabel.swift */,
+				D746793D2A443895009C712B /* ExpenseCard.swift */,
+				D70475B52A4896DB00BAC7F1 /* ExpensesHorizontalScrollView.swift */,
+			);
+			path = "ExpenseCard-Related";
 			sourceTree = "<group>";
 		};
 		D74678FF2A442F0B009C712B = {
@@ -511,6 +522,7 @@
 				D74679B52A44C15D009C712B /* ExpenseDataModel.swift in Sources */,
 				D746790C2A442F0B009C712B /* MC2_United_HandsApp.swift in Sources */,
 				26A72D102A459D23008AC025 /* AddMomentRenameView.swift in Sources */,
+				D70475B62A4896DB00BAC7F1 /* ExpensesHorizontalScrollView.swift in Sources */,
 				D746794D2A447C03009C712B /* CustomTextFiledModifier.swift in Sources */,
 				D704759D2A46D9C100BAC7F1 /* TabBarPlusButton.swift in Sources */,
 				D74679562A44B035009C712B /* ColorExtension.swift in Sources */,
