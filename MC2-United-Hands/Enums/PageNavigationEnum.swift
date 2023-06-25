@@ -10,7 +10,7 @@ enum PageNavigation : Int{
     case expenses
     case report
     
-    var tabBarItemImageName : String{
+    var tabBarItemImageName : String {
         switch self{
         case .expenses:
             return "list.bullet.rectangle.fill"
@@ -18,12 +18,31 @@ enum PageNavigation : Int{
             return "doc.fill"
         }
     }
-    var tabBarItemDescription : String{
+    
+    var tabBarItemDescription : String {
         switch self{
         case .expenses:
             return "Expenses"
         case .report:
             return "Report"
+        }
+    }
+    
+    var topBarTitle : String {
+        switch self {
+        case .expenses:
+            return "Weekly Expenses"
+        case .report:
+            return "Expenses Report"
+        }
+    }
+    
+    var topBarCat : String {
+        switch self {
+        case .expenses:
+            return "catExpense"
+        case .report:
+            return "catReport"
         }
     }
 }

@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		262388CF2A45FD0700BA3298 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262388CE2A45FD0700BA3298 /* TabBarView.swift */; };
 		262388D12A45FDBD00BA3298 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262388D02A45FDBD00BA3298 /* HomeView.swift */; };
+		262976CD2A47232C007E2595 /* ExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262976CC2A47232C007E2595 /* ExpensesView.swift */; };
+		262976CF2A47233B007E2595 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262976CE2A47233B007E2595 /* ReportView.swift */; };
+		262976D22A47284A007E2595 /* TopBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262976D12A47284A007E2595 /* TopBarItem.swift */; };
+		262976D52A4729AD007E2595 /* TopBarSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262976D42A4729AD007E2595 /* TopBarSymbol.swift */; };
+		262976D72A472C84007E2595 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262976D62A472C84007E2595 /* DatePickerView.swift */; };
+		26500E6A2A47103C004B8FF4 /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26500E692A47103C004B8FF4 /* TopBarView.swift */; };
 		26A72D0A2A459C35008AC025 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A72D092A459C35008AC025 /* CameraService.swift */; };
 		26A72D0C2A459C91008AC025 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A72D0B2A459C91008AC025 /* CameraView.swift */; };
 		26A72D0E2A459D18008AC025 /* AddMomentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A72D0D2A459D18008AC025 /* AddMomentView.swift */; };
@@ -61,6 +67,12 @@
 /* Begin PBXFileReference section */
 		262388CE2A45FD0700BA3298 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		262388D02A45FDBD00BA3298 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		262976CC2A47232C007E2595 /* ExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesView.swift; sourceTree = "<group>"; };
+		262976CE2A47233B007E2595 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
+		262976D12A47284A007E2595 /* TopBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarItem.swift; sourceTree = "<group>"; };
+		262976D42A4729AD007E2595 /* TopBarSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarSymbol.swift; sourceTree = "<group>"; };
+		262976D62A472C84007E2595 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
+		26500E692A47103C004B8FF4 /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
 		26A72D092A459C35008AC025 /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
 		26A72D0B2A459C91008AC025 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		26A72D0D2A459D18008AC025 /* AddMomentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMomentView.swift; sourceTree = "<group>"; };
@@ -121,6 +133,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		262976D32A472852007E2595 /* TopBar-Related */ = {
+			isa = PBXGroup;
+			children = (
+				262976D12A47284A007E2595 /* TopBarItem.swift */,
+				262976D42A4729AD007E2595 /* TopBarSymbol.swift */,
+			);
+			path = "TopBar-Related";
+			sourceTree = "<group>";
+		};
 		26A72D072A459C22008AC025 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +248,8 @@
 				26A72D0F2A459D23008AC025 /* AddMomentRenameView.swift */,
 				262388D02A45FDBD00BA3298 /* HomeView.swift */,
 				D746790D2A442F0B009C712B /* ContentView.swift */,
+				262976CC2A47232C007E2595 /* ExpensesView.swift */,
+				262976CE2A47233B007E2595 /* ReportView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -234,15 +257,18 @@
 		D74679362A4434E4009C712B /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				262976D32A472852007E2595 /* TopBar-Related */,
 				D70475992A46D98500BAC7F1 /* TabBar-Related */,
 				D746794B2A447BE8009C712B /* Extension + Custom Modifier */,
 				D746793D2A443895009C712B /* ExpenseCard.swift */,
 				262388CE2A45FD0700BA3298 /* TabBarView.swift */,
+				26500E692A47103C004B8FF4 /* TopBarView.swift */,
 				D74679402A4438E6009C712B /* RoundedImage.swift */,
 				D74679422A444161009C712B /* CategoryLabel.swift */,
 				D74679462A444ACD009C712B /* FormField.swift */,
 				D74679502A449964009C712B /* ExpenseCategoryPicker.swift */,
 				D74679522A44AC73009C712B /* FormDoneButton.swift */,
+				262976D62A472C84007E2595 /* DatePickerView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -431,12 +457,16 @@
 				D70475A72A46EF2B00BAC7F1 /* DateFormatter.swift in Sources */,
 				D74679512A449964009C712B /* ExpenseCategoryPicker.swift in Sources */,
 				D74679472A444ACD009C712B /* FormField.swift in Sources */,
+				262976D72A472C84007E2595 /* DatePickerView.swift in Sources */,
+				262976D22A47284A007E2595 /* TopBarItem.swift in Sources */,
 				D746794F2A449734009C712B /* ExpenseCategoryEnum.swift in Sources */,
 				26A72D0C2A459C91008AC025 /* CameraView.swift in Sources */,
 				D746794A2A444BC6009C712B /* FieldTypeEnum + FieldView.swift in Sources */,
 				262388D12A45FDBD00BA3298 /* HomeView.swift in Sources */,
 				26A72D0A2A459C35008AC025 /* CameraService.swift in Sources */,
+				262976CF2A47233B007E2595 /* ReportView.swift in Sources */,
 				D74679432A444161009C712B /* CategoryLabel.swift in Sources */,
+				262976D52A4729AD007E2595 /* TopBarSymbol.swift in Sources */,
 				D74679452A444AB7009C712B /* FormView.swift in Sources */,
 				D74679B12A44C139009C712B /* StringConstants.swift in Sources */,
 				26A72D0E2A459D18008AC025 /* AddMomentView.swift in Sources */,
@@ -446,8 +476,10 @@
 				D70475982A46D6FA00BAC7F1 /* PageNavigationEnum.swift in Sources */,
 				262388CF2A45FD0700BA3298 /* TabBarView.swift in Sources */,
 				D70475A42A46ED9400BAC7F1 /* CoreDataModel.xcdatamodeld in Sources */,
+				26500E6A2A47103C004B8FF4 /* TopBarView.swift in Sources */,
 				D746790E2A442F0B009C712B /* ContentView.swift in Sources */,
 				D74679532A44AC74009C712B /* FormDoneButton.swift in Sources */,
+				262976CD2A47232C007E2595 /* ExpensesView.swift in Sources */,
 				D74679B52A44C15D009C712B /* ExpenseDataModel.swift in Sources */,
 				D746790C2A442F0B009C712B /* MC2_United_HandsApp.swift in Sources */,
 				26A72D102A459D23008AC025 /* AddMomentRenameView.swift in Sources */,
