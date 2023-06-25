@@ -14,8 +14,6 @@ struct TabBarView: View {
     var body: some View {
         VStack {
             Divider()
-                .frame(minHeight: 2)
-                .background(.quaternary)
             
             HStack {
                 tabBarItem(for: .expenses, width: width, height: height, currentTab: pageNavigator)
