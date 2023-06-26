@@ -12,10 +12,16 @@ struct MC2_United_HandsApp: App {
     
     @StateObject var sheetManager = SheetManager()
     
+    @StateObject var onBoardingVm = OnboardingViewModel()
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(sheetManager)
+                .environmentObject(onBoardingVm)
+                .onAppear{
+                    onBoardingVm.firstTime = onBoardingVm.isAppAlreadyLaunchedOnce()
+                }
+                
         }
     }
 }
