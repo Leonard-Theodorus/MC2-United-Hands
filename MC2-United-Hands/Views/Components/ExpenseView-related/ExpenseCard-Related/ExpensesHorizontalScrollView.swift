@@ -9,9 +9,9 @@ import SwiftUI
 
 struct ExpensesHorizontalScrollView: View {
     @State var expenses : [ExpenseData] = [
-        .init(image: UIImage(systemName: "trash"), category: "Food & Drink", amount: 12000, timestamp: Date.now),
-        .init(image: UIImage(systemName: "signature"), category: "Others", amount: 12000, timestamp: Date.now),
-        .init(image: UIImage(systemName: "allergens"), category: "Entertainment", amount: 12000, timestamp: Date.now)
+        .init(id: UUID(), image: UIImage(systemName: "trash"), category: "Food & Drink", amount: 12000, timestamp: Date.now),
+        .init(id: UUID(),image: UIImage(systemName: "signature"), category: "Others", amount: 12000, timestamp: Date.now),
+        .init(id: UUID(),image: UIImage(systemName: "allergens"), category: "Entertainment", amount: 12000, timestamp: Date.now)
     ]
     var body: some View {
         ScrollView(.horizontal) {
