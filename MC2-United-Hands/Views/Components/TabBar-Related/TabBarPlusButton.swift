@@ -12,8 +12,8 @@ struct TabBarPlusButton: View {
     @State var isAddMomentViewSelected : Bool = false
     @State var isAddManuallyViewSelected : Bool = false
     @State var isAddQuickAccessViewSelected : Bool = false
-    @State var width : CGFloat
-    @State var height: CGFloat
+    var width : CGFloat
+    var height: CGFloat
     
     var body: some View {
         Button {
