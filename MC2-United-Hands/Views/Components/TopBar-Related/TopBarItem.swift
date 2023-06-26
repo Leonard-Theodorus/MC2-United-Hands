@@ -10,34 +10,36 @@ import SwiftUI
 struct TopBarItem: View {
     var width: CGFloat
     var height: CGFloat
-    var userName: String
     var title: String
     var dateInterval: String
     var pagenavigator: PageNavigation
     
     @Binding var totalExpenses: Int
-    @Binding var isDatePicker: Bool
+    @EnvironmentObject var sheetManager: SheetManager
     
     var body: some View {
         HStack {
             VStack (alignment: .leading) {
-                Text( userName + " " + title)
+                Text( title)
                     .font(.title2)
                     .frame(height: height * 0.02)
+                    .padding(.bottom, 0.5)
                 
-                Text("Rp.4000.000")
+                Text("Rp.\(Formatter.currencyFormatter.string(from: totalExpenses as NSNumber)!)")
                     .font(.title)
                     .fontWeight(.bold)
-                    .padding(.bottom, 1)
+                    .padding(.bottom, 0.5)
                 
                 if pagenavigator == .report {
                     Button {
-                        isDatePicker.toggle()
+                        withAnimation {
+                            sheetManager.present()
+                        }
                     } label: {
                         Text("\(Image(systemName: "calendar.badge.clock")) \(dateInterval)")
                             .font(.subheadline)
                             .fontWeight(.medium)
-                            .padding(8)
+                            .padding(7)
                             .background(.quaternary)
                             .cornerRadius(50)
                     }
@@ -45,7 +47,6 @@ struct TopBarItem: View {
                 } else {
                     Text("\(dateInterval)")
                         .foregroundColor(.blue)
-                        .padding(.vertical, 8)
                 }
             }
             Spacer()

@@ -7,20 +7,42 @@
 
 import SwiftUI
 
-@ViewBuilder
-func topBarSymbol(width: CGFloat, height: CGFloat, imageName: String) -> some View {
-    HStack {
-        Spacer()
-        VStack{
+struct TopBarSymbol: View {
+    var width: CGFloat
+    var height: CGFloat
+    @Binding var isCatButtonClicked: Bool
+    
+    var body: some View {
+        HStack {
             Spacer()
-            Image(imageName)
-                .resizable()
-                .scaledToFit()
-                .frame(width: width * 0.4)
-                .offset(x: -width * 0.03)
-                .padding(.trailing)
-                .padding(.bottom)
+            VStack{
+                Spacer()
+                if isCatButtonClicked {
+                    Image("CatButton1")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: width * 0.4)
+                        .offset(x: -width * 0.03)
+                        .padding(.trailing)
+                        .padding(.bottom)
+                        .onTapGesture {
+                            isCatButtonClicked.toggle()
+                        }
+                }
+                else {
+                    Image("CatButton2")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: width * 0.4)
+                        .offset(x: -width * 0.03)
+                        .padding(.trailing)
+                        .padding(.bottom)
+                        .onTapGesture {
+                            isCatButtonClicked.toggle()
+                        }
+                }
+            }
+            .frame(width: width * 0.4)
         }
-        .frame(width: width * 0.4)
     }
 }

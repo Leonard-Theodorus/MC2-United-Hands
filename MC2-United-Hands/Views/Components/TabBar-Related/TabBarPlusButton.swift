@@ -28,8 +28,8 @@ struct TabBarPlusButton: View {
                 .clipShape(Circle())
                 .accessibilityLabel(Text("Add"))
                 .frame(width: width * 0.23, height: width * 0.23)
-                .offset(y: -height * 0.06)
         }
+        .offset(y: -height * 0.06)
         .actionSheet(isPresented: $isActionSheetShown) { () -> ActionSheet in
             ActionSheet(title: Text("Select Input Method"),
                         buttons: [
