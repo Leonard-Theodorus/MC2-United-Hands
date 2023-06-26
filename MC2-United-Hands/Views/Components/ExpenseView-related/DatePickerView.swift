@@ -22,7 +22,7 @@ struct DatePickerView: View {
             DatePicker(
                 "Date",
                 selection: $date,
-                displayedComponents: [.date]
+                displayedComponents: .date
             )
             .datePickerStyle(.graphical)
             .background(.white)

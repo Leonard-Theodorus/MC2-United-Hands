@@ -17,24 +17,7 @@ struct ExpensesView: View {
     var body: some View {
         VStack {
             if totalExpenses == 0 {
-                Image("CatExpenses")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: height * 0.32)
-                
-                Text("You haven't added any expense yet")
-                    .fontWeight(.bold)
-                    .font(.headline)
-                    .padding(.top)
-                
-                Text("Go take a moment of your expense by")
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-                    .padding(.vertical, 1)
-                
-                Text("tapping plus button below")
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
+                EmptyExpenseView(height: height)
             }
             else {
                 TopBarView(width: width, height: height, date: dateInterval, pageNavigator: $pageNavigator, isDatePicker: $isDatePicker, totalExpenses: $totalExpenses)
@@ -43,4 +26,12 @@ struct ExpensesView: View {
             }
         }
     }
+}
+
+struct ExpensesView_Preview : PreviewProvider{
+    static var previews: some View {
+        ExpensesView(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, pageNavigator: .constant(.expenses), userName: .constant(""), isDatePicker: .constant(false), totalExpenses: .constant(0))
+    }
+    
+    
 }

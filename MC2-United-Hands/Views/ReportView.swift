@@ -23,3 +23,8 @@ struct ReportView: View {
         }
     }
 }
+struct ReportView_Previews : PreviewProvider{
+    static var previews: some View{
+        ReportView(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, pageNavigator: .constant(.expenses), userName: .constant(""), isDatePicker: .constant(false), totalExpenses: .constant(0))
+    }
+}

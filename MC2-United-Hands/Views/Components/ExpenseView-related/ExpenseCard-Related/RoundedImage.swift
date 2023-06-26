@@ -7,9 +7,9 @@
 
 import SwiftUI
 struct RoundedImage: View {
-    @Binding var image : Image
+    @State var expenseImage : UIImage
     var body: some View {
-        image
+        Image(uiImage: expenseImage)
             .resizable()
             .aspectRatio(contentMode: .fit)
             .clipShape(Circle())
@@ -22,6 +22,6 @@ struct RoundedImage: View {
 
 struct RoundedImage_Previews: PreviewProvider {
     static var previews: some View {
-        RoundedImage(image: .constant(Image(systemName: "figure.soccer")))
+        RoundedImage(expenseImage: UIImage(systemName: "signature")!)
     }
 }
