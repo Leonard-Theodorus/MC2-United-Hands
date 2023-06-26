@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0922961E2A487969006A3D16 /* FilteredExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922961D2A487969006A3D16 /* FilteredExpenses.swift */; };
 		262388CF2A45FD0700BA3298 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262388CE2A45FD0700BA3298 /* TabBarView.swift */; };
 		262388D12A45FDBD00BA3298 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262388D02A45FDBD00BA3298 /* HomeView.swift */; };
 		262976CD2A47232C007E2595 /* ExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262976CC2A47232C007E2595 /* ExpensesView.swift */; };
@@ -65,6 +66,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0922961D2A487969006A3D16 /* FilteredExpenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredExpenses.swift; sourceTree = "<group>"; };
 		262388CE2A45FD0700BA3298 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		262388D02A45FDBD00BA3298 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		262976CC2A47232C007E2595 /* ExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesView.swift; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				D74679B62A44C16C009C712B /* CoreDataManager.swift */,
+				0922961D2A487969006A3D16 /* FilteredExpenses.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 				D74679412A4438E6009C712B /* RoundedImage.swift in Sources */,
 				D70475982A46D6FA00BAC7F1 /* PageNavigationEnum.swift in Sources */,
 				262388CF2A45FD0700BA3298 /* TabBarView.swift in Sources */,
+				0922961E2A487969006A3D16 /* FilteredExpenses.swift in Sources */,
 				D70475A42A46ED9400BAC7F1 /* CoreDataModel.xcdatamodeld in Sources */,
 				26500E6A2A47103C004B8FF4 /* TopBarView.swift in Sources */,
 				D746790E2A442F0B009C712B /* ContentView.swift in Sources */,
