@@ -47,7 +47,9 @@
 		D74679562A44B035009C712B /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74679552A44B035009C712B /* ColorExtension.swift */; };
 		D74679B12A44C139009C712B /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74679B02A44C139009C712B /* StringConstants.swift */; };
 		D74679B52A44C15D009C712B /* ExpenseDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74679B42A44C15D009C712B /* ExpenseDataModel.swift */; };
-		D74679B72A44C16C009C712B /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74679B62A44C16C009C712B /* CoreDataManager.swift */; };
+		D9283D802A495922000E934A /* ExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9283D7F2A495922000E934A /* ExpenseViewModel.swift */; };
+		D9283D822A495991000E934A /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9283D812A495991000E934A /* PersistenceController.swift */; };
+		D973A4E32A495D8200A35202 /* LoadImageFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D973A4E22A495D8200A35202 /* LoadImageFunction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,7 +113,9 @@
 		D74679552A44B035009C712B /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		D74679B02A44C139009C712B /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
 		D74679B42A44C15D009C712B /* ExpenseDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDataModel.swift; sourceTree = "<group>"; };
-		D74679B62A44C16C009C712B /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		D9283D7F2A495922000E934A /* ExpenseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseViewModel.swift; sourceTree = "<group>"; };
+		D9283D812A495991000E934A /* PersistenceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		D973A4E22A495D8200A35202 /* LoadImageFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadImageFunction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -350,6 +354,7 @@
 		D74679B22A44C14C009C712B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D9283D812A495991000E934A /* PersistenceController.swift */,
 				D74679B42A44C15D009C712B /* ExpenseDataModel.swift */,
 				D70475A22A46ED9400BAC7F1 /* CoreDataModel.xcdatamodeld */,
 			);
@@ -359,8 +364,9 @@
 		D74679B32A44C150009C712B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				D74679B62A44C16C009C712B /* CoreDataManager.swift */,
+				D9283D7F2A495922000E934A /* ExpenseViewModel.swift */,
 				D70475B72A49440C00BAC7F1 /* OnboardingViewModel.swift */,
+				D973A4E22A495D8200A35202 /* LoadImageFunction.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -508,6 +514,7 @@
 				26A72D0A2A459C35008AC025 /* CameraService.swift in Sources */,
 				262976CF2A47233B007E2595 /* ReportView.swift in Sources */,
 				D74679432A444161009C712B /* CategoryLabel.swift in Sources */,
+				D9283D822A495991000E934A /* PersistenceController.swift in Sources */,
 				262976D52A4729AD007E2595 /* TopBarSymbol.swift in Sources */,
 				D74679452A444AB7009C712B /* FormView.swift in Sources */,
 				D74679B12A44C139009C712B /* StringConstants.swift in Sources */,
@@ -516,6 +523,7 @@
 				D704759F2A46DAE400BAC7F1 /* TabBarItem.swift in Sources */,
 				D74679412A4438E6009C712B /* RoundedImage.swift in Sources */,
 				D70475982A46D6FA00BAC7F1 /* PageNavigationEnum.swift in Sources */,
+				D9283D802A495922000E934A /* ExpenseViewModel.swift in Sources */,
 				262388CF2A45FD0700BA3298 /* TabBarView.swift in Sources */,
 				D70475A42A46ED9400BAC7F1 /* CoreDataModel.xcdatamodeld in Sources */,
 				26500E6A2A47103C004B8FF4 /* TopBarView.swift in Sources */,
@@ -526,11 +534,11 @@
 				D746790C2A442F0B009C712B /* MC2_United_HandsApp.swift in Sources */,
 				26A72D102A459D23008AC025 /* AddMomentRenameView.swift in Sources */,
 				D70475B62A4896DB00BAC7F1 /* ExpensesHorizontalScrollView.swift in Sources */,
+				D973A4E32A495D8200A35202 /* LoadImageFunction.swift in Sources */,
 				D70475B82A49440C00BAC7F1 /* OnboardingViewModel.swift in Sources */,
 				D746794D2A447C03009C712B /* CustomTextFiledModifier.swift in Sources */,
 				D704759D2A46D9C100BAC7F1 /* TabBarPlusButton.swift in Sources */,
 				D74679562A44B035009C712B /* ColorExtension.swift in Sources */,
-				D74679B72A44C16C009C712B /* CoreDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
