@@ -13,18 +13,17 @@ struct ReportView: View {
     var date: Date
     
     @Binding var pageNavigator: PageNavigation
-    @Binding var isDatePicker: Bool
     @Binding var totalExpenses: Int
     
     var body: some View {
         VStack {
-            TopBarView(width: width, height: height, date: Formatter.monthFormatter.string(from: date), pageNavigator: $pageNavigator, isDatePicker: $isDatePicker, totalExpenses: $totalExpenses)
+            TopBarView(width: width, height: height, date: Formatter.monthFormatter.string(from: date), pageNavigator: $pageNavigator, totalExpenses: $totalExpenses)
             Spacer()
         }
     }
 }
 struct ReportView_Previews : PreviewProvider{
     static var previews: some View{
-        ReportView(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, pageNavigator: .constant(.expenses), userName: .constant(""), isDatePicker: .constant(false), totalExpenses: .constant(0))
+        ReportView(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, date: Date.now, pageNavigator: .constant(.expenses), totalExpenses: .constant(0))
     }
 }

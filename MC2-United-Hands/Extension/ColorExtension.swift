@@ -10,4 +10,6 @@ import SwiftUI
 extension Color{
     static let primaryBlue = Color("PrimaryBlue")
     static let expenseCardGrey = Color("ExpenseCardGrey")
+    static let datePickerGray = Color("DatePickerGray")
+    static let datePickerCloseGray = Color("DatePickerCloseGray")
 }

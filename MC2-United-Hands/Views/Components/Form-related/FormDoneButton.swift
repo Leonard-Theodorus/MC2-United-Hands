@@ -16,6 +16,7 @@ struct FormDoneButton: View {
                 Spacer()
                 HStack{
                     Text("Done")
+                        .fontWeight(.bold)
                         .padding()
                         .foregroundColor(.white)
                     
