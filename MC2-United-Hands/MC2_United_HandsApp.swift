@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct MC2_United_HandsApp: App {
+    @StateObject var onBoardingVm = OnboardingViewModel()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(onBoardingVm)
+                .onAppear{
+                    onBoardingVm.firstTime = onBoardingVm.isAppAlreadyLaunchedOnce()
+                }
+                
         }
     }
 }

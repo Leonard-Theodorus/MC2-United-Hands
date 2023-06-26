@@ -10,25 +10,29 @@ import SwiftUI
 struct ExpenseCard: View {
     @State var imageView : Image = Image(systemName: "figure.soccer")
     @State var expenseCategory : ExpenseCategoryPicker.expenseCategory = .food
+//    @Binding var imageView : UIImage
+//    @Binding var expenseCategory : ExpenseCategoryPicker
+    @State var expenseData : ExpenseData
+    
     var body: some View {
         HStack{
-            RoundedImage(image: $imageView)
+            RoundedImage(expenseImage: expenseData.image ?? UIImage())
             VStack{
-                //RP
+                //TODO: Expense nominal
                 Text("Rp. 25.000")
                     .bold()
                     .padding(.leading)
                     .accessibilityLabel(Text("Expense Nominal"))
-                //Jam
+                //TODO: Expense Time
                 Text("08.00 AM")
                     .font(.caption)
                     .padding(.trailing)
                     .accessibilityLabel(Text("Time added"))
-                //label
-                CategoryLabel(stringLabel: expenseCategory.categoryText)
+                //TODO: Expense Category
+                CategoryLabel(stringLabel: expenseData.category ?? "")
                     .padding(.leading)
                     .accessibilityLabel(Text("Expense Category"))
-                    .accessibilityValue(Text(expenseCategory.categoryText))
+                    .accessibilityValue(Text(expenseData.category ?? ""))
             }
         }
         .padding()
@@ -41,6 +45,6 @@ struct ExpenseCard: View {
 
 struct ExpenseCard_Previews: PreviewProvider {
     static var previews: some View {
-        ExpenseCard()
+        ExpenseCard(expenseData: ExpenseData(id: UUID(), image: UIImage(), category: "", amount: 0, timestamp: Date.now))
     }
 }

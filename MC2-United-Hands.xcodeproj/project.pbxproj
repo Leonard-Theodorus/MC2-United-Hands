@@ -25,6 +25,9 @@
 		D704759F2A46DAE400BAC7F1 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D704759E2A46DAE400BAC7F1 /* TabBarItem.swift */; };
 		D70475A42A46ED9400BAC7F1 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D70475A22A46ED9400BAC7F1 /* CoreDataModel.xcdatamodeld */; };
 		D70475A72A46EF2B00BAC7F1 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70475A62A46EF2B00BAC7F1 /* DateFormatter.swift */; };
+		D70475B32A4891E000BAC7F1 /* EmptyExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70475B22A4891E000BAC7F1 /* EmptyExpenseView.swift */; };
+		D70475B62A4896DB00BAC7F1 /* ExpensesHorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70475B52A4896DB00BAC7F1 /* ExpensesHorizontalScrollView.swift */; };
+		D70475B82A49440C00BAC7F1 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70475B72A49440C00BAC7F1 /* OnboardingViewModel.swift */; };
 		D746790C2A442F0B009C712B /* MC2_United_HandsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D746790B2A442F0B009C712B /* MC2_United_HandsApp.swift */; };
 		D746790E2A442F0B009C712B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D746790D2A442F0B009C712B /* ContentView.swift */; };
 		D74679102A442F0B009C712B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D746790F2A442F0B009C712B /* Assets.xcassets */; };
@@ -45,7 +48,9 @@
 		D74679562A44B035009C712B /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74679552A44B035009C712B /* ColorExtension.swift */; };
 		D74679B12A44C139009C712B /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74679B02A44C139009C712B /* StringConstants.swift */; };
 		D74679B52A44C15D009C712B /* ExpenseDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74679B42A44C15D009C712B /* ExpenseDataModel.swift */; };
-		D74679B72A44C16C009C712B /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74679B62A44C16C009C712B /* CoreDataManager.swift */; };
+		D9283D802A495922000E934A /* ExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9283D7F2A495922000E934A /* ExpenseViewModel.swift */; };
+		D9283D822A495991000E934A /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9283D812A495991000E934A /* PersistenceController.swift */; };
+		D973A4E32A495D8200A35202 /* LoadImageFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D973A4E22A495D8200A35202 /* LoadImageFunction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +89,9 @@
 		D704759E2A46DAE400BAC7F1 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
 		D70475A32A46ED9400BAC7F1 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		D70475A62A46EF2B00BAC7F1 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		D70475B22A4891E000BAC7F1 /* EmptyExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyExpenseView.swift; sourceTree = "<group>"; };
+		D70475B52A4896DB00BAC7F1 /* ExpensesHorizontalScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesHorizontalScrollView.swift; sourceTree = "<group>"; };
+		D70475B72A49440C00BAC7F1 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		D74679082A442F0B009C712B /* MC2-United-Hands.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MC2-United-Hands.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D746790B2A442F0B009C712B /* MC2_United_HandsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC2_United_HandsApp.swift; sourceTree = "<group>"; };
 		D746790D2A442F0B009C712B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -107,7 +115,9 @@
 		D74679552A44B035009C712B /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		D74679B02A44C139009C712B /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
 		D74679B42A44C15D009C712B /* ExpenseDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDataModel.swift; sourceTree = "<group>"; };
-		D74679B62A44C16C009C712B /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		D9283D7F2A495922000E934A /* ExpenseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseViewModel.swift; sourceTree = "<group>"; };
+		D9283D812A495991000E934A /* PersistenceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		D973A4E22A495D8200A35202 /* LoadImageFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadImageFunction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +188,49 @@
 			path = Formatter;
 			sourceTree = "<group>";
 		};
+		D70475AF2A488FBB00BAC7F1 /* ExpenseView-related */ = {
+			isa = PBXGroup;
+			children = (
+				D70475B42A48933C00BAC7F1 /* ExpenseCard-Related */,
+				262976D62A472C84007E2595 /* DatePickerView.swift */,
+				26500E692A47103C004B8FF4 /* TopBarView.swift */,
+				262388CE2A45FD0700BA3298 /* TabBarView.swift */,
+				D70475B22A4891E000BAC7F1 /* EmptyExpenseView.swift */,
+			);
+			path = "ExpenseView-related";
+			sourceTree = "<group>";
+		};
+		D70475B02A488FDD00BAC7F1 /* Form-related */ = {
+			isa = PBXGroup;
+			children = (
+				D74679522A44AC73009C712B /* FormDoneButton.swift */,
+				D74679462A444ACD009C712B /* FormField.swift */,
+				D74679502A449964009C712B /* ExpenseCategoryPicker.swift */,
+			);
+			path = "Form-related";
+			sourceTree = "<group>";
+		};
+		D70475B12A48905500BAC7F1 /* Camera-Related */ = {
+			isa = PBXGroup;
+			children = (
+				26A72D0B2A459C91008AC025 /* CameraView.swift */,
+				26A72D0D2A459D18008AC025 /* AddMomentView.swift */,
+				26A72D0F2A459D23008AC025 /* AddMomentRenameView.swift */,
+			);
+			path = "Camera-Related";
+			sourceTree = "<group>";
+		};
+		D70475B42A48933C00BAC7F1 /* ExpenseCard-Related */ = {
+			isa = PBXGroup;
+			children = (
+				D74679402A4438E6009C712B /* RoundedImage.swift */,
+				D74679422A444161009C712B /* CategoryLabel.swift */,
+				D746793D2A443895009C712B /* ExpenseCard.swift */,
+				D70475B52A4896DB00BAC7F1 /* ExpensesHorizontalScrollView.swift */,
+			);
+			path = "ExpenseCard-Related";
+			sourceTree = "<group>";
+		};
 		D74678FF2A442F0B009C712B = {
 			isa = PBXGroup;
 			children = (
@@ -243,11 +296,9 @@
 		D74679352A4434D5009C712B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D70475B12A48905500BAC7F1 /* Camera-Related */,
 				D74679362A4434E4009C712B /* Components */,
 				D74679442A444AB7009C712B /* FormView.swift */,
-				26A72D0B2A459C91008AC025 /* CameraView.swift */,
-				26A72D0D2A459D18008AC025 /* AddMomentView.swift */,
-				26A72D0F2A459D23008AC025 /* AddMomentRenameView.swift */,
 				262388D02A45FDBD00BA3298 /* HomeView.swift */,
 				D746790D2A442F0B009C712B /* ContentView.swift */,
 				262976CC2A47232C007E2595 /* ExpensesView.swift */,
@@ -259,18 +310,11 @@
 		D74679362A4434E4009C712B /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				D70475B02A488FDD00BAC7F1 /* Form-related */,
+				D70475AF2A488FBB00BAC7F1 /* ExpenseView-related */,
 				262976D32A472852007E2595 /* TopBar-Related */,
 				D70475992A46D98500BAC7F1 /* TabBar-Related */,
 				D746794B2A447BE8009C712B /* Extension + Custom Modifier */,
-				D746793D2A443895009C712B /* ExpenseCard.swift */,
-				262388CE2A45FD0700BA3298 /* TabBarView.swift */,
-				26500E692A47103C004B8FF4 /* TopBarView.swift */,
-				D74679402A4438E6009C712B /* RoundedImage.swift */,
-				D74679422A444161009C712B /* CategoryLabel.swift */,
-				D74679462A444ACD009C712B /* FormField.swift */,
-				D74679502A449964009C712B /* ExpenseCategoryPicker.swift */,
-				D74679522A44AC73009C712B /* FormDoneButton.swift */,
-				262976D62A472C84007E2595 /* DatePickerView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -312,6 +356,7 @@
 		D74679B22A44C14C009C712B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D9283D812A495991000E934A /* PersistenceController.swift */,
 				D74679B42A44C15D009C712B /* ExpenseDataModel.swift */,
 				D70475A22A46ED9400BAC7F1 /* CoreDataModel.xcdatamodeld */,
 			);
@@ -321,8 +366,9 @@
 		D74679B32A44C150009C712B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				D74679B62A44C16C009C712B /* CoreDataManager.swift */,
-				0922961D2A487969006A3D16 /* FilteredExpenses.swift */,
+				D9283D7F2A495922000E934A /* ExpenseViewModel.swift */,
+				D70475B72A49440C00BAC7F1 /* OnboardingViewModel.swift */,
+				D973A4E22A495D8200A35202 /* LoadImageFunction.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -466,9 +512,11 @@
 				26A72D0C2A459C91008AC025 /* CameraView.swift in Sources */,
 				D746794A2A444BC6009C712B /* FieldTypeEnum + FieldView.swift in Sources */,
 				262388D12A45FDBD00BA3298 /* HomeView.swift in Sources */,
+				D70475B32A4891E000BAC7F1 /* EmptyExpenseView.swift in Sources */,
 				26A72D0A2A459C35008AC025 /* CameraService.swift in Sources */,
 				262976CF2A47233B007E2595 /* ReportView.swift in Sources */,
 				D74679432A444161009C712B /* CategoryLabel.swift in Sources */,
+				D9283D822A495991000E934A /* PersistenceController.swift in Sources */,
 				262976D52A4729AD007E2595 /* TopBarSymbol.swift in Sources */,
 				D74679452A444AB7009C712B /* FormView.swift in Sources */,
 				D74679B12A44C139009C712B /* StringConstants.swift in Sources */,
@@ -477,6 +525,7 @@
 				D704759F2A46DAE400BAC7F1 /* TabBarItem.swift in Sources */,
 				D74679412A4438E6009C712B /* RoundedImage.swift in Sources */,
 				D70475982A46D6FA00BAC7F1 /* PageNavigationEnum.swift in Sources */,
+				D9283D802A495922000E934A /* ExpenseViewModel.swift in Sources */,
 				262388CF2A45FD0700BA3298 /* TabBarView.swift in Sources */,
 				0922961E2A487969006A3D16 /* FilteredExpenses.swift in Sources */,
 				D70475A42A46ED9400BAC7F1 /* CoreDataModel.xcdatamodeld in Sources */,
@@ -487,10 +536,12 @@
 				D74679B52A44C15D009C712B /* ExpenseDataModel.swift in Sources */,
 				D746790C2A442F0B009C712B /* MC2_United_HandsApp.swift in Sources */,
 				26A72D102A459D23008AC025 /* AddMomentRenameView.swift in Sources */,
+				D70475B62A4896DB00BAC7F1 /* ExpensesHorizontalScrollView.swift in Sources */,
+				D973A4E32A495D8200A35202 /* LoadImageFunction.swift in Sources */,
+				D70475B82A49440C00BAC7F1 /* OnboardingViewModel.swift in Sources */,
 				D746794D2A447C03009C712B /* CustomTextFiledModifier.swift in Sources */,
 				D704759D2A46D9C100BAC7F1 /* TabBarPlusButton.swift in Sources */,
 				D74679562A44B035009C712B /* ColorExtension.swift in Sources */,
-				D74679B72A44C16C009C712B /* CoreDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

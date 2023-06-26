@@ -8,10 +8,10 @@
 import Foundation
 import UIKit
 
-struct expenseData : Hashable{
-    let id : UUID = UUID()
-    let image : UIImage?
-    let category: String?
-    let amount: Int?
-    let timestamp: Date?
+struct ExpenseData: Identifiable {
+        let id : UUID
+        let image: UIImage?
+        let category: String?
+        let amount: Int?
+        let timestamp: Date?
 }
