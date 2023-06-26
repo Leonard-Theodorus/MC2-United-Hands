@@ -11,9 +11,8 @@ struct ExpensesView: View {
     var width: CGFloat
     var height: CGFloat
     @Binding var pageNavigator: PageNavigation
-    @Binding var userName: String
-    @Binding var isDatePicker: Bool
     @Binding var totalExpenses: Int
+    @State var expensesVM = ExpensesViewModel()
     
     var body: some View {
         VStack {
@@ -21,7 +20,7 @@ struct ExpensesView: View {
                 EmptyExpenseView(height: height)
             }
             else {
-                TopBarView(width: width, height: height, pageNavigator: $pageNavigator, userName: $userName, isDatePicker: $isDatePicker, totalExpenses: $totalExpenses)
+                TopBarView(width: width, height: height, date: expensesVM.dateInterval(), pageNavigator: $pageNavigator, totalExpenses: $totalExpenses)
                 Spacer()
             }
         }
@@ -30,7 +29,7 @@ struct ExpensesView: View {
 
 struct ExpensesView_Preview : PreviewProvider{
     static var previews: some View {
-        ExpensesView(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, pageNavigator: .constant(.expenses), userName: .constant(""), isDatePicker: .constant(false), totalExpenses: .constant(0))
+        ExpensesView(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, pageNavigator: .constant(.expenses), totalExpenses: .constant(0))
     }
     
     

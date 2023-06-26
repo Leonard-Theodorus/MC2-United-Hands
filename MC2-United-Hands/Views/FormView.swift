@@ -19,7 +19,7 @@ struct FormView: View {
                 FormField(fieldType: .date)
             }
             Spacer()
-            FormDoneButton()
+            FormDoneButton(){}
             
         }
         .onAppear{

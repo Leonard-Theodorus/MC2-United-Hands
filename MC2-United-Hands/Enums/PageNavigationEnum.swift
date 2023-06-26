@@ -31,18 +31,9 @@ enum PageNavigation : Int{
     var topBarTitle : String {
         switch self {
         case .expenses:
-            return "Weekly Expenses"
+            return "Your Weekly Expenses"
         case .report:
-            return "Expenses Report"
-        }
-    }
-    
-    var topBarCat : String {
-        switch self {
-        case .expenses:
-            return "catExpense"
-        case .report:
-            return "catReport"
+            return "Your Expenses Report"
         }
     }
 }

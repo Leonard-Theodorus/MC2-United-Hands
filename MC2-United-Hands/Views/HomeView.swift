@@ -11,21 +11,21 @@ struct HomeView: View {
     var width: CGFloat
     var height: CGFloat
     @Binding var pageNavigator : PageNavigation
-    @State var isDatePicker: Bool = false
     @State var date = Date.now
-    @State var totalExpenses: Int = 0
+    @State var totalExpenses: Int = 4000000
+    @EnvironmentObject var sheetManager: SheetManager
     
     var body: some View {
-        ZStack {
+        ZStack(alignment: .bottom) {
             VStack {
                 if pageNavigator == .expenses{
                     //TODO: Expense View
-                    ExpensesView(width: width, height: height, pageNavigator: $pageNavigator, userName: .constant("Kucing"), isDatePicker: $isDatePicker, totalExpenses: $totalExpenses)
+                    ExpensesView(width: width, height: height, pageNavigator: $pageNavigator, totalExpenses: $totalExpenses)
                         .frame(width: width, height: height * 0.9)
                 }
                 else{
                     //TODO: Report View
-                    ReportView(width: width, height: height, pageNavigator: $pageNavigator, userName: .constant("Kucing"), isDatePicker: $isDatePicker, totalExpenses: $totalExpenses)
+                    ReportView(width: width, height: height, date: date, pageNavigator: $pageNavigator, totalExpenses: $totalExpenses)
                         .frame(width: width, height: height * 0.9)
                 }
 
@@ -33,8 +33,8 @@ struct HomeView: View {
             }
             .frame(width: width, height: height)
             
-            if isDatePicker {
-                DatePickerView(date: $date, isDatePicker: $isDatePicker)
+            if sheetManager.action.isPresented {
+                DatePickerView(width: width, height: height, date: $date)
             }
         }
     }
