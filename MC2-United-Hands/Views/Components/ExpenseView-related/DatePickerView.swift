@@ -11,75 +11,37 @@ struct DatePickerView: View {
     var width: CGFloat
     var height: CGFloat
     
-    @Binding var date: Date
-    @EnvironmentObject var sheetManager: SheetManager
-    @State var monthIndex: Int = Calendar.current.component(.month, from: Date())-1
-    @State var yearIndex: Int = 10
-    
     let monthSymbols = Calendar.current.monthSymbols
     let currentYear = Calendar.current.component(.year, from: Date())
     let years = Array(Calendar.current.component(.year, from: Date())-10..<Calendar.current.component(.year, from: Date())+1)
+    
+    @EnvironmentObject var sheetManager: SheetManager
+    @Binding var date: Date
+    @State var yearIndex: Int = 10
+    @State var monthIndex: Int = 0
     
     var body: some View {
         VStack {
             Spacer()
             
             VStack {
-                // bagian 1
-                HStack {
-                    Text("Choose Month")
-                        .font(.title2)
-                        .fontWeight(.semibold)
-                        .padding()
-                    Spacer()
-                    
-                    Button {
-                        withAnimation {
-                            sheetManager.dismiss()
-                        }
-                    } label: {
-                        Image(systemName: "xmark")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: width * 0.03)
-                            .padding(10)
-                            .foregroundColor(.secondary)
-                            .fontWeight(.bold)
-                            .background(Color.datePickerCloseGray)
-                            .clipShape(Circle())
-                            .padding()
-                    }
-                    
-                }
+                DatePickerTitle(width: width)
                 
-                // bagian 2
-                HStack(spacing: .zero) {
-                    Picker("Month", selection: $monthIndex) {
-                        ForEach(0..<monthSymbols.count) { index in
-                            Text(monthSymbols[index]).tag(index)
-                        }
-                    }
-                    
-                    Picker("Year" ,selection: $yearIndex) {
-                        ForEach(0..<years.count) { index in
-                            Text(String(self.years[index])).tag(index)
-                        }
-                    }
-                }
-                .pickerStyle(.wheel)
-                .background(.white)
-                .cornerRadius(20)
-                .padding(.horizontal, 35)
-                .padding(.bottom, 10)
+                DatePickerItem(monthIndex: $monthIndex, yearIndex: $yearIndex, monthSymbols: monthSymbols, years: years)
                 
-                // bagian 3
-                FormDoneButton()
+                FormDoneButton(){
+                    withAnimation {
+                        sheetManager.dismiss()
+                    }
+                    let stringChosenDate = "01 \(monthSymbols[monthIndex]) \(years[yearIndex])"
+                    date = Formatter.stringToDateFormatter.date(from: stringChosenDate) ?? Date()
+                }
                     .padding(.bottom)
             }
             .padding(.vertical)
             .frame(width: width, height: height * 0.4)
             
-            .background(
+            .background (
                 ZStack {
                     RoundedRectangle(cornerRadius: 30)
                 }
@@ -89,6 +51,9 @@ struct DatePickerView: View {
         }
         .ignoresSafeArea()
         .transition(.move(edge: .bottom))
+        .onAppear {
+            monthIndex = Calendar.current.component(.month, from: date)-1
+        }
     }
 }
 

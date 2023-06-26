@@ -51,4 +51,10 @@ extension Formatter {
         formatter.timeStyle = .medium
         return formatter
     }()
+    
+    static let stringToDateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MMMM yyyy"
+        return formatter
+    }()
 }

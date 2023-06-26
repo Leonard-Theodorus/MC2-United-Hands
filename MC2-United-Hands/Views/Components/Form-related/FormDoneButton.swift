@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct FormDoneButton: View {
+    var action: () -> Void
+    
     var body: some View {
-        Button{
-            print("DONE!")
-        } label: {
+        Button (action: action){
             HStack {
                 Spacer()
                 HStack{
@@ -35,6 +35,6 @@ struct FormDoneButton: View {
 
 struct FormDoneButton_Previews: PreviewProvider {
     static var previews: some View {
-        FormDoneButton()
+        FormDoneButton(action: {})
     }
 }
