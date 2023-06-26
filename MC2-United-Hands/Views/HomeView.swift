@@ -28,7 +28,7 @@ struct HomeView: View {
                     ReportView(width: width, height: height, date: date, pageNavigator: $pageNavigator, totalExpenses: $totalExpenses)
                         .frame(width: width, height: height * 0.9)
                 }
-
+                
                 TabBarView(width: width, height: height, pageNavigator: $pageNavigator)
             }
             .frame(width: width, height: height)
@@ -37,5 +37,11 @@ struct HomeView: View {
                 DatePickerView(width: width, height: height, date: $date)
             }
         }
+    }
+}
+struct HomeView_Previews : PreviewProvider{
+    static var previews: some View{
+        HomeView(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, pageNavigator: .constant(.expenses))
+            .environmentObject(SheetManager())
     }
 }

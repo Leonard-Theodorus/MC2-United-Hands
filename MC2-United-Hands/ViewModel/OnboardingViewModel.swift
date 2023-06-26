@@ -12,11 +12,9 @@ class OnboardingViewModel : ObservableObject{
     @Published var firstTime : Bool = false
     func isAppAlreadyLaunchedOnce() -> Bool {
         if let _ = self.userDefaultsInstace.string(forKey: "isAppAlreadyLaunchedOnce") {
-            print("App already launched")
             return true
         } else {
             self.userDefaultsInstace.set(true, forKey: "isAppAlreadyLaunchedOnce")
-            print("App launched first time")
             return false
         }
     }

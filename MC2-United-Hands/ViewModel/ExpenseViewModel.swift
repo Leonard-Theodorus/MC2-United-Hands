@@ -156,13 +156,6 @@ class ExpenseViewModel: ObservableObject {
             return []
         }
     }
-
-
-
-
-    
-
-    
     func save() {
         do {
             try viewContext.save()
