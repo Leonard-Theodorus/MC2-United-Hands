@@ -26,6 +26,7 @@
 		D70475A72A46EF2B00BAC7F1 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70475A62A46EF2B00BAC7F1 /* DateFormatter.swift */; };
 		D70475B32A4891E000BAC7F1 /* EmptyExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70475B22A4891E000BAC7F1 /* EmptyExpenseView.swift */; };
 		D70475B62A4896DB00BAC7F1 /* ExpensesHorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70475B52A4896DB00BAC7F1 /* ExpensesHorizontalScrollView.swift */; };
+		D70475B82A49440C00BAC7F1 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70475B72A49440C00BAC7F1 /* OnboardingViewModel.swift */; };
 		D746790C2A442F0B009C712B /* MC2_United_HandsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D746790B2A442F0B009C712B /* MC2_United_HandsApp.swift */; };
 		D746790E2A442F0B009C712B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D746790D2A442F0B009C712B /* ContentView.swift */; };
 		D74679102A442F0B009C712B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D746790F2A442F0B009C712B /* Assets.xcassets */; };
@@ -86,6 +87,7 @@
 		D70475A62A46EF2B00BAC7F1 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		D70475B22A4891E000BAC7F1 /* EmptyExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyExpenseView.swift; sourceTree = "<group>"; };
 		D70475B52A4896DB00BAC7F1 /* ExpensesHorizontalScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesHorizontalScrollView.swift; sourceTree = "<group>"; };
+		D70475B72A49440C00BAC7F1 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		D74679082A442F0B009C712B /* MC2-United-Hands.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MC2-United-Hands.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D746790B2A442F0B009C712B /* MC2_United_HandsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC2_United_HandsApp.swift; sourceTree = "<group>"; };
 		D746790D2A442F0B009C712B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 			isa = PBXGroup;
 			children = (
 				D74679B62A44C16C009C712B /* CoreDataManager.swift */,
+				D70475B72A49440C00BAC7F1 /* OnboardingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 				D746790C2A442F0B009C712B /* MC2_United_HandsApp.swift in Sources */,
 				26A72D102A459D23008AC025 /* AddMomentRenameView.swift in Sources */,
 				D70475B62A4896DB00BAC7F1 /* ExpensesHorizontalScrollView.swift in Sources */,
+				D70475B82A49440C00BAC7F1 /* OnboardingViewModel.swift in Sources */,
 				D746794D2A447C03009C712B /* CustomTextFiledModifier.swift in Sources */,
 				D704759D2A46D9C100BAC7F1 /* TabBarPlusButton.swift in Sources */,
 				D74679562A44B035009C712B /* ColorExtension.swift in Sources */,
