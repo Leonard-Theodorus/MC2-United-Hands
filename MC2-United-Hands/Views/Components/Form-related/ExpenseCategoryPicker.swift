@@ -8,25 +8,28 @@
 import SwiftUI
 
 struct ExpenseCategoryPicker: View {
-    @State var categoryType : expenseCategory = .shopping
+    @State var categoryType : expenseCategory
+    @Binding var showCategoryModal : Bool
+    @Binding var categorySelected : CategoryModel
     var body: some View {
         HStack{
-            HStack{
-                Image(systemName: categoryType.icon).foregroundColor(categoryType.foregroundColor)
-                Text(categoryType.categoryText)
-                    .bold()
-                    .foregroundColor(categoryType.foregroundColor)
-            }
-            
+            Image(systemName: categoryType.icon).foregroundColor(categoryType.foregroundColor)
+            Text(categoryType.categoryText)
+                .bold()
+                .foregroundColor(categoryType.foregroundColor)
             Spacer()
         }
         .modifier(BorderedFieldStyle(cornerRadius: 8, strokeColor: categoryType.foregroundColor))
-        .padding(.horizontal)
+        .padding(showCategoryModal ? .horizontal : .horizontal, 0)
+        .onTapGesture {
+            categorySelected.category = categoryType.categoryText
+            showCategoryModal.toggle()
+        }
     }
 }
 
 struct ExpenseCategoryPicker_Previews: PreviewProvider {
     static var previews: some View {
-        ExpenseCategoryPicker()
+        ExpenseCategoryPicker(categoryType: .entertainment, showCategoryModal: .constant(false), categorySelected: .constant(CategoryModel()))
     }
 }
