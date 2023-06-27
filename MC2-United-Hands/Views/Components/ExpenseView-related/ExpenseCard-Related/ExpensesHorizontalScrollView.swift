@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ExpensesHorizontalScrollView: View {
+    @Binding var isDetailExpenses: Bool
+    
     @State var expenses : [ExpenseData] = [
         .init(id: UUID(), image: UIImage(systemName: "trash"), category: "Food & Drink", amount: 12000, timestamp: Date.now),
         .init(id: UUID(),image: UIImage(systemName: "signature"), category: "Others", amount: 12000, timestamp: Date.now),
@@ -17,6 +19,12 @@ struct ExpensesHorizontalScrollView: View {
         HStack{
             ForEach(expenses, id: \.id) { expense in
                 ExpenseCard(expenseData: expense)
+                    .onTapGesture {
+                        // TODO: Pass all parameters
+                        withAnimation {
+                            isDetailExpenses.toggle()
+                        }
+                    }
             }
         }
     }
@@ -24,6 +32,6 @@ struct ExpensesHorizontalScrollView: View {
 
 struct ExpensesHorizontalScrollView_Previews: PreviewProvider {
     static var previews: some View {
-        ExpensesHorizontalScrollView()
+        ExpensesHorizontalScrollView(isDetailExpenses: .constant(false))
     }
 }

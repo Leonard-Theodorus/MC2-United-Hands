@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct CategoryLabel: View {
-    @State var stringLabel : String = ""
+    @State var stringLabel : String = "Food & Drink"
     var body: some View {
         Text(stringLabel)
-            .font(.body)
+            .font(.footnote)
             .foregroundColor(.blue)
-            .padding(.horizontal, 20)
+            .padding(.horizontal, 15)
             .padding(.vertical, 10)
             .background(
                 RoundedRectangle(cornerRadius: 200).foregroundColor(.primaryBlue.opacity(0.1))

@@ -32,28 +32,16 @@ struct AddMomentRenameView: View {
                 
                 HStack {
                     VStack {
-                        NavigationLink() {
-                            // TODO: Pindah ke halaman selanjutnya
-                            FormView(isManualInput: $isManualInput, capturedImage: capturedImage)
-                                .navigationBarBackButtonHidden(true)
-                        } label: {
-                            Text("Done")
-                                .padding()
-                                .frame(width: width * 0.9)
-                                .background(.blue)
-                                .foregroundColor(.white)
-                                .cornerRadius(30)
-                        }
-                        .padding()
-                        .simultaneousGesture(TapGesture().onEnded{
-                            isEditMomentsViewPresented.toggle()
-                        })
+                        CapsuleConfirmationButton(buttonDescription: "Done", width: width, dest: FormView(isManualInput: $isManualInput, capturedImage: capturedImage))
+                            .simultaneousGesture(TapGesture().onEnded{
+                                isEditMomentsViewPresented.toggle()
+                            })
                         
                         Button {
-                            isEditMomentsViewPresented.toggle()
+                            
                         } label: {
                             Text("Retake Photo")
-                                .padding()
+                                .padding(10)
                                 .frame(width: width * 0.9)
                                 .foregroundColor(.white)
                         }

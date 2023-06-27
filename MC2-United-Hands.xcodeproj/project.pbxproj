@@ -20,6 +20,8 @@
 		2684E2062A499E6F000B775F /* SheetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2684E2052A499E6F000B775F /* SheetManager.swift */; };
 		2684E2092A49AA7F000B775F /* DatePickerTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2684E2082A49AA7F000B775F /* DatePickerTitle.swift */; };
 		2684E20B2A49AAC2000B775F /* DatePickerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2684E20A2A49AAC2000B775F /* DatePickerItem.swift */; };
+		2684E20D2A4AEF71000B775F /* DetailExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2684E20C2A4AEF71000B775F /* DetailExpenseView.swift */; };
+		2684E20F2A4AF432000B775F /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2684E20E2A4AF432000B775F /* CloseButton.swift */; };
 		26A72D0A2A459C35008AC025 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A72D092A459C35008AC025 /* CameraService.swift */; };
 		26A72D0C2A459C91008AC025 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A72D0B2A459C91008AC025 /* CameraView.swift */; };
 		26A72D0E2A459D18008AC025 /* AddMomentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A72D0D2A459D18008AC025 /* AddMomentView.swift */; };
@@ -91,6 +93,8 @@
 		2684E2052A499E6F000B775F /* SheetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetManager.swift; sourceTree = "<group>"; };
 		2684E2082A49AA7F000B775F /* DatePickerTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerTitle.swift; sourceTree = "<group>"; };
 		2684E20A2A49AAC2000B775F /* DatePickerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerItem.swift; sourceTree = "<group>"; };
+		2684E20C2A4AEF71000B775F /* DetailExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailExpenseView.swift; sourceTree = "<group>"; };
+		2684E20E2A4AF432000B775F /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		26A72D092A459C35008AC025 /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
 		26A72D0B2A459C91008AC025 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		26A72D0D2A459D18008AC025 /* AddMomentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMomentView.swift; sourceTree = "<group>"; };
@@ -177,6 +181,15 @@
 			path = "DatePicker-Related";
 			sourceTree = "<group>";
 		};
+		2684E2102A4AF4CD000B775F /* CustomButton */ = {
+			isa = PBXGroup;
+			children = (
+				D74679522A44AC73009C712B /* DoneButton.swift */,
+				2684E20E2A4AF432000B775F /* CloseButton.swift */,
+			);
+			path = CustomButton;
+			sourceTree = "<group>";
+		};
 		26A72D072A459C22008AC025 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +222,7 @@
 			children = (
 				D70475B42A48933C00BAC7F1 /* ExpenseCard-Related */,
 				262976D62A472C84007E2595 /* DatePickerView.swift */,
+				2684E20C2A4AEF71000B775F /* DetailExpenseView.swift */,
 				26500E692A47103C004B8FF4 /* TopBarView.swift */,
 				262388CE2A45FD0700BA3298 /* TabBarView.swift */,
 				D70475B22A4891E000BAC7F1 /* EmptyExpenseView.swift */,
@@ -221,7 +235,6 @@
 		D70475B02A488FDD00BAC7F1 /* Form-related */ = {
 			isa = PBXGroup;
 			children = (
-				D74679522A44AC73009C712B /* DoneButton.swift */,
 				D74679462A444ACD009C712B /* FormField.swift */,
 				D74679502A449964009C712B /* ExpenseCategoryPicker.swift */,
 			);
@@ -336,6 +349,7 @@
 		D74679362A4434E4009C712B /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				2684E2102A4AF4CD000B775F /* CustomButton */,
 				2684E2072A49AA45000B775F /* DatePicker-Related */,
 				D70475B02A488FDD00BAC7F1 /* Form-related */,
 				D70475AF2A488FBB00BAC7F1 /* ExpenseView-related */,
@@ -553,6 +567,7 @@
 				262976D52A4729AD007E2595 /* TopBarSymbol.swift in Sources */,
 				D74679452A444AB7009C712B /* FormView.swift in Sources */,
 				D74679B12A44C139009C712B /* StringConstants.swift in Sources */,
+				2684E20D2A4AEF71000B775F /* DetailExpenseView.swift in Sources */,
 				26A72D0E2A459D18008AC025 /* AddMomentView.swift in Sources */,
 				D746793E2A443895009C712B /* ExpenseCard.swift in Sources */,
 				D704759F2A46DAE400BAC7F1 /* TabBarItem.swift in Sources */,
@@ -562,6 +577,7 @@
 				262388CF2A45FD0700BA3298 /* TabBarView.swift in Sources */,
 				D778941A2A4A9E5800688887 /* NavigationHelper.swift in Sources */,
 				D70475A42A46ED9400BAC7F1 /* CoreDataModel.xcdatamodeld in Sources */,
+				2684E20F2A4AF432000B775F /* CloseButton.swift in Sources */,
 				26500E6A2A47103C004B8FF4 /* TopBarView.swift in Sources */,
 				D746790E2A442F0B009C712B /* ContentView.swift in Sources */,
 				2684C85D2A497FE4001CDE33 /* ExpensesViewModel.swift in Sources */,

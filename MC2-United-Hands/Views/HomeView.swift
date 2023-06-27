@@ -15,6 +15,7 @@ struct HomeView: View {
     @State var monthIndex: Int = 0
     @State var yearIndex: Int = 10
     @State var totalExpenses: Int = 4000000
+    @State var isDetailExpenses: Bool = false
     @EnvironmentObject var sheetManager: SheetManager
     
     var body: some View {
@@ -22,7 +23,7 @@ struct HomeView: View {
             VStack {
                 if pageNavigator == .expenses{
                     //TODO: Expense View
-                    ExpensesView(width: width, height: height, pageNavigator: $pageNavigator, totalExpenses: $totalExpenses)
+                    ExpensesView(width: width, height: height, pageNavigator: $pageNavigator, totalExpenses: $totalExpenses, isDetailExpenses: $isDetailExpenses)
                         .frame(width: width, height: height * 0.9)
                 }
                 else{
@@ -37,6 +38,10 @@ struct HomeView: View {
             
             if sheetManager.action.isPresented {
                 DatePickerView(width: width, height: height, date: $date, yearIndex: $yearIndex, monthIndex: $monthIndex)
+            }
+            
+            if isDetailExpenses {
+                DetailExpenseView(width: width, height: height, isDetailExpenses: $isDetailExpenses)
             }
         }
     }
