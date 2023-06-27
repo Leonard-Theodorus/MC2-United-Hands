@@ -39,3 +39,8 @@ struct DatePickerTitle: View {
         }
     }
 }
+struct DatePickerTitle_Previews : PreviewProvider{
+    static var previews: some View{
+        DatePickerTitle(width: UIScreen.main.bounds.width)
+    }
+}

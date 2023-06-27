@@ -12,6 +12,7 @@ struct DatePickerView: View {
     var height: CGFloat
     
     let monthSymbols = Calendar.current.monthSymbols
+    //MARK: As of Right now ini gak dipake
     let currentYear = Calendar.current.component(.year, from: Date())
     let years = Array(Calendar.current.component(.year, from: Date())-10..<Calendar.current.component(.year, from: Date())+1)
     
@@ -36,11 +37,10 @@ struct DatePickerView: View {
                     let stringChosenDate = "01 \(monthSymbols[monthIndex]) \(years[yearIndex])"
                     date = Formatter.stringToDateFormatter.date(from: stringChosenDate) ?? Date()
                 }
-                    .padding(.bottom)
+                .padding(.bottom)
             }
             .padding(.vertical)
             .frame(width: width, height: height * 0.4)
-            
             .background (
                 ZStack {
                     RoundedRectangle(cornerRadius: 30)

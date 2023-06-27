@@ -21,6 +21,8 @@ struct ExpensesView: View {
             }
             else {
                 TopBarView(width: width, height: height, date: expensesVM.dateInterval(), pageNavigator: $pageNavigator, totalExpenses: $totalExpenses)
+                ExpenseContent()
+                    .padding()
                 Spacer()
             }
         }
@@ -29,7 +31,7 @@ struct ExpensesView: View {
 
 struct ExpensesView_Preview : PreviewProvider{
     static var previews: some View {
-        ExpensesView(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, pageNavigator: .constant(.expenses), totalExpenses: .constant(0))
+        ExpensesView(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, pageNavigator: .constant(.expenses), totalExpenses: .constant(10))
     }
     
     

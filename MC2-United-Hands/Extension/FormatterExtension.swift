@@ -43,6 +43,12 @@ extension Formatter {
         formatter.dateFormat = "EEEE, dd yyyy"
         return formatter
     }()
+    // Tuesday, 27 June, 2023
+    static let dayFormatter : DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEEE, dd MMMM, YYYY"
+        return formatter
+    }()
     
     // 6/25/23, 10:52:25 PM
     static let itemFormatter: DateFormatter = {

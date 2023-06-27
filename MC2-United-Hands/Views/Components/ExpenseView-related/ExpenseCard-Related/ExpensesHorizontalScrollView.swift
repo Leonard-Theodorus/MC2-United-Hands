@@ -14,11 +14,9 @@ struct ExpensesHorizontalScrollView: View {
         .init(id: UUID(),image: UIImage(systemName: "allergens"), category: "Entertainment", amount: 12000, timestamp: Date.now)
     ]
     var body: some View {
-        ScrollView(.horizontal) {
-            HStack{
-                ForEach(expenses, id: \.id) { expense in
-                    ExpenseCard(expenseData: expense)
-                }
+        HStack{
+            ForEach(expenses, id: \.id) { expense in
+                ExpenseCard(expenseData: expense)
             }
         }
     }

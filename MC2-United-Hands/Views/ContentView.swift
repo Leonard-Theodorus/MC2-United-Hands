@@ -9,8 +9,9 @@ import SwiftUI
 struct ContentView: View {
     @State var pageNavigator : PageNavigation = .expenses
     @EnvironmentObject var onBoardingVm : OnboardingViewModel
-//    var width : CGFloat = 393.0
-//    var height : CGFloat = 667.0
+    @EnvironmentObject var expenseVM : ExpensesViewModel
+    //    var width : CGFloat = 393.0
+    //    var height : CGFloat = 667.0
     var body: some View {
         NavigationStack{
             GeometryReader { geo in
@@ -19,6 +20,8 @@ struct ContentView: View {
                 }
             }
         }
+        
+        
         //        VStack{
         //            ExpensesHorizontalScrollView()
         //            if !onBoardingVm.firstTime{
@@ -36,5 +39,6 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
             .environmentObject(SheetManager())
             .environmentObject(OnboardingViewModel())
+            .environmentObject(ExpensesViewModel())
     }
 }
