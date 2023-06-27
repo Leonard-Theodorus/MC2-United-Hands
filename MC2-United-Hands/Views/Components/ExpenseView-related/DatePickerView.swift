@@ -12,14 +12,13 @@ struct DatePickerView: View {
     var height: CGFloat
     
     let monthSymbols = Calendar.current.monthSymbols
-    //MARK: As of Right now ini gak dipake
     let currentYear = Calendar.current.component(.year, from: Date())
     let years = Array(Calendar.current.component(.year, from: Date())-10..<Calendar.current.component(.year, from: Date())+1)
     
     @EnvironmentObject var sheetManager: SheetManager
     @Binding var date: Date
-    @State var yearIndex: Int = 10
-    @State var monthIndex: Int = 0
+    @Binding var yearIndex: Int
+    @Binding var monthIndex: Int
     
     var body: some View {
         VStack {
@@ -30,17 +29,18 @@ struct DatePickerView: View {
                 
                 DatePickerItem(monthIndex: $monthIndex, yearIndex: $yearIndex, monthSymbols: monthSymbols, years: years)
                 
-                FormDoneButton(){
+                ConfirmationButton(buttonDescription: "Done", buttonBackgroundColor: Color.primaryBlue){
                     withAnimation {
                         sheetManager.dismiss()
                     }
                     let stringChosenDate = "01 \(monthSymbols[monthIndex]) \(years[yearIndex])"
                     date = Formatter.stringToDateFormatter.date(from: stringChosenDate) ?? Date()
                 }
-                .padding(.bottom)
+                    .padding(.bottom)
             }
             .padding(.vertical)
             .frame(width: width, height: height * 0.4)
+            
             .background (
                 ZStack {
                     RoundedRectangle(cornerRadius: 30)
@@ -59,6 +59,6 @@ struct DatePickerView: View {
 
 struct DatePickerView_Previews: PreviewProvider {
     static var previews: some View {
-        DatePickerView(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, date: .constant(Date.now))
+        DatePickerView(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, date: .constant(Date.now), yearIndex: .constant(10), monthIndex: .constant(0))
     }
 }

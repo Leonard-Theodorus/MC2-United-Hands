@@ -12,6 +12,8 @@ struct HomeView: View {
     var height: CGFloat
     @Binding var pageNavigator : PageNavigation
     @State var date = Date.now
+    @State var monthIndex: Int = 0
+    @State var yearIndex: Int = 10
     @State var totalExpenses: Int = 4000000
     @EnvironmentObject var sheetManager: SheetManager
     
@@ -34,7 +36,7 @@ struct HomeView: View {
             .frame(width: width, height: height)
             
             if sheetManager.action.isPresented {
-                DatePickerView(width: width, height: height, date: $date)
+                DatePickerView(width: width, height: height, date: $date, yearIndex: $yearIndex, monthIndex: $monthIndex)
             }
         }
     }

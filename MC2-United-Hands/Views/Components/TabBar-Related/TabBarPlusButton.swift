@@ -14,7 +14,7 @@ struct TabBarPlusButton: View {
     @State var isAddQuickAccessViewSelected : Bool = false
     var width : CGFloat
     var height: CGFloat
-    
+    @State var isManualInput : Bool = true
     var body: some View {
         Button {
             isActionSheetShown.toggle()
@@ -51,7 +51,7 @@ struct TabBarPlusButton: View {
         }
         
         .navigationDestination(isPresented: $isAddManuallyViewSelected) {
-            FormView()
+            FormView(isManualInput: $isManualInput)
         }
         
         .navigationDestination(isPresented: $isAddQuickAccessViewSelected) {
