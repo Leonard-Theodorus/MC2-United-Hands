@@ -28,7 +28,7 @@ extension FormField{
         
     }
     @ViewBuilder
-    var textFieldView : some View{
+    var FieldView : some View{
         switch self.fieldType{
         case .nominal:
             HStack {
@@ -42,29 +42,56 @@ extension FormField{
                 
             }.modifier(BorderedFieldStyle(cornerRadius: 8, strokeColor: formForegroundColor))
         case .category:
-            HStack {
+            if categorySelected.category == ""{
                 HStack{
                     Text("? Select Category").foregroundColor(formForegroundColor)
                     Spacer()
                     Image(systemName: "chevron.down").foregroundColor(formForegroundColor)
                 }
-                
-                Spacer()
-            }
-            .accessibilityAddTraits([.isButton, .isModal])
-            .onTapGesture {
-                withAnimation {
-                    showCategoryModal.toggle()
+                .accessibilityAddTraits([.isButton, .isModal])
+                .onTapGesture {
+                    withAnimation {
+                        showCategoryModal.toggle()
+                    }
                 }
+                .modifier(BorderedFieldStyle(cornerRadius: 8, strokeColor: formForegroundColor))
+                .sheet(isPresented: $showCategoryModal) {
+                    ForEach(categories, id: \.categoryText){category in
+                        VStack(spacing: 16){
+                            ExpenseCategoryPicker(categoryType: category,showCategoryModal: $showCategoryModal, categorySelected: $categorySelected)
+                                .accessibilityLabel(Text("category"))
+                                .accessibilityValue(Text(category.categoryText))
+                                .accessibilityAddTraits(.isButton)
+                        }
+                        .padding(.horizontal)
+                    }
+                }
+                
             }
-            .modifier(BorderedFieldStyle(cornerRadius: 8, strokeColor: formForegroundColor))
-            .sheet(isPresented: $showCategoryModal) {
-                ForEach(categories, id: \.categoryText){category in
-                    VStack(spacing: 16){
-                        ExpenseCategoryPicker(categoryType: category)
-                            .accessibilityLabel(Text("category"))
-                            .accessibilityValue(Text(category.categoryText))
-                            .accessibilityAddTraits(.isButton)
+            else{
+                HStack{
+                    Image(systemName: categorySelected.categoryStyleFromString().icon).foregroundColor(categorySelected.categoryStyleFromString().foregroundColor)
+                    Text(categorySelected.categoryStyleFromString().categoryText)
+                        .bold()
+                        .foregroundColor(categorySelected.categoryStyleFromString().foregroundColor)
+                    Spacer()
+                }
+                .modifier(BorderedFieldStyle(cornerRadius: 8, strokeColor: categorySelected.categoryStyleFromString().foregroundColor))
+                .accessibilityAddTraits([.isButton, .isModal])
+                .onTapGesture {
+                    withAnimation {
+                        showCategoryModal.toggle()
+                    }
+                }
+                .sheet(isPresented: $showCategoryModal) {
+                    ForEach(categories, id: \.categoryText){category in
+                        VStack(spacing: 16){
+                            ExpenseCategoryPicker(categoryType: category,showCategoryModal: $showCategoryModal, categorySelected: $categorySelected)
+                                .accessibilityLabel(Text("category"))
+                                .accessibilityValue(Text(category.categoryText))
+                                .accessibilityAddTraits(.isButton)
+                        }
+                        .padding(.horizontal)
                     }
                 }
             }
@@ -104,13 +131,6 @@ extension FormField{
                 DatePicker("", selection: $expenseDate, displayedComponents: .date).accentColor(formForegroundColor)
                 
             }.modifier(BorderedFieldStyle(cornerRadius: 8, strokeColor: formForegroundColor))
-            //            if showDate{
-            //                HStack{
-            //                    DatePicker("", selection: $expenseDate, displayedComponents: .date).datePickerStyle(.graphical)
-            //                }
-            //
-            //
-            //            }
         }
     }
     

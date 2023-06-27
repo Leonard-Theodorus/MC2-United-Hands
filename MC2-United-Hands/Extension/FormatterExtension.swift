@@ -8,6 +8,7 @@
 import Foundation
 
 extension Formatter {
+    //xxx.xxx.xxx
     static let currencyFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal

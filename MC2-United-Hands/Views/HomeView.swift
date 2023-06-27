@@ -14,15 +14,17 @@ struct HomeView: View {
     @State var date = Date.now
     @State var monthIndex: Int = 0
     @State var yearIndex: Int = 10
-    @State var totalExpenses: Int = 4000000
+    @State var totalExpenses: Int = 0
+    @State var expenses : [ExpenseData] = []
     @EnvironmentObject var sheetManager: SheetManager
-    
+    @EnvironmentObject var coredataVm : CoreDataViewModel
+    @EnvironmentObject var expenseVm : ExpensesViewModel
     var body: some View {
         ZStack(alignment: .bottom) {
             VStack {
                 if pageNavigator == .expenses{
                     //TODO: Expense View
-                    ExpensesView(width: width, height: height, pageNavigator: $pageNavigator, totalExpenses: $totalExpenses)
+                    ExpensesView(width: width, height: height, pageNavigator: $pageNavigator, totalExpenses: $totalExpenses, expenses: $expenses)
                         .frame(width: width, height: height * 0.9)
                 }
                 else{
@@ -32,6 +34,10 @@ struct HomeView: View {
                 }
                 
                 TabBarView(width: width, height: height, pageNavigator: $pageNavigator)
+            }
+            .task{
+                expenses = coredataVm.getExpensesByDate(startDate: expenseVm.startDate, endDate: expenseVm.endDate)
+                totalExpenses = expenses.map({$0.amount ?? 0}).reduce(0, +)
             }
             .frame(width: width, height: height)
             
@@ -45,5 +51,6 @@ struct HomeView_Previews : PreviewProvider{
     static var previews: some View{
         HomeView(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, pageNavigator: .constant(.expenses))
             .environmentObject(SheetManager())
+            .environmentObject(CoreDataViewModel())
     }
 }

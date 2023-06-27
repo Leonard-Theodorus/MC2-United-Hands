@@ -19,6 +19,7 @@ func DailyExpenseView(expenses : [ExpenseData], for date : Date, nominal : Int) 
             Text(Formatter.dayFormatter.string(from: date))
                 .font(.subheadline).foregroundColor(.secondary)
         }
+        //Total nominal hari itu
         Text("Rp. " + (Formatter.currencyFormatter.string(from: nominal as NSNumber) ?? "0"))
             .bold()
             .padding(.top, 2)
