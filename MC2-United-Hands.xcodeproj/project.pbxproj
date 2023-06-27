@@ -48,10 +48,11 @@
 		D746794D2A447C03009C712B /* CustomTextFiledModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D746794C2A447C03009C712B /* CustomTextFiledModifier.swift */; };
 		D746794F2A449734009C712B /* ExpenseCategoryEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D746794E2A449734009C712B /* ExpenseCategoryEnum.swift */; };
 		D74679512A449964009C712B /* ExpenseCategoryPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74679502A449964009C712B /* ExpenseCategoryPicker.swift */; };
-		D74679532A44AC74009C712B /* FormDoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74679522A44AC73009C712B /* FormDoneButton.swift */; };
+		D74679532A44AC74009C712B /* DoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74679522A44AC73009C712B /* DoneButton.swift */; };
 		D74679562A44B035009C712B /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74679552A44B035009C712B /* ColorExtension.swift */; };
 		D74679B12A44C139009C712B /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74679B02A44C139009C712B /* StringConstants.swift */; };
 		D74679B52A44C15D009C712B /* ExpenseDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74679B42A44C15D009C712B /* ExpenseDataModel.swift */; };
+		D778941A2A4A9E5800688887 /* NavigationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77894192A4A9E5800688887 /* NavigationHelper.swift */; };
 		D7F1568F2A4A79B6002373E2 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F1568E2A4A79B6002373E2 /* DateHelper.swift */; };
 		D7F156912A4A8319002373E2 /* DailyExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F156902A4A8319002373E2 /* DailyExpense.swift */; };
 		D9283D802A495922000E934A /* CoreDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9283D7F2A495922000E934A /* CoreDataViewModel.swift */; };
@@ -121,10 +122,11 @@
 		D746794C2A447C03009C712B /* CustomTextFiledModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFiledModifier.swift; sourceTree = "<group>"; };
 		D746794E2A449734009C712B /* ExpenseCategoryEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCategoryEnum.swift; sourceTree = "<group>"; };
 		D74679502A449964009C712B /* ExpenseCategoryPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCategoryPicker.swift; sourceTree = "<group>"; };
-		D74679522A44AC73009C712B /* FormDoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDoneButton.swift; sourceTree = "<group>"; };
+		D74679522A44AC73009C712B /* DoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneButton.swift; sourceTree = "<group>"; };
 		D74679552A44B035009C712B /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		D74679B02A44C139009C712B /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
 		D74679B42A44C15D009C712B /* ExpenseDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDataModel.swift; sourceTree = "<group>"; };
+		D77894192A4A9E5800688887 /* NavigationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHelper.swift; sourceTree = "<group>"; };
 		D7F1568E2A4A79B6002373E2 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		D7F156902A4A8319002373E2 /* DailyExpense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyExpense.swift; sourceTree = "<group>"; };
 		D9283D7F2A495922000E934A /* CoreDataViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataViewModel.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			children = (
 				26A72D082A459C29008AC025 /* Camera */,
 				D7F1568E2A4A79B6002373E2 /* DateHelper.swift */,
+				D77894192A4A9E5800688887 /* NavigationHelper.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -218,7 +221,7 @@
 		D70475B02A488FDD00BAC7F1 /* Form-related */ = {
 			isa = PBXGroup;
 			children = (
-				D74679522A44AC73009C712B /* FormDoneButton.swift */,
+				D74679522A44AC73009C712B /* DoneButton.swift */,
 				D74679462A444ACD009C712B /* FormField.swift */,
 				D74679502A449964009C712B /* ExpenseCategoryPicker.swift */,
 			);
@@ -557,11 +560,12 @@
 				D70475982A46D6FA00BAC7F1 /* PageNavigationEnum.swift in Sources */,
 				D9283D802A495922000E934A /* CoreDataViewModel.swift in Sources */,
 				262388CF2A45FD0700BA3298 /* TabBarView.swift in Sources */,
+				D778941A2A4A9E5800688887 /* NavigationHelper.swift in Sources */,
 				D70475A42A46ED9400BAC7F1 /* CoreDataModel.xcdatamodeld in Sources */,
 				26500E6A2A47103C004B8FF4 /* TopBarView.swift in Sources */,
 				D746790E2A442F0B009C712B /* ContentView.swift in Sources */,
 				2684C85D2A497FE4001CDE33 /* ExpensesViewModel.swift in Sources */,
-				D74679532A44AC74009C712B /* FormDoneButton.swift in Sources */,
+				D74679532A44AC74009C712B /* DoneButton.swift in Sources */,
 				262976CD2A47232C007E2595 /* ExpensesView.swift in Sources */,
 				D74679B52A44C15D009C712B /* ExpenseDataModel.swift in Sources */,
 				D746790C2A442F0B009C712B /* MC2_United_HandsApp.swift in Sources */,

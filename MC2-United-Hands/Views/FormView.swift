@@ -7,24 +7,29 @@
 
 import SwiftUI
 struct FormView: View {
-    @State var isManualInput : Bool = true
+    @Binding var isManualInput : Bool
     @State private var formTypes : [FormField.fieldType] = [.nominal, .category, .photo, .date]
-    
+    var capturedImage : UIImage?
     var body: some View {
         VStack(spacing: 24) {
             Group{
-                FormField(fieldType: .nominal)
-                FormField(fieldType: .category)
-                FormField(fieldType: .photo)
-                FormField(fieldType: .date)
+                ForEach(formTypes, id: \.fieldName){field in
+                    FormField(fieldType: field)
+                }
             }
             Spacer()
-            FormDoneButton(){}
+            ConfirmationButton(buttonDescription: "Done", buttonBackgroundColor: Color.primaryBlue){}
+            if !isManualInput{
+                ConfirmationButton(buttonDescription: "Cancel", buttonBackgroundColor: Color.red){
+                    NavigationUtil.popToRootView()
+                }
+                
+            }
             
         }
         .onAppear{
             if !isManualInput{
-                formTypes = formTypes.filter({$0 == .nominal || $0 == .category})
+                formTypes = [.nominal, .category]
             }
         }
     }
@@ -32,6 +37,6 @@ struct FormView: View {
 
 struct ManualInputFormView_Previews: PreviewProvider {
     static var previews: some View {
-        FormView()
+        FormView(isManualInput: .constant(true), capturedImage: UIImage())
     }
 }

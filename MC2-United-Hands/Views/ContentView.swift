@@ -10,8 +10,6 @@ struct ContentView: View {
     @State var pageNavigator : PageNavigation = .expenses
     @EnvironmentObject var onBoardingVm : OnboardingViewModel
     @EnvironmentObject var expenseVM : ExpensesViewModel
-    //    var width : CGFloat = 393.0
-    //    var height : CGFloat = 667.0
     var body: some View {
         NavigationStack{
             GeometryReader { geo in

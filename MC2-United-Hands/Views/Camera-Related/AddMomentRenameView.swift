@@ -14,7 +14,7 @@ struct AddMomentRenameView: View {
     var capturedImage: UIImage
     var width: CGFloat
     var height: CGFloat
-    
+    @State var isManualInput : Bool = false
     var body: some View {
         ZStack {
             Image(uiImage: capturedImage)
@@ -34,7 +34,8 @@ struct AddMomentRenameView: View {
                     VStack {
                         NavigationLink() {
                             // TODO: Pindah ke halaman selanjutnya
-                            
+                            FormView(isManualInput: $isManualInput, capturedImage: capturedImage)
+                                .navigationBarBackButtonHidden(true)
                         } label: {
                             Text("Done")
                                 .padding()
