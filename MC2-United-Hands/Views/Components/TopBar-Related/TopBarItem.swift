@@ -56,3 +56,9 @@ struct TopBarItem: View {
         .frame(width: width)
     }
 }
+struct TopBarItem_Previews : PreviewProvider{
+    static var previews: some View{
+        TopBarItem(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, title: "", dateInterval: "26 June - 30 June 2023", pagenavigator: .expenses, totalExpenses: .constant(0))
+            .environmentObject(SheetManager())
+    }
+}

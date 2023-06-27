@@ -8,11 +8,9 @@
 import Foundation
 import CoreData
 
-class ExpenseViewModel: ObservableObject {
+class CoreDataViewModel: ObservableObject {
     private let viewContext = PersistenceController.shared.viewContext
     @Published var expenseArray: [ExpenseEntity] = []
-
-    
     init() {
         fetchExpenseData()
     }

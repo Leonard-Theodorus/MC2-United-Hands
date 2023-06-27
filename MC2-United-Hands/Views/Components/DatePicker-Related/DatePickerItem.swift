@@ -36,3 +36,8 @@ struct DatePickerItem: View {
         .padding(.bottom, 10)
     }
 }
+struct DatePickerItem_Previews : PreviewProvider{
+    static var previews: some View{
+        DatePickerItem(monthIndex: .constant(1), yearIndex: .constant(0), monthSymbols: ["January"], years: [0])
+    }
+}
