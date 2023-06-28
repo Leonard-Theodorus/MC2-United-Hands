@@ -24,7 +24,7 @@ struct ExpensesView: View {
             }
             else {
                 TopBarView(width: width, height: height, date: expensesVM.dateInterval(), pageNavigator: $pageNavigator, totalExpenses: $totalExpenses)
-                ExpenseContent(expenses: $expenses)
+                ExpenseContent(isDetailExpenses: $isDetailExpenses, expenses: $expenses)
                 //ExpenseContent(isDetailExpenses: $isDetailExpenses)
                     .padding()
                 Spacer()
@@ -38,7 +38,7 @@ struct ExpensesView: View {
 
 struct ExpensesView_Preview : PreviewProvider{
     static var previews: some View {
-        ExpensesView(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, pageNavigator: .constant(.expenses), totalExpenses: .constant(10), expenses: .constant([.init(id: UUID(), image: UIImage(), category: "", amount: 0, timestamp: Date.now)]))
+        ExpensesView(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, pageNavigator: .constant(.expenses), totalExpenses: .constant(10), isDetailExpenses: .constant(false), expenses: .constant([.init(id: UUID(), image: UIImage(), category: "", amount: 0, timestamp: Date.now)]))
             .environmentObject(CoreDataViewModel())
     }
     
