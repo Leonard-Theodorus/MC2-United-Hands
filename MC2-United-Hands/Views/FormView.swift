@@ -38,7 +38,7 @@ struct FormView: View {
                 }
                 else{
                     if let imageData = capturedImage?.pngData(){
-                        coreDataViewModel.addExpenseNoArray(image: imageData, amount: expenseAmountFromString(for: expenseAmount), category: categorySelected.category, timestamp: Calendar.current.date(byAdding: .day, value: -1, to: Date())!, startDate: expenseVm.startDate, endDate: expenseVm.endDate)
+                        coreDataViewModel.addExpenseNoArray(image: imageData, amount: expenseAmountFromString(for: expenseAmount), category: categorySelected.category, timestamp: Date(), startDate: expenseVm.startDate, endDate: expenseVm.endDate)
                         NavigationUtil.popToRootView()
                     }
                     else{

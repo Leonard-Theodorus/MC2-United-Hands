@@ -99,6 +99,12 @@ struct DetailExpenseView: View {
                     
                     Button {
                         //TODO: Delete expense
+                        coreDataVm.deleteExpense(withUUID: coreDataVm.expenseToBeEdited?.id ?? UUID())
+                        coreDataVm.getExpensesByDateNoArray(startDate: expenseVm.startDate, endDate: expenseVm.endDate)
+                        withAnimation {
+                            expenseVm.isDetailExpense.toggle()
+                            
+                        }
                     } label: {
                         Text("Delete")
                             .foregroundColor(.red)
