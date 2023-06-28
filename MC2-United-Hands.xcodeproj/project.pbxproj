@@ -55,6 +55,9 @@
 		D74679B12A44C139009C712B /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74679B02A44C139009C712B /* StringConstants.swift */; };
 		D74679B52A44C15D009C712B /* ExpenseDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74679B42A44C15D009C712B /* ExpenseDataModel.swift */; };
 		D778941A2A4A9E5800688887 /* NavigationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77894192A4A9E5800688887 /* NavigationHelper.swift */; };
+		D778941E2A4ABA9D00688887 /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D778941D2A4ABA9D00688887 /* StringHelper.swift */; };
+		D77894202A4AC2B100688887 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D778941F2A4AC2B100688887 /* CategoryModel.swift */; };
+		D77894222A4ACD4F00688887 /* ExtensionCategoryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77894212A4ACD4F00688887 /* ExtensionCategoryHelper.swift */; };
 		D7F1568F2A4A79B6002373E2 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F1568E2A4A79B6002373E2 /* DateHelper.swift */; };
 		D7F156912A4A8319002373E2 /* DailyExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F156902A4A8319002373E2 /* DailyExpense.swift */; };
 		D9283D802A495922000E934A /* CoreDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9283D7F2A495922000E934A /* CoreDataViewModel.swift */; };
@@ -131,6 +134,9 @@
 		D74679B02A44C139009C712B /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
 		D74679B42A44C15D009C712B /* ExpenseDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDataModel.swift; sourceTree = "<group>"; };
 		D77894192A4A9E5800688887 /* NavigationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHelper.swift; sourceTree = "<group>"; };
+		D778941D2A4ABA9D00688887 /* StringHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHelper.swift; sourceTree = "<group>"; };
+		D778941F2A4AC2B100688887 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
+		D77894212A4ACD4F00688887 /* ExtensionCategoryHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionCategoryHelper.swift; sourceTree = "<group>"; };
 		D7F1568E2A4A79B6002373E2 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		D7F156902A4A8319002373E2 /* DailyExpense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyExpense.swift; sourceTree = "<group>"; };
 		D9283D7F2A495922000E934A /* CoreDataViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataViewModel.swift; sourceTree = "<group>"; };
@@ -196,6 +202,8 @@
 				26A72D082A459C29008AC025 /* Camera */,
 				D7F1568E2A4A79B6002373E2 /* DateHelper.swift */,
 				D77894192A4A9E5800688887 /* NavigationHelper.swift */,
+				D778941D2A4ABA9D00688887 /* StringHelper.swift */,
+				D77894212A4ACD4F00688887 /* ExtensionCategoryHelper.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -402,6 +410,7 @@
 				D9283D812A495991000E934A /* PersistenceController.swift */,
 				D74679B42A44C15D009C712B /* ExpenseDataModel.swift */,
 				D70475A22A46ED9400BAC7F1 /* CoreDataModel.xcdatamodeld */,
+				D778941F2A4AC2B100688887 /* CategoryModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -554,12 +563,14 @@
 				D746794F2A449734009C712B /* ExpenseCategoryEnum.swift in Sources */,
 				26A72D0C2A459C91008AC025 /* CameraView.swift in Sources */,
 				D746794A2A444BC6009C712B /* FieldTypeEnum + FieldView.swift in Sources */,
+				D77894222A4ACD4F00688887 /* ExtensionCategoryHelper.swift in Sources */,
 				262388D12A45FDBD00BA3298 /* HomeView.swift in Sources */,
 				D7F156912A4A8319002373E2 /* DailyExpense.swift in Sources */,
 				D70475B32A4891E000BAC7F1 /* EmptyExpenseView.swift in Sources */,
 				26A72D0A2A459C35008AC025 /* CameraService.swift in Sources */,
 				D70475C02A49D38A00BAC7F1 /* ExpenseContent.swift in Sources */,
 				2684E2062A499E6F000B775F /* SheetManager.swift in Sources */,
+				D77894202A4AC2B100688887 /* CategoryModel.swift in Sources */,
 				262976CF2A47233B007E2595 /* ReportView.swift in Sources */,
 				D74679432A444161009C712B /* CategoryLabel.swift in Sources */,
 				D9283D822A495991000E934A /* PersistenceController.swift in Sources */,
@@ -584,6 +595,7 @@
 				D74679532A44AC74009C712B /* DoneButton.swift in Sources */,
 				262976CD2A47232C007E2595 /* ExpensesView.swift in Sources */,
 				D74679B52A44C15D009C712B /* ExpenseDataModel.swift in Sources */,
+				D778941E2A4ABA9D00688887 /* StringHelper.swift in Sources */,
 				D746790C2A442F0B009C712B /* MC2_United_HandsApp.swift in Sources */,
 				26A72D102A459D23008AC025 /* AddMomentRenameView.swift in Sources */,
 				2684E20B2A49AAC2000B775F /* DatePickerItem.swift in Sources */,

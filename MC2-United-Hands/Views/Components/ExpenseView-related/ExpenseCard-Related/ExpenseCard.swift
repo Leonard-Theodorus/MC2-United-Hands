@@ -10,8 +10,8 @@ import SwiftUI
 struct ExpenseCard: View {
     @State var imageView : Image = Image(systemName: "figure.soccer")
     @State var expenseCategory : ExpenseCategoryPicker.expenseCategory = .food
-//    @Binding var imageView : UIImage
-//    @Binding var expenseCategory : ExpenseCategoryPicker
+    //    @Binding var imageView : UIImage
+    //    @Binding var expenseCategory : ExpenseCategoryPicker
     @State var expenseData : ExpenseData
     
     var body: some View {
@@ -19,15 +19,21 @@ struct ExpenseCard: View {
             RoundedImage(expenseImage: expenseData.image ?? UIImage())
             VStack{
                 //TODO: Expense nominal
-                Text("Rp. 25.000")
-                    .bold()
-                    .padding(.leading)
-                    .accessibilityLabel(Text("Expense Nominal"))
+                if let amount = expenseData.amount as? NSNumber{
+                    if let nominal = Formatter.currencyFormatter.string(from: amount){
+                        Text("Rp. " + nominal)
+                            .bold()
+                            .padding(.leading)
+                            .accessibilityLabel(Text("Expense Nominal"))
+                    }
+                }
                 //TODO: Expense Time
-                Text("08.00 AM")
-                    .font(.caption)
-                    .padding(.trailing)
-                    .accessibilityLabel(Text("Time added"))
+                if let timeStamp = expenseData.timestamp{
+                    Text(Formatter.timeFormatter.string(from: timeStamp))
+                        .font(.caption)
+                        .padding(.trailing)
+                        .accessibilityLabel(Text("Time added"))
+                }
                 //TODO: Expense Category
                 CategoryLabel(stringLabel: expenseData.category ?? "")
                     .padding(.leading)

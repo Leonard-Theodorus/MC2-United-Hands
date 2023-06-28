@@ -10,11 +10,7 @@ import SwiftUI
 struct ExpensesHorizontalScrollView: View {
     @Binding var isDetailExpenses: Bool
     
-    @State var expenses : [ExpenseData] = [
-        .init(id: UUID(), image: UIImage(systemName: "trash"), category: "Food & Drink", amount: 12000, timestamp: Date.now),
-        .init(id: UUID(),image: UIImage(systemName: "signature"), category: "Others", amount: 12000, timestamp: Date.now),
-        .init(id: UUID(),image: UIImage(systemName: "allergens"), category: "Entertainment", amount: 12000, timestamp: Date.now)
-    ]
+    @State var expenses : [ExpenseData] = []
     var body: some View {
         HStack{
             ForEach(expenses, id: \.id) { expense in
