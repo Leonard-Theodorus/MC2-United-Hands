@@ -15,7 +15,6 @@ class CoreDataViewModel: ObservableObject {
     @Published var expenseToBeEdited : ExpenseData?
     init() {
         fetchExpenseData()
-//        userExpenses = getExpensesByDate(startDate: <#T##Date#>, endDate: <#T##Date#>)
     }
     
     func fetchExpenseData() {
@@ -25,29 +24,6 @@ class CoreDataViewModel: ObservableObject {
             expenseArray = try viewContext.fetch(request)
         }catch {
             print("Fetch data failed")
-        }
-    }
-    
-    func addExpense(image: Data, amount: Int, category: String, timestamp: Date) {
-        let expense = ExpenseEntity(context: viewContext)
-        
-        let imageFileName = "\(UUID().uuidString).jpg"
-        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let imagePath = documentsDirectory.appendingPathComponent(imageFileName)
-        do {
-            try image.write(to: imagePath)
-            expense.imageFilePath = imageFileName
-            expense.id = UUID()
-            expense.amount = Int64(amount)
-            expense.category = category
-            expense.timestamp = timestamp
-            
-
-            save()
-            self.fetchExpenseData()
-        } catch {
-            print("Failed to save expense: \(error.localizedDescription)")
-            
         }
     }
     func addExpenseNoArray(image: Data, amount: Int, category: String, timestamp: Date, startDate : Date, endDate : Date) {
@@ -66,42 +42,9 @@ class CoreDataViewModel: ObservableObject {
         
 
             save()
-            self.fetchExpenseData()
-            userExpenses =  getExpensesByDate(startDate: startDate, endDate: endDate)
+            getExpensesByDateNoArray()
         } catch {
             print("Failed to save expense: \(error.localizedDescription)")
-            
-        }
-    }
-    //TODO: Consider diapus
-    func editExpense(withUUID uuid: UUID, category: String, amount: Int, image: Data) {
-        if let expense = expenseArray.first(where: { $0.id == uuid }) {
-            expense.category = category
-            expense.amount = Int64(amount)
-            
-            if let imagePath = expense.imageFilePath {
-                let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-                let imageURL = documentsDirectory.appendingPathComponent(imagePath)
-                
-                do {
-                    try FileManager.default.removeItem(at: imageURL)
-                } catch {
-                    print("Failed to delete old image file: \(error.localizedDescription)")
-                }
-            }
-            
-            let newImageFileName = "\(UUID().uuidString).jpg"
-            let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-            let newImagePath = documentsDirectory.appendingPathComponent(newImageFileName)
-            
-            do {
-                try image.write(to: newImagePath)
-                expense.imageFilePath = newImageFileName
-            } catch {
-                print("Failed to save new image: \(error.localizedDescription)")
-            }
-            
-            save()
             
         }
     }
@@ -159,13 +102,18 @@ class CoreDataViewModel: ObservableObject {
             return []
         }
     }
-    func getExpensesByDateNoArray(startDate: Date, endDate: Date) {
-        let calendar = Calendar.current
-        let startOfDay = calendar.startOfDay(for: startDate)
-        let endOfDay = calendar.startOfDay(for: endDate).addingTimeInterval(24 * 60 * 60)
+    func getExpensesByDateNoArray() {
+        var endOfWeek : Date
+        var timeInterval = TimeInterval()
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.firstWeekday = 2
+        var startOfWeek = Date()
+        calendar.dateInterval(of: .weekOfMonth, start: &startOfWeek, interval: &timeInterval, for: Date())
+        endOfWeek = startOfWeek.addingTimeInterval(timeInterval - 1)
+        
         
         let request = NSFetchRequest<ExpenseEntity>(entityName: "ExpenseEntity")
-        request.predicate = NSPredicate(format: "(timestamp >= %@) AND (timestamp < %@)", startOfDay as NSDate, endOfDay as NSDate)
+        request.predicate = NSPredicate(format: "(timestamp >= %@) AND (timestamp <= %@)", startOfWeek as NSDate , endOfWeek as NSDate)
         
         do {
             let fetchedExpenses = try viewContext.fetch(request)

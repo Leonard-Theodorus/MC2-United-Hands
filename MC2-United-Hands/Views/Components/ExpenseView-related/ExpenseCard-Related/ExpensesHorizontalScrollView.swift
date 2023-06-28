@@ -10,9 +10,10 @@ import SwiftUI
 struct ExpensesHorizontalScrollView: View {
     @EnvironmentObject var coreDataVm : CoreDataViewModel
     @EnvironmentObject var expenseVm : ExpensesViewModel
+    @Binding var expenseAtDate: Date
     var body: some View {
         HStack{
-            ForEach(coreDataVm.userExpenses, id: \.id) { expense in
+            ForEach(coreDataVm.userExpenses.filter({dayOfDate(for: $0.timestamp ?? Date()) == dayOfDate(for: expenseAtDate)}), id: \.id) { expense in
                 ExpenseCard(expenseData: expense)
                     .onTapGesture {
                         // TODO: Pass all parameters
@@ -28,6 +29,6 @@ struct ExpensesHorizontalScrollView: View {
 
 struct ExpensesHorizontalScrollView_Previews: PreviewProvider {
     static var previews: some View {
-        ExpensesHorizontalScrollView()
+        ExpensesHorizontalScrollView(expenseAtDate: .constant(Date()))
     }
 }
