@@ -132,26 +132,6 @@ class CoreDataViewModel: ObservableObject {
         }
     }
     
-//    func deleteExpense(withUUID uuid: UUID) {
-//        print(uuid)
-//        if let expense = expenseArray.first(where: { $0.id == uuid }) {
-//            if let imagePath = expense.imageFilePath {
-//                let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-//                let imageURL = documentsDirectory.appendingPathComponent(imagePath)
-//
-//                do {
-//                    try FileManager.default.removeItem(at: imageURL)
-//                } catch {
-//                    print("Failed to delete image file: \(error.localizedDescription)")
-//                }
-//            }
-//
-//            viewContext.delete(expense)
-//            save()
-//            fetchExpenseData()
-//        }
-//    }
-    
     // Filters
     
     func getExpensesByDate(startDate: Date, endDate: Date) -> [ExpenseData] {
