@@ -8,11 +8,19 @@
 import SwiftUI
 
 struct ExpensesHorizontalScrollView: View {
+    @Binding var isDetailExpenses: Bool
+    
     @State var expenses : [ExpenseData] = []
     var body: some View {
         HStack{
             ForEach(expenses, id: \.id) { expense in
                 ExpenseCard(expenseData: expense)
+                    .onTapGesture {
+                        // TODO: Pass all parameters
+                        withAnimation {
+                            isDetailExpenses.toggle()
+                        }
+                    }
             }
         }
     }
@@ -20,6 +28,6 @@ struct ExpensesHorizontalScrollView: View {
 
 struct ExpensesHorizontalScrollView_Previews: PreviewProvider {
     static var previews: some View {
-        ExpensesHorizontalScrollView()
+        ExpensesHorizontalScrollView(isDetailExpenses: .constant(false))
     }
 }

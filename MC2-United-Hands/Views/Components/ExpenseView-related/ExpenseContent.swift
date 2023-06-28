@@ -7,6 +7,7 @@
 
 import SwiftUI
 struct ExpenseContent: View {
+    @Binding var isDetailExpenses: Bool
     @Binding var expenses : [ExpenseData]
     @EnvironmentObject var coreDataVm : CoreDataViewModel
     @EnvironmentObject var expenseVm : ExpensesViewModel
@@ -50,6 +51,7 @@ struct ExpenseContent: View {
 
 struct ExpenseContent_Previews: PreviewProvider {
     static var previews: some View {
+
         ExpenseContent(expenses: .constant([.init(id: UUID(), image: UIImage(), category: "", amount: 0, timestamp: Date.now)]))
             .environmentObject(CoreDataViewModel())
     }

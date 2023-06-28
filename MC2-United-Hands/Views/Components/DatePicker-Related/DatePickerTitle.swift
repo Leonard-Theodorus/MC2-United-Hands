@@ -19,23 +19,11 @@ struct DatePickerTitle: View {
                 .padding()
             Spacer()
             
-            Button {
+            CloseButton(width: width, foregroundColor: .secondary, backgroundColor: .datePickerCloseGray) {
                 withAnimation {
                     sheetManager.dismiss()
                 }
-            } label: {
-                Image(systemName: "xmark")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: width * 0.03)
-                    .padding(10)
-                    .foregroundColor(.secondary)
-                    .fontWeight(.bold)
-                    .background(Color.datePickerCloseGray)
-                    .clipShape(Circle())
-                    .padding()
             }
-            
         }
     }
 }

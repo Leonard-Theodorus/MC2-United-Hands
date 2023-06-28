@@ -13,6 +13,8 @@ struct ExpensesView: View {
     @Binding var pageNavigator: PageNavigation
     @Binding var totalExpenses: Int
     @State var expensesVM = ExpensesViewModel()
+    @Binding var isDetailExpenses: Bool
+    
     @Binding var expenses : [ExpenseData]
     @EnvironmentObject var coreDataVm : CoreDataViewModel
     var body: some View {
@@ -23,6 +25,7 @@ struct ExpensesView: View {
             else {
                 TopBarView(width: width, height: height, date: expensesVM.dateInterval(), pageNavigator: $pageNavigator, totalExpenses: $totalExpenses)
                 ExpenseContent(expenses: $expenses)
+                //ExpenseContent(isDetailExpenses: $isDetailExpenses)
                     .padding()
                 Spacer()
             }

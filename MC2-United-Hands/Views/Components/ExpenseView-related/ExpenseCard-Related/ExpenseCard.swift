@@ -51,6 +51,6 @@ struct ExpenseCard: View {
 
 struct ExpenseCard_Previews: PreviewProvider {
     static var previews: some View {
-        ExpenseCard(expenseData: ExpenseData(id: UUID(), image: UIImage(), category: "", amount: 0, timestamp: Date.now))
+        ExpenseCard(expenseData: ExpenseData(id: UUID(), image: UIImage(systemName: "trash"), category: "", amount: 0, timestamp: Date.now))
     }
 }
