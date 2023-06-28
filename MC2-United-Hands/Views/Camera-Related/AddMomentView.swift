@@ -99,8 +99,8 @@ struct AddMomentView: View {
             }
             
             .navigationDestination(isPresented: $isEditMomentsViewPresented) {
-                if capturedImage != nil {
-                    AddMomentRenameView(isEditMomentsViewPresented: $isEditMomentsViewPresented, capturedImage: capturedImage!, width: width, height: height)
+                if let capturedImage {
+                    AddMomentRenameView(isEditMomentsViewPresented: $isEditMomentsViewPresented, capturedImage: capturedImage, width: width, height: height)
                 }
             }
         }

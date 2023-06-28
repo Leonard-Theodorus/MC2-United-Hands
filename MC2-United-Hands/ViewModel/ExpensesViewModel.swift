@@ -11,7 +11,7 @@ class ExpensesViewModel: ObservableObject {
     @Published var startDate = Date()
     @Published var interval = TimeInterval()
     @Published var endDate = Date()
-    
+    @Published var isDetailExpense : Bool = false
     func dateInterval() -> String {
         var customCalendar = Calendar(identifier: .gregorian)
         customCalendar.firstWeekday = 2

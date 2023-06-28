@@ -10,11 +10,8 @@ import SwiftUI
 
 
 struct DailyExpenseView: View {
-    var expenses: [ExpenseData]
     var date: Date
     var nominal: Int
-    
-    @Binding var isDetailExpenses: Bool
     
     var body: some View {
         VStack(alignment: .leading){
@@ -30,7 +27,7 @@ struct DailyExpenseView: View {
                 .bold()
                 .padding(.top, 2)
             ScrollView(.horizontal) {
-                ExpensesHorizontalScrollView(isDetailExpenses: $isDetailExpenses, expenses: expenses.filter({dayOfDate(for: $0.timestamp ?? Date())  == dayOfDate(for: date)}))
+                ExpensesHorizontalScrollView()
             }
         }
         .padding(.top)

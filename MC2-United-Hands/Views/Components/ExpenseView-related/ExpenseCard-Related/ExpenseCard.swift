@@ -8,11 +8,7 @@
 import SwiftUI
 
 struct ExpenseCard: View {
-    @State var imageView : Image = Image(systemName: "figure.soccer")
-    @State var expenseCategory : ExpenseCategoryPicker.expenseCategory = .food
-    //    @Binding var imageView : UIImage
-    //    @Binding var expenseCategory : ExpenseCategoryPicker
-    @State var expenseData : ExpenseData
+    var expenseData : ExpenseData
     
     var body: some View {
         HStack{

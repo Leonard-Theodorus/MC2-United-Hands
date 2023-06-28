@@ -8,10 +8,10 @@
 import Foundation
 import UIKit
 
-struct ExpenseData: Identifiable {
-        let id : UUID
-        let image: UIImage?
-        let category: String?
-        let amount: Int?
-        let timestamp: Date?
+struct ExpenseData: Identifiable{
+    var id : UUID
+    var image: UIImage?
+    var category: String?
+    var amount: Int?
+    var timestamp: Date?
 }
