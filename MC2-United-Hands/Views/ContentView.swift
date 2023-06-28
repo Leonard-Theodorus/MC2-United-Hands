@@ -20,15 +20,6 @@ struct ContentView: View {
         }
         
         
-        //        VStack{
-        //            ExpensesHorizontalScrollView()
-        //            if !onBoardingVm.firstTime{
-        //                Text("FirstTIme")
-        //            }
-        //
-        //        }
-        
-        
     }
 }
 

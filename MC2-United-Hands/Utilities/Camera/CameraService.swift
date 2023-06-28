@@ -67,6 +67,9 @@ public class CameraService {
     }
     
     func capturePhoto(with settings:AVCapturePhotoSettings = AVCapturePhotoSettings()) {
+        if let photoOutputConnection = self.output.connection(with: AVMediaType.video) {
+            photoOutputConnection.videoOrientation = AVCaptureVideoOrientation.portrait
+        }
         output.capturePhoto(with: settings, delegate: delegate!)
     }
 }

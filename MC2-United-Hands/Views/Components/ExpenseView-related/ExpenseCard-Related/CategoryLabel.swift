@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CategoryLabel: View {
-    @State var stringLabel : String = "Food & Drink"
+    var stringLabel : String
     var body: some View {
         Text(stringLabel)
             .font(.footnote)
@@ -24,6 +24,6 @@ struct CategoryLabel: View {
 
 struct CategoryLabel_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryLabel()
+        CategoryLabel(stringLabel: "")
     }
 }

@@ -10,8 +10,8 @@ import SwiftUI
 struct DetailExpenseView: View {
     var width: CGFloat
     var height: CGFloat
-    @Binding var isDetailExpenses: Bool
-    
+    @EnvironmentObject var coreDataVm : CoreDataViewModel
+    @EnvironmentObject var expenseVm : ExpensesViewModel
     var body: some View {
         ZStack {
             // background item
@@ -19,7 +19,7 @@ struct DetailExpenseView: View {
                 .opacity(0.3)
                 .onTapGesture {
                     withAnimation {
-                        isDetailExpenses.toggle()
+                        expenseVm.isDetailExpense.toggle()
                     }
                 }
             
@@ -32,7 +32,7 @@ struct DetailExpenseView: View {
                         CloseButton(width: width, foregroundColor: .white, backgroundColor: .gray) {
                             //TODO: Close pop up
                             withAnimation {
-                                isDetailExpenses.toggle()
+                                expenseVm.isDetailExpense.toggle()
                             }
                         }
                     }
@@ -47,36 +47,46 @@ struct DetailExpenseView: View {
                 
                 // komponen dalemnya
                 VStack {
-                    Image(systemName: "trash")
+                    Image(uiImage: coreDataVm.expenseToBeEdited?.image ?? UIImage())
                         .resizable()
                         .scaledToFit()
                         .frame(width: width * 0.4, height: width * 0.4)
                         .background(.yellow)
                         .clipShape(Circle())
+                        .rotationEffect(.degrees(90))
                     
-                    Text("Rp.25.000")
-                        .font(.largeTitle)
-                        .fontWeight(.semibold)
+                    if let amount = coreDataVm.expenseToBeEdited?.amount as? NSNumber{
+                        if let nominal = Formatter.currencyFormatter.string(from: amount){
+                            Text(nominal)
+                                .font(.largeTitle)
+                                .fontWeight(.semibold)
+                        }
+                    }
+                    
                     
                     Divider()
                     
                     HStack {
                         Spacer()
                         
-                        CategoryLabel(stringLabel: "Food & Drink")
-                        
+                        if let category = coreDataVm.expenseToBeEdited?.category{
+                            CategoryLabel(stringLabel: category)
+                        }
                         Spacer()
                         
                         VStack (alignment: .leading) {
-                            Text("Thursday, 21 June 2023")
-                                .foregroundColor(.secondary)
-                                .fontWeight(.semibold)
-                                .padding(.bottom, 1)
-                            
-                            Text("08.00AM")
-                                .font(.subheadline)
-                                .foregroundColor(.secondary)
-                                .fontWeight(.semibold)
+                            if let timeStamp = coreDataVm.expenseToBeEdited?.timestamp{
+                                Text(Formatter.dayFormatter.string(from: timeStamp))
+                                    .foregroundColor(.secondary)
+                                    .fontWeight(.semibold)
+                                    .padding(.bottom, 1)
+                                
+                                Text(Formatter.timeFormatter.string(from: timeStamp))
+                                    .font(.subheadline)
+                                    .foregroundColor(.secondary)
+                                    .fontWeight(.semibold)
+                                
+                            }
                         }
                         
                         Spacer()
@@ -85,7 +95,7 @@ struct DetailExpenseView: View {
                     .padding(.vertical)
                     
                     //TODO: Move to edit expenses
-                    CapsuleConfirmationButton(buttonDescription: "Edit Expenses", width: width * 0.8, dest: EmptyView())
+                    CapsuleConfirmationButton(buttonDescription: "Edit Expenses", width: width * 0.8, dest: FormView(isManualInput: .constant(true), editingMode: true))
                     
                     Button {
                         //TODO: Delete expense
@@ -107,6 +117,6 @@ struct DetailExpenseView: View {
 
 struct DetailExpenseView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailExpenseView(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, isDetailExpenses: .constant(true))
+        DetailExpenseView(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
     }
 }

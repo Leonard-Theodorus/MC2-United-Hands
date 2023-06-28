@@ -51,6 +51,7 @@ struct CameraView: UIViewControllerRepresentable {
                 didFinishProcessingPhoto(.failure(error))
                 return
             }
+            
             didFinishProcessingPhoto(.success(photo))
         }
     }

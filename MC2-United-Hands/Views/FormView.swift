@@ -8,27 +8,43 @@
 import SwiftUI
 struct FormView: View {
     @Binding var isManualInput : Bool
-    @State private var formTypes : [FormField.fieldType] = [.nominal, .category, .photo, .date]
+    @State var editingMode : Bool = false
+    @State private var formTypes : [FormField.fieldType] = []
     @EnvironmentObject var coreDataViewModel : CoreDataViewModel
+    @EnvironmentObject var expenseVm : ExpensesViewModel
     @State var expenseAmount : String = ""
     @State var categorySelected : CategoryModel = CategoryModel()
+    @State var expenseDate : Date = Date()
     var capturedImage : UIImage?
     var body: some View {
         VStack(spacing: 24) {
             Group{
                 ForEach(formTypes, id: \.fieldName){field in
-                    FormField(fieldType: field, expenseAmount: $expenseAmount, categorySelected: $categorySelected)
+                    FormField(fieldType: field, expenseAmount: $expenseAmount, categorySelected: $categorySelected, expenseDate: $expenseDate)
+                    
                 }
             }
             Spacer()
+            
             ConfirmationButton(buttonDescription: "Done", buttonBackgroundColor: Color.primaryBlue){
-                print(categorySelected.category)
-                if let imageData = capturedImage?.pngData(){
-                    coreDataViewModel.addExpense(image: imageData, amount: expenseAmountFromString(for: expenseAmount), category: categorySelected.category, timestamp: Date.now)
+                if editingMode{
+                    coreDataViewModel.editExpenseNoArray(withUUID: coreDataViewModel.expenseToBeEdited?.id ?? UUID(), newCategory: categorySelected.category, newAmount: expenseAmountFromString(for: expenseAmount), newDate: expenseDate, startDate: expenseVm.startDate, endDate: expenseVm.endDate)
+                    DispatchQueue.main.async {
+                        expenseVm.isDetailExpense.toggle()
+                        
+                    }
                     NavigationUtil.popToRootView()
+                    
                 }
                 else{
-                    coreDataViewModel.addExpense(image: UIImage(systemName: "photo.on.rectangle.angled")?.pngData() ?? Data(), amount: expenseAmountFromString(for: expenseAmount), category: categorySelected.category, timestamp: Date.now)
+                    if let imageData = capturedImage?.pngData(){
+                        coreDataViewModel.addExpenseNoArray(image: imageData, amount: expenseAmountFromString(for: expenseAmount), category: categorySelected.category, timestamp: Calendar.current.date(byAdding: .day, value: -1, to: Date())!, startDate: expenseVm.startDate, endDate: expenseVm.endDate)
+                        NavigationUtil.popToRootView()
+                    }
+                    else{
+                        coreDataViewModel.addExpenseNoArray(image: UIImage(systemName: "photo.on.rectangle.angled")?.pngData() ?? Data(), amount: expenseAmountFromString(for: expenseAmount), category: categorySelected.category, timestamp: Date.now, startDate: expenseVm.startDate, endDate: expenseVm.endDate)
+                    }
+                    
                 }
             }
             if !isManualInput{
@@ -42,6 +58,23 @@ struct FormView: View {
             if !isManualInput{
                 formTypes = [.nominal, .category]
             }
+            if editingMode{
+                if let amount = coreDataViewModel.expenseToBeEdited?.amount{
+                    expenseAmount = String(amount)
+                    
+                }
+                if let category = coreDataViewModel.expenseToBeEdited?.category{
+                    categorySelected = CategoryModel(category: category)
+                    
+                }
+                if let dateRecorded = coreDataViewModel.expenseToBeEdited?.timestamp{
+                    expenseDate = dateRecorded
+                }
+                formTypes = [.nominal, .category, .date]
+            }
+        }
+        .onDisappear{
+            coreDataViewModel.getExpensesByDateNoArray(startDate: expenseVm.startDate, endDate: expenseVm.endDate)
         }
         
     }
@@ -51,5 +84,6 @@ struct ManualInputFormView_Previews: PreviewProvider {
     static var previews: some View {
         FormView(isManualInput: .constant(true), capturedImage: UIImage())
             .environmentObject(CoreDataViewModel())
+            .environmentObject(ExpensesViewModel())
     }
 }
