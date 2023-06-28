@@ -37,7 +37,7 @@ struct HomeView: View {
                 TabBarView(width: width, height: height, pageNavigator: $pageNavigator)
             }
             .onAppear{
-                coredataVm.getExpensesByDateNoArray(startDate: expenseVm.startDate, endDate: expenseVm.endDate)
+                coredataVm.getExpensesByDateNoArray()
                 totalExpenses = coredataVm.userExpenses.map({$0.amount ?? 0}).reduce(0, +)
             }
             .frame(width: width, height: height)

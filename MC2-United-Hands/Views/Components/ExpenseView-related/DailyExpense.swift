@@ -12,7 +12,7 @@ import SwiftUI
 struct DailyExpenseView: View {
     var date: Date
     var nominal: Int
-    
+    @State var expenseAtDate : Date = Date.now
     var body: some View {
         VStack(alignment: .leading){
             if dayOfDate(for: date) == dayOfDate(for: Date()){
@@ -27,9 +27,12 @@ struct DailyExpenseView: View {
                 .bold()
                 .padding(.top, 2)
             ScrollView(.horizontal) {
-                ExpensesHorizontalScrollView()
+                ExpensesHorizontalScrollView(expenseAtDate: $expenseAtDate)
             }
         }
         .padding(.top)
+        .onAppear{
+            expenseAtDate = date
+        }
     }
 }

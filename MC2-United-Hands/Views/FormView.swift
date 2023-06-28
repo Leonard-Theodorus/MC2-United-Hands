@@ -71,10 +71,8 @@ struct FormView: View {
                     expenseDate = dateRecorded
                 }
                 formTypes = [.nominal, .category, .date]
+//                formTypes = [.nominal, .category]
             }
-        }
-        .onDisappear{
-            coreDataViewModel.getExpensesByDateNoArray(startDate: expenseVm.startDate, endDate: expenseVm.endDate)
         }
         
     }
