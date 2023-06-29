@@ -16,7 +16,6 @@ struct ExpensesHorizontalScrollView: View {
             ForEach(coreDataVm.userExpenses.filter({dayOfDate(for: $0.timestamp ?? Date()) == dayOfDate(for: expenseAtDate)}), id: \.id) { expense in
                 ExpenseCard(expenseData: expense)
                     .onTapGesture {
-                        // TODO: Pass all parameters
                         withAnimation {
                             expenseVm.isDetailExpense.toggle()
                             coreDataVm.expenseToBeEdited = expense
@@ -30,5 +29,6 @@ struct ExpensesHorizontalScrollView: View {
 struct ExpensesHorizontalScrollView_Previews: PreviewProvider {
     static var previews: some View {
         ExpensesHorizontalScrollView(expenseAtDate: .constant(Date()))
+            .environmentObject(CoreDataViewModel())
     }
 }

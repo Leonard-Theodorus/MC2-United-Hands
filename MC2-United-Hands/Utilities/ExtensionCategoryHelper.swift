@@ -8,7 +8,7 @@
 import Foundation
 
 extension CategoryModel{
-    func categoryStyleFromString() -> ExpenseCategoryPicker.expenseCategory{
+    func categoryStyleFromString() -> ExpenseCategory {
         switch self.category{
         case "Food & Drink":
             return .food

@@ -11,32 +11,46 @@ struct TopBarSymbol: View {
     var width: CGFloat
     var height: CGFloat
     @Binding var isCatButtonClicked: Bool
+    @Binding var pageNavigator : PageNavigation
     
     var body: some View {
         HStack {
             Spacer()
             VStack{
                 Spacer()
-                if isCatButtonClicked {
-                    Image("CatButton1")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: width * 0.4)
-                        .offset(x: -width * 0.03)
-                        .padding(.trailing)
-                        .padding(.bottom)
-                        .onTapGesture {
-                            isCatButtonClicked.toggle()
-                        }
+                if !isCatButtonClicked {
+                    if pageNavigator == .expenses {
+                        Image(uiImage: UIImage(named: "CatHead2") ?? UIImage())
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: width * 0.4)
+                            .offset(x: -width * 0.03)
+                            .padding(.trailing)
+                            .padding(.bottom, 5)
+                            .onTapGesture {
+                                isCatButtonClicked.toggle()
+                            }
+                    } else {
+                        Image(uiImage: UIImage(named: "CatHead1") ?? UIImage())
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: width * 0.45)
+                            .offset(x: -width * 0.06)
+                            .padding(.trailing)
+                            .padding(.bottom, 5)
+                            .onTapGesture {
+                                isCatButtonClicked.toggle()
+                            }
+                    }
+                    
                 }
                 else {
-                    Image("CatButton2")
+                    Image(uiImage: UIImage(named: "CatHead3") ?? UIImage())
                         .resizable()
                         .scaledToFit()
-                        .frame(width: width * 0.4)
-                        .offset(x: -width * 0.03)
+                        .frame(width: width * 0.32)
                         .padding(.trailing)
-                        .padding(.bottom)
+                        .padding(.bottom, 5)
                         .onTapGesture {
                             isCatButtonClicked.toggle()
                         }

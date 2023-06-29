@@ -22,7 +22,6 @@ struct ExpensesView: View {
             else {
                 TopBarView(width: width, height: height, date: expensesVM.dateInterval(), pageNavigator: $pageNavigator, totalExpenses: $totalExpenses)
                 ExpenseContent()
-                //ExpenseContent(isDetailExpenses: $isDetailExpenses)
                     .padding()
                 Spacer()
             }

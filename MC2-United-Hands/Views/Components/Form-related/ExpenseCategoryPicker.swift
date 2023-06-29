@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct ExpenseCategoryPicker: View {
-    @State var categoryType : expenseCategory
+    @State var categoryType : ExpenseCategory
     @Binding var showCategoryModal : Bool
     @Binding var categorySelected : CategoryModel
+    
     var body: some View {
         HStack{
             Image(systemName: categoryType.icon).foregroundColor(categoryType.foregroundColor)

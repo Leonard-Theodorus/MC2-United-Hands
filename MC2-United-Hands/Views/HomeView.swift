@@ -23,9 +23,7 @@ struct HomeView: View {
         ZStack(alignment: .bottom) {
             VStack {
                 if pageNavigator == .expenses{
-                    //TODO: Expense View
                     ExpensesView(width: width, height: height, pageNavigator: $pageNavigator, totalExpenses: $totalExpenses)
-                    //ExpensesView(width: width, height: height, pageNavigator: $pageNavigator, totalExpenses: $totalExpenses, isDetailExpenses: $isDetailExpenses)
                         .frame(width: width, height: height * 0.9)
                 }
                 else{
@@ -57,5 +55,6 @@ struct HomeView_Previews : PreviewProvider{
         HomeView(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, pageNavigator: .constant(.expenses))
             .environmentObject(SheetManager())
             .environmentObject(CoreDataViewModel())
+            .environmentObject(ExpensesViewModel())
     }
 }
