@@ -31,7 +31,7 @@ struct AddMomentOnBoardingView: View {
                 .padding(.horizontal, 20)
             }
             Spacer()
-            CapsuleConfirmationButton(buttonDescription: "Open Camera", width: UIScreen.main.bounds.width, dest: AddMomentView(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, shouldShowCamera: true, expenseAmount: "", categorySelected: CategoryModel(), expenseDate: Date()))
+            CapsuleConfirmationButton(buttonDescription: "Open Camera", width: UIScreen.main.bounds.width, dest: AddMomentView(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, shouldShowCamera: false, expenseAmount: "", categorySelected: CategoryModel(), expenseDate: Date()))
             
             
         }
