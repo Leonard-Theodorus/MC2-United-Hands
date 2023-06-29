@@ -12,6 +12,7 @@ struct FormField: View {
     @Binding var expenseAmount : String
     @Binding var categorySelected : CategoryModel
     @Binding var expenseDate : Date
+
     @State var expenseImage : UIImage = UIImage()
     @State var showDate : Bool = false
     @State var showCategoryModal : Bool = false

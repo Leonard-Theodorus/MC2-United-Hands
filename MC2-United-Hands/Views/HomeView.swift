@@ -38,6 +38,9 @@ struct HomeView: View {
                 coredataVm.getExpensesByDateNoArray()
                 totalExpenses = coredataVm.userExpenses.map({$0.amount ?? 0}).reduce(0, +)
             }
+            .onChange(of: coredataVm.userExpenses.count, perform: { newValue in
+                totalExpenses = coredataVm.userExpenses.map({$0.amount ?? 0}).reduce(0, +)
+            })
             .frame(width: width, height: height)
             
             if sheetManager.action.isPresented {
