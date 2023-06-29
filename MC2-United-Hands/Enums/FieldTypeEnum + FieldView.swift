@@ -31,6 +31,7 @@ extension FormField{
     var FieldView : some View{
         switch self.fieldType{
         case .nominal:
+            //TODO: Add currency formatter + validasi biar gak nol
             HStack {
                 Text("Rp.").foregroundColor(formForegroundColor)
                 ZStack(alignment: .leading){
@@ -38,6 +39,18 @@ extension FormField{
                         .keyboardType(.numberPad)
                         .accessibilityLabel(Text("Expense Nominal"))
                         .accessibilityAddTraits(.isKeyboardKey)
+                        .onChange(of: expenseAmount) { newValue in
+                            let numberString = newValue.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
+                            if let number = Int(numberString){
+                                expenseAmount = Formatter.currencyFormatter.string(from: number as NSNumber) ?? ""
+                            }
+                            if (numberString != "0"){
+                                amountValid = true
+                            }
+                            else{
+                                amountValid = false
+                            }
+                        }
                 }
                 
             }.modifier(BorderedFieldStyle(cornerRadius: 8, strokeColor: formForegroundColor))
@@ -97,8 +110,8 @@ extension FormField{
             }
         case .photo:
             Menu {
-                Button{
-                    print("Take photo")
+                NavigationLink{
+                    AddMomentView(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, shouldShowCamera: false, isManualInput: true)
                 } label: {
                     Label("Take Photo", systemImage: "photo")
                 }

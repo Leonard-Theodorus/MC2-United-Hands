@@ -10,6 +10,7 @@ import SwiftUI
 struct ConfirmationButton: View {
     var buttonDescription : String
     var buttonBackgroundColor : Color
+    @Binding var enabled : Bool
     var action: () -> Void
     var body: some View {
         Button (action: action){
@@ -25,10 +26,11 @@ struct ConfirmationButton: View {
                 Spacer()
             }
             .background(
-                RoundedRectangle(cornerRadius: 20).fill(buttonBackgroundColor)
+                RoundedRectangle(cornerRadius: 20).fill(!enabled ? .gray : buttonBackgroundColor)
             )
             .padding(.horizontal)
         }
+        .disabled(!enabled)
         .accessibilityLabel(Text("Done"))
         
     }

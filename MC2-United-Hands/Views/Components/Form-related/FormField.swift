@@ -17,6 +17,8 @@ struct FormField: View {
     @State var showCategoryModal : Bool = false
     @State var showContextMenu : Bool = false
     @State var formForegroundColor : Color = .primaryBlue
+    @Binding var amountValid : Bool
+    @State var temporaryAmount : Int = 0
     let categories : [ExpenseCategoryPicker.expenseCategory] = [.food, .groceries, .shopping, .entertainment, .rent, .transport, .other]
     var body: some View {
         VStack(alignment: .leading){
@@ -33,6 +35,6 @@ struct FormField: View {
 
 struct FormField_Previews: PreviewProvider {
     static var previews: some View {
-        FormField(expenseAmount: .constant(""), categorySelected: .constant(CategoryModel()), expenseDate: .constant(Date()))
+        FormField(expenseAmount: .constant(""), categorySelected: .constant(CategoryModel()), expenseDate: .constant(Date()), amountValid: .constant(false))
     }
 }

@@ -49,7 +49,7 @@ struct DetailExpenseView: View {
                 VStack {
                     Image(uiImage: coreDataVm.expenseToBeEdited?.image ?? UIImage())
                         .resizable()
-                        .scaledToFit()
+                        .scaledToFill()
                         .frame(width: width * 0.4, height: width * 0.4)
                         .background(.yellow)
                         .clipShape(Circle())
@@ -57,7 +57,7 @@ struct DetailExpenseView: View {
                     
                     if let amount = coreDataVm.expenseToBeEdited?.amount as? NSNumber{
                         if let nominal = Formatter.currencyFormatter.string(from: amount){
-                            Text(nominal)
+                            Text(nominal == "0" ? "No Input" : nominal)
                                 .font(.largeTitle)
                                 .fontWeight(.semibold)
                         }

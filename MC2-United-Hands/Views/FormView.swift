@@ -15,63 +15,142 @@ struct FormView: View {
     @State var expenseAmount : String = ""
     @State var categorySelected : CategoryModel = CategoryModel()
     @State var expenseDate : Date = Date()
+    @State var amountValid : Bool = true
     var capturedImage : UIImage?
     var body: some View {
-        VStack(spacing: 24) {
-            Group{
-                ForEach(formTypes, id: \.fieldName){field in
-                    FormField(fieldType: field, expenseAmount: $expenseAmount, categorySelected: $categorySelected, expenseDate: $expenseDate)
+        if isManualInput{
+            ScrollView(showsIndicators : false) {
+                VStack(spacing: 24) {
+                    Group{
+                        ForEach(formTypes, id: \.fieldName){field in
+                            FormField(fieldType: field, expenseAmount: $expenseAmount, categorySelected: $categorySelected, expenseDate: $expenseDate, amountValid: $amountValid)
+                            
+                        }
+                    }
+                    Spacer()
                     
-                }
-            }
-            Spacer()
-            
-            ConfirmationButton(buttonDescription: "Done", buttonBackgroundColor: Color.primaryBlue){
-                if editingMode{
-                    coreDataViewModel.editExpenseNoArray(withUUID: coreDataViewModel.expenseToBeEdited?.id ?? UUID(), newCategory: categorySelected.category, newAmount: expenseAmountFromString(for: expenseAmount), newDate: expenseDate, startDate: expenseVm.startDate, endDate: expenseVm.endDate)
-                    DispatchQueue.main.async {
-                        expenseVm.isDetailExpense.toggle()
+                    ConfirmationButton(buttonDescription: "Done", buttonBackgroundColor: Color.primaryBlue, enabled: $amountValid){
+                        if amountValid{
+                            if editingMode{
+                                coreDataViewModel.editExpenseNoArray(withUUID: coreDataViewModel.expenseToBeEdited?.id ?? UUID(), newCategory: categorySelected.category, newAmount: expenseAmountFromString(for: expenseAmount), newDate: expenseDate, startDate: expenseVm.startDate, endDate: expenseVm.endDate)
+                                DispatchQueue.main.async {
+                                    expenseVm.isDetailExpense.toggle()
+                                    
+                                }
+                                NavigationUtil.popToRootView()
+                                
+                            }
+                            else{
+                                if let imageData = capturedImage?.pngData(){
+                                    coreDataViewModel.addExpenseNoArray(image: imageData, amount: expenseAmountFromString(for: expenseAmount), category: categorySelected.category, timestamp: Date(), startDate: expenseVm.startDate, endDate: expenseVm.endDate)
+                                    NavigationUtil.popToRootView()
+                                }
+                                else{
+                                    coreDataViewModel.addExpenseNoArray(image: UIImage(systemName: "photo.on.rectangle.angled")?.pngData() ?? Data(), amount: expenseAmountFromString(for: expenseAmount), category: categorySelected.category, timestamp: Date.now, startDate: expenseVm.startDate, endDate: expenseVm.endDate)
+                                    NavigationUtil.popToRootView()
+                                }
+                                
+                            }
+                            
+                        }
+                    }
+                    if !isManualInput{
+                        ConfirmationButton(buttonDescription: "Cancel", buttonBackgroundColor: Color.red, enabled: .constant(true)){
+                            NavigationUtil.popToRootView()
+                        }
                         
                     }
-                    NavigationUtil.popToRootView()
-                    
                 }
-                else{
-                    if let imageData = capturedImage?.pngData(){
-                        coreDataViewModel.addExpenseNoArray(image: imageData, amount: expenseAmountFromString(for: expenseAmount), category: categorySelected.category, timestamp: Date(), startDate: expenseVm.startDate, endDate: expenseVm.endDate)
-                        NavigationUtil.popToRootView()
+                .onAppear{
+                    if !isManualInput{
+                        formTypes = [.nominal, .category]
                     }
                     else{
-                        coreDataViewModel.addExpenseNoArray(image: UIImage(systemName: "photo.on.rectangle.angled")?.pngData() ?? Data(), amount: expenseAmountFromString(for: expenseAmount), category: categorySelected.category, timestamp: Date.now, startDate: expenseVm.startDate, endDate: expenseVm.endDate)
+                        formTypes = [.nominal, .category, .photo, .date]
+                    }
+                    if editingMode{
+                        if let amount = coreDataViewModel.expenseToBeEdited?.amount{
+                            expenseAmount = String(amount)
+                            
+                        }
+                        if let category = coreDataViewModel.expenseToBeEdited?.category{
+                            categorySelected = CategoryModel(category: category)
+                            
+                        }
+                        if let dateRecorded = coreDataViewModel.expenseToBeEdited?.timestamp{
+                            expenseDate = dateRecorded
+                        }
+                        formTypes = [.nominal, .category, .date]
+                    }
+                }
+            }
+        }
+
+        else{
+            VStack(spacing: 24) {
+                Group{
+                    ForEach(formTypes, id: \.fieldName){field in
+                        FormField(fieldType: field, expenseAmount: $expenseAmount, categorySelected: $categorySelected, expenseDate: $expenseDate, amountValid: $amountValid)
+                        
+                    }
+                }
+                Spacer()
+                
+                ConfirmationButton(buttonDescription: "Done", buttonBackgroundColor: Color.primaryBlue, enabled: $amountValid){
+                    if amountValid{
+                        if editingMode{
+                            coreDataViewModel.editExpenseNoArray(withUUID: coreDataViewModel.expenseToBeEdited?.id ?? UUID(), newCategory: categorySelected.category, newAmount: expenseAmountFromString(for: expenseAmount), newDate: expenseDate, startDate: expenseVm.startDate, endDate: expenseVm.endDate)
+                            DispatchQueue.main.async {
+                                expenseVm.isDetailExpense.toggle()
+                                
+                            }
+                            NavigationUtil.popToRootView()
+                            
+                        }
+                        else{
+                            if let imageData = capturedImage?.pngData(){
+                                coreDataViewModel.addExpenseNoArray(image: imageData, amount: expenseAmountFromString(for: expenseAmount), category: categorySelected.category, timestamp: Date(), startDate: expenseVm.startDate, endDate: expenseVm.endDate)
+                                NavigationUtil.popToRootView()
+                            }
+                            else{
+                                coreDataViewModel.addExpenseNoArray(image: UIImage(systemName: "photo.on.rectangle.angled")?.pngData() ?? Data(), amount: expenseAmountFromString(for: expenseAmount), category: categorySelected.category, timestamp: Date.now, startDate: expenseVm.startDate, endDate: expenseVm.endDate)
+                            }
+                            
+                        }
+                        
+                    }
+                }
+                if !isManualInput{
+                    ConfirmationButton(buttonDescription: "Cancel", buttonBackgroundColor: Color.red, enabled: .constant(true)){
+                        NavigationUtil.popToRootView()
                     }
                     
                 }
             }
-            if !isManualInput{
-                ConfirmationButton(buttonDescription: "Cancel", buttonBackgroundColor: Color.red){
-                    NavigationUtil.popToRootView()
+            .onAppear{
+                if !isManualInput{
+                    formTypes = [.nominal, .category]
                 }
-                
-            }
-        }
-        .onAppear{
-            if !isManualInput{
-                formTypes = [.nominal, .category]
-            }
-            if editingMode{
-                if let amount = coreDataViewModel.expenseToBeEdited?.amount{
-                    expenseAmount = String(amount)
-                    
+                else{
+                    formTypes = [.nominal, .category, .photo, .date]
                 }
-                if let category = coreDataViewModel.expenseToBeEdited?.category{
-                    categorySelected = CategoryModel(category: category)
-                    
+                if isManualInput && capturedImage != nil{
+                    formTypes = [.nominal, .category, .date]
                 }
-                if let dateRecorded = coreDataViewModel.expenseToBeEdited?.timestamp{
-                    expenseDate = dateRecorded
+                if editingMode{
+                    if let amount = coreDataViewModel.expenseToBeEdited?.amount{
+                        expenseAmount = String(amount)
+                        
+                    }
+                    if let category = coreDataViewModel.expenseToBeEdited?.category{
+                        categorySelected = CategoryModel(category: category)
+                        
+                    }
+                    if let dateRecorded = coreDataViewModel.expenseToBeEdited?.timestamp{
+                        expenseDate = dateRecorded
+                    }
+                    formTypes = [.nominal, .category, .date]
                 }
-                formTypes = [.nominal, .category, .date]
-//                formTypes = [.nominal, .category]
             }
         }
         
