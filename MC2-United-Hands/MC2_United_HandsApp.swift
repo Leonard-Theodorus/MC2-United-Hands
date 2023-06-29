@@ -21,9 +21,6 @@ struct MC2_United_HandsApp: App {
                 .environmentObject(onBoardingVm)
                 .environmentObject(coreDataViewModel)
                 .environmentObject(expenseVm)
-                .onAppear{
-                    onBoardingVm.firstTime = onBoardingVm.isAppAlreadyLaunchedOnce()
-                }
                 
         }
     }

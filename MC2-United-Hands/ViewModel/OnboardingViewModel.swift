@@ -8,13 +8,20 @@
 import Foundation
 
 class OnboardingViewModel : ObservableObject{
-    @Published var userDefaultsInstace = UserDefaults.standard
-    @Published var firstTime : Bool = false
-    func isAppAlreadyLaunchedOnce() -> Bool {
-        if let _ = self.userDefaultsInstace.string(forKey: "isAppAlreadyLaunchedOnce") {
+    @Published var userDefaultsInstance = UserDefaults.standard
+    func addMomentsAlreadyLaunchedOnce() -> Bool {
+        if let _ = self.userDefaultsInstance.string(forKey: "addMoments") {
             return true
         } else {
-            self.userDefaultsInstace.set(true, forKey: "isAppAlreadyLaunchedOnce")
+            self.userDefaultsInstance.set(true, forKey: "addMoments")
+            return false
+        }
+    }
+    func addManuallyAlreadyLaunchedOnce() -> Bool {
+        if let _ = self.userDefaultsInstance.string(forKey: "addManually") {
+            return true
+        } else {
+            self.userDefaultsInstance.set(true, forKey: "addManually")
             return false
         }
     }
