@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct TabBarPlusButton: View {
+    @EnvironmentObject var onBoardingVm : OnboardingViewModel
     @State var isActionSheetShown : Bool = false
     @State var isAddMomentViewSelected : Bool = false
     @State var isAddManuallyViewSelected : Bool = false
     @State var isAddQuickAccessViewSelected : Bool = false
     var width : CGFloat
     var height: CGFloat
+    @State var showMomentsOnboarding : Bool = false
+    @State var showManualOnboarding : Bool = false
     @State var isManualInput : Bool = true
     var body: some View {
         Button {
@@ -34,9 +37,11 @@ struct TabBarPlusButton: View {
             ActionSheet(title: Text("Select Input Method"),
                         buttons: [
                             ActionSheet.Button.default( Text("Add Moment"), action: {
+                                showMomentsOnboarding = onBoardingVm.addMomentsAlreadyLaunchedOnce()
                                 isAddMomentViewSelected.toggle()
                             }),
                             ActionSheet.Button.default(Text("Add Manually"), action: {
+                                showManualOnboarding = onBoardingVm.addManuallyAlreadyLaunchedOnce()
                                 isAddManuallyViewSelected.toggle()
                             }),
                             ActionSheet.Button.default(Text("Add Quick Access"), action: {
@@ -47,11 +52,22 @@ struct TabBarPlusButton: View {
         }
         
         .navigationDestination(isPresented: $isAddMomentViewSelected) {
-            AddMomentView(width: width, height: height, shouldShowCamera: false, expenseAmount: "", categorySelected: CategoryModel(), expenseDate: Date())
+            if !showMomentsOnboarding{
+                AddMomentOnBoardingView()
+            }
+            else{
+                AddMomentView(width: width, height: height, shouldShowCamera: false, expenseAmount: "", categorySelected: CategoryModel(), expenseDate: Date())
+            }
         }
         
         .navigationDestination(isPresented: $isAddManuallyViewSelected) {
-            FormView(isManualInput: $isManualInput)
+            if !showManualOnboarding{
+                AddManuallyOnBoardingView()
+            }
+            else{
+                FormView(isManualInput: $isManualInput)
+                
+            }
         }
         
         .navigationDestination(isPresented: $isAddQuickAccessViewSelected) {
