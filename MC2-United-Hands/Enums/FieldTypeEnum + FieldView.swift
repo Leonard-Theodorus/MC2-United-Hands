@@ -144,9 +144,10 @@ extension FormField{
                     }
                 }
                 Spacer()
-                DatePicker("", selection: $expenseDate, displayedComponents: .date).accentColor(formForegroundColor)
+                DatePicker("", selection: $expenseDate, in: ...Date(), displayedComponents: .date).accentColor(formForegroundColor)
                 
-            }.modifier(BorderedFieldStyle(cornerRadius: 8, strokeColor: formForegroundColor))
+            }
+            .modifier(BorderedFieldStyle(cornerRadius: 8, strokeColor: formForegroundColor))
         }
     }
     

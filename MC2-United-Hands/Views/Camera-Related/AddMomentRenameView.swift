@@ -38,8 +38,7 @@ struct AddMomentRenameView: View {
                 HStack {
                     VStack {
                         if isManualInput {
-                            // TODO: Pass all variables
-                            CapsuleConfirmationButton(buttonDescription: "Done", width: width, dest: FormView(isManualInput: $isManualInput, expenseAmount: expenseAmount, categorySelected: categorySelected, expenseDate: expenseDate, capturedImage: capturedImage))
+                            CapsuleConfirmationButton(buttonDescription: "Done", width: width, dest: FormView(isManualInput: $isManualInput, expenseAmount: expenseAmount, categorySelected: categorySelected, expenseDate: expenseDate,capturedImage: capturedImage))
                                 .simultaneousGesture(TapGesture().onEnded{
                                     isEditMomentsViewPresented.toggle()
                                 })
