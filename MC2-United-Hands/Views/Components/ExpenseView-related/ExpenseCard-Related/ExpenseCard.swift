@@ -12,12 +12,12 @@ struct ExpenseCard: View {
     
     var body: some View {
         HStack{
-            RoundedImage(expenseImage: expenseData.image ?? UIImage())
+            RoundedImage(expenseImage: expenseData.image ?? UIImage(), width: 120, height: 120)
             VStack{
                 //TODO: Expense nominal
                 if let amount = expenseData.amount as? NSNumber{
                     if let nominal = Formatter.currencyFormatter.string(from: amount){
-                        Text("Rp. " + nominal)
+                        Text(nominal == "0" ? "No Input" : "Rp. " + nominal)
                             .bold()
                             .padding(.leading)
                             .accessibilityLabel(Text("Expense Nominal"))

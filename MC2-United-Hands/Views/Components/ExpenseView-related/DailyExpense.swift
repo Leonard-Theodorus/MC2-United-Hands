@@ -26,7 +26,7 @@ struct DailyExpenseView: View {
             Text("Rp. " + (Formatter.currencyFormatter.string(from: nominal as NSNumber) ?? "0"))
                 .bold()
                 .padding(.top, 2)
-            ScrollView(.horizontal) {
+            ScrollView(.horizontal, showsIndicators: false) {
                 ExpensesHorizontalScrollView(expenseAtDate: $expenseAtDate)
             }
         }

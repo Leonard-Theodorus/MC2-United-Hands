@@ -14,7 +14,7 @@ struct AddMomentRenameView: View {
     var capturedImage: UIImage
     var width: CGFloat
     var height: CGFloat
-    @State var isManualInput : Bool = false
+    @Binding var isManualInput : Bool
     var body: some View {
         ZStack {
             Image(uiImage: capturedImage)
@@ -38,7 +38,8 @@ struct AddMomentRenameView: View {
                             })
                         
                         Button {
-                            
+                            //MARK: Retake Photo
+                            isEditMomentsViewPresented.toggle()
                         } label: {
                             Text("Retake Photo")
                                 .padding(10)

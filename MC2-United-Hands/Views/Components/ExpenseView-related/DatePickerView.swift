@@ -29,7 +29,7 @@ struct DatePickerView: View {
                 
                 DatePickerItem(monthIndex: $monthIndex, yearIndex: $yearIndex, monthSymbols: monthSymbols, years: years)
                 
-                ConfirmationButton(buttonDescription: "Done", buttonBackgroundColor: Color.primaryBlue){
+                ConfirmationButton(buttonDescription: "Done", buttonBackgroundColor: Color.primaryBlue, enabled: .constant(true)){
                     withAnimation {
                         sheetManager.dismiss()
                     }
