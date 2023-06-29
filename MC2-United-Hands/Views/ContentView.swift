@@ -29,5 +29,6 @@ struct ContentView_Previews: PreviewProvider {
             .environmentObject(SheetManager())
             .environmentObject(OnboardingViewModel())
             .environmentObject(ExpensesViewModel())
+            .environmentObject(CoreDataViewModel())
     }
 }

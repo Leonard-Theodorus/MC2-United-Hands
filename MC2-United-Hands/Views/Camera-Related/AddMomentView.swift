@@ -15,12 +15,17 @@ struct AddMomentView: View {
     @State var isEditMomentsViewPresented = false
     @State private var selectedItem: PhotosPickerItem? = nil
     @State private var selectedImageData: Data? = nil
+    @State var isManualInput : Bool = false
     
     let cameraService = CameraService()
     var width: CGFloat
     var height: CGFloat
     var shouldShowCamera : Bool
-    @State var isManualInput : Bool = false
+    
+    var expenseAmount : String
+    var categorySelected : CategoryModel
+    var expenseDate : Date
+    
     var body: some View {
         ZStack {
             CameraView(cameraService: cameraService) { result in
@@ -101,7 +106,7 @@ struct AddMomentView: View {
             
             .navigationDestination(isPresented: $isEditMomentsViewPresented) {
                 if let capturedImage {
-                    AddMomentRenameView(isEditMomentsViewPresented: $isEditMomentsViewPresented, capturedImage: capturedImage, width: width, height: height, isManualInput: $isManualInput)
+                    AddMomentRenameView(isEditMomentsViewPresented: $isEditMomentsViewPresented, isManualInput: $isManualInput, capturedImage: capturedImage, width: width, height: height, expenseAmount: expenseAmount, categorySelected: categorySelected, expenseDate: expenseDate)
                 }
             }
         }

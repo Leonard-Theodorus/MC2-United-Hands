@@ -23,7 +23,7 @@ struct FormView: View {
                 VStack(spacing: 24) {
                     Group{
                         ForEach(formTypes, id: \.fieldName){field in
-                            FormField(fieldType: field, expenseAmount: $expenseAmount, categorySelected: $categorySelected, expenseDate: $expenseDate, amountValid: $amountValid)
+                            FormField(fieldType: field, expenseAmount: $expenseAmount, categorySelected: $categorySelected, expenseDate: $expenseDate, amountValid: $amountValid, capturedImage: capturedImage)
                             
                         }
                     }

@@ -111,7 +111,7 @@ extension FormField{
         case .photo:
             Menu {
                 NavigationLink{
-                    AddMomentView(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, shouldShowCamera: false, isManualInput: true)
+                    AddMomentView(isManualInput: true, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, shouldShowCamera: false, expenseAmount: expenseAmount, categorySelected: categorySelected, expenseDate: expenseDate)
                 } label: {
                     Label("Take Photo", systemImage: "photo")
                 }
@@ -124,7 +124,10 @@ extension FormField{
                 HStack {
                     Text("Add Image").foregroundColor(formForegroundColor)
                     Spacer()
-                    
+                    Image(uiImage: capturedImage ?? UIImage())
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 30)
                 }
                 .onTapGesture {
                     showContextMenu.toggle()

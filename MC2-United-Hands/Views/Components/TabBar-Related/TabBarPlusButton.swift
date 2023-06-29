@@ -47,7 +47,7 @@ struct TabBarPlusButton: View {
         }
         
         .navigationDestination(isPresented: $isAddMomentViewSelected) {
-            AddMomentView(width: width, height: height, shouldShowCamera: false, isManualInput: false)
+            AddMomentView(width: width, height: height, shouldShowCamera: false, expenseAmount: "", categorySelected: CategoryModel(), expenseDate: Date())
         }
         
         .navigationDestination(isPresented: $isAddManuallyViewSelected) {

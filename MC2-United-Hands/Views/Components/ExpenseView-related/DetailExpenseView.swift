@@ -51,7 +51,6 @@ struct DetailExpenseView: View {
                         .resizable()
                         .scaledToFill()
                         .frame(width: width * 0.4, height: width * 0.4)
-                        .background(.yellow)
                         .clipShape(Circle())
                         .rotationEffect(.degrees(90))
                     
@@ -124,5 +123,6 @@ struct DetailExpenseView: View {
 struct DetailExpenseView_Previews: PreviewProvider {
     static var previews: some View {
         DetailExpenseView(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+            .environmentObject(CoreDataViewModel())
     }
 }

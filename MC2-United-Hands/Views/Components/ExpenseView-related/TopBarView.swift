@@ -21,7 +21,7 @@ struct TopBarView: View {
             ZStack {
                 TopBarItem(width: width, height: height, title: pageNavigator.topBarTitle, dateInterval: date, pagenavigator: pageNavigator, totalExpenses: $totalExpenses)
                 
-                TopBarSymbol(width: width, height: height, isCatButtonClicked: $isCatButtonClicked)
+                TopBarSymbol(width: width, height: height, isCatButtonClicked: $isCatButtonClicked, pageNavigator: $pageNavigator)
             }
             Divider()
         }
@@ -32,7 +32,7 @@ struct TopBarView: View {
 
 struct TopBarView_Preview : PreviewProvider{
     static var previews: some View{
-        TopBarView(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, date: "June 2023", pageNavigator: .constant(.report), totalExpenses: .constant(4000000))
+        TopBarView(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, date: "June 2023", pageNavigator: .constant(.expenses), totalExpenses: .constant(4000000))
     }
     
 }
