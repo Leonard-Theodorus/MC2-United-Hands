@@ -10,11 +10,16 @@ import SwiftUI
 struct AddMomentRenameView: View {
     
     @Binding var isEditMomentsViewPresented: Bool
+    @Binding var isManualInput : Bool
     
     var capturedImage: UIImage
     var width: CGFloat
     var height: CGFloat
-    @Binding var isManualInput : Bool
+    
+    var expenseAmount : String
+    var categorySelected : CategoryModel
+    var expenseDate : Date
+    
     var body: some View {
         ZStack {
             Image(uiImage: capturedImage)
@@ -32,10 +37,18 @@ struct AddMomentRenameView: View {
                 
                 HStack {
                     VStack {
-                        CapsuleConfirmationButton(buttonDescription: "Done", width: width, dest: FormView(isManualInput: $isManualInput, capturedImage: capturedImage))
-                            .simultaneousGesture(TapGesture().onEnded{
-                                isEditMomentsViewPresented.toggle()
-                            })
+                        if isManualInput {
+                            // TODO: Pass all variables
+                            CapsuleConfirmationButton(buttonDescription: "Done", width: width, dest: FormView(isManualInput: $isManualInput, expenseAmount: expenseAmount, categorySelected: categorySelected, expenseDate: expenseDate, capturedImage: capturedImage))
+                                .simultaneousGesture(TapGesture().onEnded{
+                                    isEditMomentsViewPresented.toggle()
+                                })
+                        } else {
+                            CapsuleConfirmationButton(buttonDescription: "Done", width: width, dest: FormView(isManualInput: $isManualInput, capturedImage: capturedImage))
+                                .simultaneousGesture(TapGesture().onEnded{
+                                    isEditMomentsViewPresented.toggle()
+                                })
+                        }
                         
                         Button {
                             //MARK: Retake Photo

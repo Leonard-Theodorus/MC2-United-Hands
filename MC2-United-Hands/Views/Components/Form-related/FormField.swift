@@ -19,6 +19,8 @@ struct FormField: View {
     @State var formForegroundColor : Color = .primaryBlue
     @Binding var amountValid : Bool
     @State var temporaryAmount : Int = 0
+    var capturedImage: UIImage?
+    
     let categories : [ExpenseCategory] = [.food, .groceries, .shopping, .entertainment, .rent, .transport, .other]
     var body: some View {
         VStack(alignment: .leading){
