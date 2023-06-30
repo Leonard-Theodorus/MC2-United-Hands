@@ -33,6 +33,8 @@ struct DailyExpenseView: View {
             .edgesIgnoringSafeArea(.horizontal)
         }
         .padding(.top)
+        .padding(.leading)
+        .frame(width: UIScreen.main.bounds.width)
         .onAppear{
             expenseAtDate = date
         }
