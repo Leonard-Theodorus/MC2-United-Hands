@@ -26,7 +26,7 @@ struct TopBarSymbol: View {
                             .frame(width: width * 0.4)
                             .offset(x: -width * 0.03)
                             .padding(.trailing)
-                            .padding(.bottom, 5)
+                            .padding(.bottom, 15)
                             .onTapGesture {
                                 isCatButtonClicked.toggle()
                             }
@@ -37,7 +37,7 @@ struct TopBarSymbol: View {
                             .frame(width: width * 0.45)
                             .offset(x: -width * 0.06)
                             .padding(.trailing)
-                            .padding(.bottom, 5)
+                            .padding(.bottom, 15)
                             .onTapGesture {
                                 isCatButtonClicked.toggle()
                             }
@@ -50,7 +50,7 @@ struct TopBarSymbol: View {
                         .scaledToFit()
                         .frame(width: width * 0.32)
                         .padding(.trailing)
-                        .padding(.bottom, 5)
+                        .padding(.bottom, 15)
                         .onTapGesture {
                             isCatButtonClicked.toggle()
                         }

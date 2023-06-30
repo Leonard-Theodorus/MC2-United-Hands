@@ -9,7 +9,12 @@ import SwiftUI
 import PhotosUI
 
 extension FormField{
-    enum fieldType : Int{
+    enum FocusField : Hashable{
+        case nominal
+        case nonNominal
+    }
+    
+    enum FieldType : Int{
         case nominal
         case category
         case photo
@@ -37,6 +42,7 @@ extension FormField{
                 Text("Rp.").foregroundColor(formForegroundColor)
                 ZStack(alignment: .leading){
                     TextField("", text: $expenseAmount)
+                        .focused($focusField, equals: .nominal)
                         .keyboardType(.numberPad)
                         .accessibilityLabel(Text("Expense Nominal"))
                         .accessibilityAddTraits(.isKeyboardKey)
@@ -54,7 +60,8 @@ extension FormField{
                         }
                 }
                 
-            }.modifier(BorderedFieldStyle(cornerRadius: 8, strokeColor: formForegroundColor))
+            }
+            .modifier(BorderedFieldStyle(cornerRadius: 8, strokeColor: formForegroundColor, verticalPadding: 14))
         case .category:
             if categorySelected.category == ""{
                 HStack{
@@ -62,23 +69,30 @@ extension FormField{
                     Spacer()
                     Image(systemName: "chevron.down").foregroundColor(formForegroundColor)
                 }
+                
                 .accessibilityAddTraits([.isButton, .isModal])
                 .onTapGesture {
+                    focusField = .nonNominal
                     withAnimation {
                         showCategoryModal.toggle()
                     }
                 }
-                .modifier(BorderedFieldStyle(cornerRadius: 8, strokeColor: formForegroundColor))
+                .modifier(BorderedFieldStyle(cornerRadius: 8, strokeColor: formForegroundColor, verticalPadding: 18))
                 .sheet(isPresented: $showCategoryModal) {
-                    ForEach(categories, id: \.categoryText){category in
-                        VStack(spacing: 16){
-                            ExpenseCategoryPicker(categoryType: category,showCategoryModal: $showCategoryModal, categorySelected: $categorySelected)
-                                .accessibilityLabel(Text("category"))
-                                .accessibilityValue(Text(category.categoryText))
-                                .accessibilityAddTraits(.isButton)
+                    VStack {
+                        ForEach(categories, id: \.categoryText){category in
+                            VStack(spacing: 16){
+                                ExpenseCategoryPicker(categoryType: category,showCategoryModal: $showCategoryModal, categorySelected: $categorySelected)
+                                    .accessibilityLabel(Text("category"))
+                                    .accessibilityValue(Text(category.categoryText))
+                                    .accessibilityAddTraits(.isButton)
+                                    .padding(.bottom, 12)
+                            }
+                            .padding(.horizontal)
                         }
-                        .padding(.horizontal)
                     }
+                    .presentationDetents([.fraction(0.75)])
+                    .presentationDragIndicator(.visible)
                 }
                 
             }
@@ -90,23 +104,31 @@ extension FormField{
                         .foregroundColor(categorySelected.categoryStyleFromString().foregroundColor)
                     Spacer()
                 }
-                .modifier(BorderedFieldStyle(cornerRadius: 8, strokeColor: categorySelected.categoryStyleFromString().foregroundColor))
+                .modifier(BorderedFieldStyle(cornerRadius: 8, strokeColor: categorySelected.categoryStyleFromString().foregroundColor, verticalPadding: 18))
                 .accessibilityAddTraits([.isButton, .isModal])
                 .onTapGesture {
+                    firstTime = false
                     withAnimation {
                         showCategoryModal.toggle()
                     }
                 }
                 .sheet(isPresented: $showCategoryModal) {
-                    ForEach(categories, id: \.categoryText){category in
-                        VStack(spacing: 16){
-                            ExpenseCategoryPicker(categoryType: category,showCategoryModal: $showCategoryModal, categorySelected: $categorySelected)
-                                .accessibilityLabel(Text("category"))
-                                .accessibilityValue(Text(category.categoryText))
-                                .accessibilityAddTraits(.isButton)
+                    VStack{
+                        ForEach(categories, id: \.categoryText){category in
+                            VStack(spacing: 16){
+                                ExpenseCategoryPicker(categoryType: category,showCategoryModal: $showCategoryModal, categorySelected: $categorySelected)
+                                    .accessibilityLabel(Text("category"))
+                                    .accessibilityValue(Text(category.categoryText))
+                                    .accessibilityAddTraits(.isButton)
+                                    .padding(.bottom, 12)
+                            }
+                            .padding(.horizontal)
                         }
-                        .padding(.horizontal)
+                        
                     }
+                    .presentationDetents([.fraction(0.75)])
+                    .presentationDragIndicator(.visible)
+                    
                 }
             }
         case .photo:
@@ -121,7 +143,7 @@ extension FormField{
                         .scaledToFit()
                         .frame(height: 30)
                 }
-                .modifier(BorderedFieldStyle(cornerRadius: 8, strokeColor: formForegroundColor))
+                .modifier(BorderedFieldStyle(cornerRadius: 8, strokeColor: formForegroundColor, verticalPadding: 12))
             }
             
         case .date:
@@ -137,7 +159,8 @@ extension FormField{
                 DatePicker("", selection: $expenseDate, in: ...Date(), displayedComponents: .date).accentColor(formForegroundColor)
                 
             }
-            .modifier(BorderedFieldStyle(cornerRadius: 8, strokeColor: formForegroundColor))
+            .modifier(BorderedFieldStyle(cornerRadius: 8, strokeColor: formForegroundColor, verticalPadding: 12))
+           
         }
     }
     

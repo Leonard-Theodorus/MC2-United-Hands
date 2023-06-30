@@ -10,13 +10,16 @@ import SwiftUI
 struct BorderedFieldStyle : ViewModifier{
     var cornerRadius : CGFloat
     var strokeColor : Color
+    var verticalPadding : CGFloat?
     func body(content: Content) -> some View {
         content
-            .padding()
+            .padding(.horizontal)
+            .padding(.vertical, verticalPadding)
             .cornerRadius(cornerRadius)
             .overlay(RoundedRectangle(cornerRadius: cornerRadius)
                 .stroke(strokeColor, lineWidth: 1.5)
             )
+            
     }
     
 }
