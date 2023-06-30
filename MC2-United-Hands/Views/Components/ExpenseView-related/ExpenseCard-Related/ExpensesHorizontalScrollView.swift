@@ -23,6 +23,7 @@ struct ExpensesHorizontalScrollView: View {
                     }
             }
         }
+        .ignoresSafeArea()
     }
 }
 
