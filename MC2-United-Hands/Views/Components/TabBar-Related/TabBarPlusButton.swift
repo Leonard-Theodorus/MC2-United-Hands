@@ -36,11 +36,11 @@ struct TabBarPlusButton: View {
         .actionSheet(isPresented: $isActionSheetShown) { () -> ActionSheet in
             ActionSheet(title: Text("Select Input Method"),
                         buttons: [
-                            ActionSheet.Button.default( Text("Add Moment"), action: {
+                            ActionSheet.Button.default( Text("Add Expense Moment"), action: {
                                 showMomentsOnboarding = onBoardingVm.addMomentsAlreadyLaunchedOnce()
                                 isAddMomentViewSelected.toggle()
                             }),
-                            ActionSheet.Button.default(Text("Add Manually"), action: {
+                            ActionSheet.Button.default(Text("Add Expense Journal"), action: {
                                 showManualOnboarding = onBoardingVm.addManuallyAlreadyLaunchedOnce()
                                 isAddManuallyViewSelected.toggle()
                             })

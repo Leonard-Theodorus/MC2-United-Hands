@@ -15,4 +15,5 @@ extension Color{
     static let datePickerCloseGray = Color("DatePickerCloseGray")
     static let darkGreen = Color("DarkGreen")
     static let grayText = Color("GrayText")
+    static let helperTextColor = Color("HelperTextColor")
 }

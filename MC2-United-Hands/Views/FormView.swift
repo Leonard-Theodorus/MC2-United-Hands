@@ -10,7 +10,7 @@ import PhotosUI
 struct FormView: View {
     @Binding var isManualInput : Bool
     @State var editingMode : Bool = false
-    @State private var formTypes : [FormField.fieldType] = []
+    @State private var formTypes : [FormField.FieldType] = []
     @EnvironmentObject var coreDataViewModel : CoreDataViewModel
     @EnvironmentObject var expenseVm : ExpensesViewModel
     @State var expenseAmount : String = ""
@@ -19,6 +19,7 @@ struct FormView: View {
     @State var amountValid : Bool = true
     @State var selectedItemFromPhotos: PhotosPickerItem? = nil
     @State var selectedImageDataFromPhotos: Data? = nil
+    @State var shouldShowHelperText : Bool = false
     var capturedImage : UIImage?
     var body: some View {
         if isManualInput{
@@ -26,11 +27,11 @@ struct FormView: View {
                 VStack(spacing: 24) {
                     Group{
                         ForEach(formTypes, id: \.fieldName){field in
-                            FormField(fieldType: field, expenseAmount: $expenseAmount, categorySelected: $categorySelected, expenseDate: $expenseDate, selectedItemFromPhotos: $selectedItemFromPhotos, selectedImageDataFromPhotos: $selectedImageDataFromPhotos, expenseImage: capturedImage ?? UIImage(), showDate: isManualInput, amountValid: $amountValid)
+                            FormField(fieldType: field, expenseAmount: $expenseAmount, categorySelected: $categorySelected, expenseDate: $expenseDate, selectedItemFromPhotos: $selectedItemFromPhotos, selectedImageDataFromPhotos: $selectedImageDataFromPhotos, expenseImage: capturedImage ?? UIImage(), showDate: isManualInput, amountValid: $amountValid, shouldShowHelperText: $shouldShowHelperText)
+                                
                             
                         }
                     }
-                    Spacer()
                     
                     ConfirmationButton(buttonDescription: "Done", buttonBackgroundColor: Color.primaryBlue, enabled: $amountValid){
                         if amountValid{
@@ -94,9 +95,15 @@ struct FormView: View {
             VStack(spacing: 24) {
                 Group{
                     ForEach(formTypes, id: \.fieldName){field in
-                        FormField(fieldType: field, expenseAmount: $expenseAmount, categorySelected: $categorySelected, expenseDate: $expenseDate, selectedItemFromPhotos: $selectedItemFromPhotos, selectedImageDataFromPhotos: $selectedImageDataFromPhotos, expenseImage: capturedImage ?? UIImage(), showDate: isManualInput, amountValid: $amountValid)
+                        FormField(fieldType: field, expenseAmount: $expenseAmount, categorySelected: $categorySelected, expenseDate: $expenseDate, selectedItemFromPhotos: $selectedItemFromPhotos, selectedImageDataFromPhotos: $selectedImageDataFromPhotos, expenseImage: capturedImage ?? UIImage(), showDate: isManualInput, amountValid: $amountValid, shouldShowHelperText: $shouldShowHelperText)
                         
                     }
+                }
+                if shouldShowHelperText{
+                    Text("If you don’t set the date, it will be recorded as today’s expense.")
+                        .foregroundColor(Color.helperTextColor)
+                        .font(.caption)
+                    
                 }
                 Spacer()
                 

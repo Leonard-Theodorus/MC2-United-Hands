@@ -8,7 +8,8 @@
 import SwiftUI
 import PhotosUI
 struct FormField: View {
-    @State var fieldType : fieldType = .photo
+    @FocusState var focusField : FocusField?
+    @State var fieldType : FieldType = .photo
     @Binding var expenseAmount : String
     @Binding var categorySelected : CategoryModel
     @Binding var expenseDate : Date
@@ -22,6 +23,8 @@ struct FormField: View {
     @Binding var amountValid : Bool
     @State var temporaryAmount : Int = 0
     @State var showPhotoPicker : Bool = false
+    @State var firstTime : Bool = true
+    @Binding var shouldShowHelperText : Bool
     let categories : [ExpenseCategory] = [.food, .groceries, .shopping, .entertainment, .rent, .transport, .other]
     var body: some View {
         VStack(alignment: .leading){
@@ -29,6 +32,9 @@ struct FormField: View {
                 .font(.subheadline)
             FieldView
             
+        }
+        .onAppear{
+            focusField = .nominal
         }
         .padding(.horizontal)
         

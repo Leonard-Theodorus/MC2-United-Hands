@@ -43,7 +43,7 @@ struct AddMomentRenameView: View {
                                     isEditMomentsViewPresented.toggle()
                                 })
                         } else {
-                            CapsuleConfirmationButton(buttonDescription: "Done", width: width, dest: FormView(isManualInput: $isManualInput, capturedImage: capturedImage))
+                            CapsuleConfirmationButton(buttonDescription: "Done", width: width, dest: FormView(isManualInput: $isManualInput, shouldShowHelperText: true, capturedImage: capturedImage))
                                 .simultaneousGesture(TapGesture().onEnded{
                                     isEditMomentsViewPresented.toggle()
                                 })

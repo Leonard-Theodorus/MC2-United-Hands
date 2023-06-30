@@ -18,7 +18,7 @@ struct TopBarItem: View {
     @EnvironmentObject var sheetManager: SheetManager
     
     var body: some View {
-        HStack {
+        HStack(alignment: .bottom) {
             VStack (alignment: .leading) {
                 Text( title)
                     .font(.title2)
@@ -53,7 +53,7 @@ struct TopBarItem: View {
         }
         .padding(.vertical)
         .padding(.leading)
-        .frame(width: width)
+        .frame(width: width, height: 120)
     }
 }
 struct TopBarItem_Previews : PreviewProvider{

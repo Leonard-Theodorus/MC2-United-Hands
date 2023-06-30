@@ -13,7 +13,7 @@ func tabBarItem(for tab : PageNavigation, width : CGFloat, height : CGFloat, cur
             Image(systemName: tab.tabBarItemImageName)
                 .resizable()
                 .scaledToFit()
-                .frame(width: width * 0.06, height: width * 0.06)
+                .frame(width: width * 0.05, height: width * 0.05)
                 .accessibilityHidden(true)
             
             Text(tab.tabBarItemDescription)
@@ -31,7 +31,7 @@ func tabBarItem(for tab : PageNavigation, width : CGFloat, height : CGFloat, cur
             Image(systemName: tab.tabBarItemImageName)
                 .resizable()
                 .scaledToFit()
-                .frame(width: width * 0.06, height: width * 0.06)
+                .frame(width: width * 0.05, height: width * 0.05)
                 .accessibilityHidden(true)
             
             Text(tab.tabBarItemDescription)
@@ -41,6 +41,6 @@ func tabBarItem(for tab : PageNavigation, width : CGFloat, height : CGFloat, cur
         .accessibilityValue(Text("2 of 2"))
         .accessibilityAddTraits(currentTab == tab ? .isSelected : .playsSound)
         .foregroundColor(currentTab == tab ? Color.primaryBlue : Color.gray)
-        .padding(.trailing, width * 0.08)
+        .padding(.trailing, 42)
     }
 }

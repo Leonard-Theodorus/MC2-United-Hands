@@ -24,7 +24,7 @@ struct HomeView: View {
             VStack (spacing: .zero) {
                 if pageNavigator == .expenses{
                     ExpensesView(width: width, height: height, pageNavigator: $pageNavigator, totalExpenses: $totalExpenses)
-                        .frame(width: width, height: height * 0.92)
+                        .frame(width: width, height: height * 0.9)
                 }
                 else{
                     //TODO: Report View
