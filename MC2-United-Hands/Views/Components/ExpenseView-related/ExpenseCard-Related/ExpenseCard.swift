@@ -12,14 +12,14 @@ struct ExpenseCard: View {
     
     var body: some View {
         HStack{
-            RoundedImage(expenseImage: expenseData.image ?? UIImage(), width: 120, height: 120)
-            VStack{
+            RoundedImage(expenseImage: expenseData.image ?? UIImage(), width: 80, height: 80)
+            VStack(alignment: .leading){
                 //TODO: Expense nominal
                 if let amount = expenseData.amount as? NSNumber{
                     if let nominal = Formatter.currencyFormatter.string(from: amount){
                         Text(nominal == "0" ? "No Input" : "Rp. " + nominal)
                             .bold()
-                            .padding(.leading)
+                            
                             .accessibilityLabel(Text("Expense Nominal"))
                     }
                 }
@@ -32,15 +32,21 @@ struct ExpenseCard: View {
                 }
                 //TODO: Expense Category
                 CategoryLabel(stringLabel: expenseData.category ?? "")
-                    .padding(.leading)
+                    
                     .accessibilityLabel(Text("Expense Category"))
                     .accessibilityValue(Text(expenseData.category ?? ""))
             }
+            .padding(.leading, 16)
         }
         .padding()
+        .overlay(
+            RoundedRectangle(cornerRadius: 24)
+                .stroke(Color.expenseCardBorder)
+        )
         .background(
             RoundedRectangle(cornerRadius: 24)
-                .fill(Color.expenseCardGrey.opacity(0.2))
+                .fill(Color.expenseCardGrey.opacity(0.4))
+                
         )
     }
 }

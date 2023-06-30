@@ -13,7 +13,7 @@ struct RoundedImage: View {
     var body: some View {
         Image(uiImage: expenseImage)
             .resizable()
-            .aspectRatio(contentMode: .fit)
+            .aspectRatio(contentMode: .fill)
             .clipShape(Circle())
             .frame(width: width, height: height)
             .rotationEffect(.degrees(90))

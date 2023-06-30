@@ -25,7 +25,7 @@ struct TopBarView: View {
             }
             Divider()
         }
-        .padding(.top, 40)
+        .padding(.top, 20)
         .frame(width: width, height: height * 0.16)
     }
 }
