@@ -53,6 +53,14 @@ struct DetailExpenseView: View {
                         .frame(width: width * 0.4, height: width * 0.4)
                         .clipShape(Circle())
                         .rotationEffect(.degrees(90))
+                        .background(
+                            Image(systemName: "photo.on.rectangle.angled")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: width * 0.4, height: width * 0.4)
+                                .background(Color.expenseCardGrey)
+                                .clipShape(Circle())
+                        )
                     
                     if let amount = coreDataVm.expenseToBeEdited?.amount as? NSNumber{
                         if let nominal = Formatter.currencyFormatter.string(from: amount){

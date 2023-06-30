@@ -17,6 +17,13 @@ struct RoundedImage: View {
             .clipShape(Circle())
             .frame(width: width, height: height)
             .rotationEffect(.degrees(90))
+            .background(
+                Image(systemName: "photo.on.rectangle.angled")
+                    .resizable()
+                    .scaledToFit()
+                    .background(Color.expenseCardGrey)
+                    .clipShape(Circle())
+            )
             .accessibilityLabel("image")
         
         

@@ -46,7 +46,7 @@ struct FormView: View {
                                     NavigationUtil.popToRootView()
                                 }
                                 else{
-                                    coreDataViewModel.addExpenseNoArray(image: UIImage(systemName: "photo.on.rectangle.angled")?.pngData() ?? Data(), amount: expenseAmountFromString(for: expenseAmount), category: categorySelected.category, timestamp: expenseDate, startDate: expenseVm.startDate, endDate: expenseVm.endDate)
+                                    coreDataViewModel.addExpenseNoArray(image: UIImage().pngData() ?? Data(), amount: expenseAmountFromString(for: expenseAmount), category: categorySelected.category, timestamp: expenseDate, startDate: expenseVm.startDate, endDate: expenseVm.endDate)
                                     NavigationUtil.popToRootView()
                                 }
                                 
