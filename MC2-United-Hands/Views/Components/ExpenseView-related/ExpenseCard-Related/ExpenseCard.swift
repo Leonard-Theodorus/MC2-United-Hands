@@ -36,7 +36,7 @@ struct ExpenseCard: View {
                     .accessibilityLabel(Text("Expense Category"))
                     .accessibilityValue(Text(expenseData.category ?? ""))
             }
-            .padding(.leading, 16)
+            .padding(.leading, 10)
         }
         .padding()
         .overlay(
