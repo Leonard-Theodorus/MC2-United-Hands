@@ -20,7 +20,6 @@ struct HomeView: View {
     @EnvironmentObject var coredataVm : CoreDataViewModel
     @EnvironmentObject var expenseVm : ExpensesViewModel
     var body: some View {
-        
         ZStack(alignment: .bottom) {
             VStack {
                 if pageNavigator == .expenses{
@@ -46,7 +45,7 @@ struct HomeView: View {
                 coredataVm.getExpensesByMonthAndYear(date: coredataVm.reportDate)
                 coredataVm.getExpensesByDateNoArray()
                 coredataVm.totalReportExpense = coredataVm.userExpenses.map({$0.amount ?? 0}).reduce(0, +)
-//                totalReportExpenses = coredataVm.reportExpenses.map({$0.amount ?? 0}).reduce(0, +)
+                //                totalReportExpenses = coredataVm.reportExpenses.map({$0.amount ?? 0}).reduce(0, +)
                 coredataVm.totalReportExpense = coredataVm.reportExpenses.map({$0.amount ?? 0}).reduce(0, +)
             })
             .frame(width: width, height: height)
