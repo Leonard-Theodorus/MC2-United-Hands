@@ -14,7 +14,7 @@ struct DatePickerView: View {
     let monthSymbols = Calendar.current.monthSymbols
     let currentYear = Calendar.current.component(.year, from: Date())
     let years = Array(Calendar.current.component(.year, from: Date())-10..<Calendar.current.component(.year, from: Date())+1)
-    
+    @EnvironmentObject var coreDataVm : CoreDataViewModel
     @EnvironmentObject var sheetManager: SheetManager
     @Binding var date: Date
     @Binding var yearIndex: Int
@@ -35,6 +35,9 @@ struct DatePickerView: View {
                     }
                     let stringChosenDate = "01 \(monthSymbols[monthIndex]) \(years[yearIndex])"
                     date = Formatter.stringToDateFormatter.date(from: stringChosenDate) ?? Date()
+                    coreDataVm.reportDate = date
+                    coreDataVm.getExpensesByMonthAndYear(date: coreDataVm.reportDate)
+                    coreDataVm.totalReportExpense = coreDataVm.reportExpenses.map({$0.amount ?? 0}).reduce(0, +)
                 }
                     .padding(.bottom)
             }
@@ -52,6 +55,7 @@ struct DatePickerView: View {
         .ignoresSafeArea()
         .transition(.move(edge: .bottom))
         .onAppear {
+            
             monthIndex = Calendar.current.component(.month, from: date)-1
         }
     }

@@ -65,6 +65,9 @@
 		D9283D802A495922000E934A /* CoreDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9283D7F2A495922000E934A /* CoreDataViewModel.swift */; };
 		D9283D822A495991000E934A /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9283D812A495991000E934A /* PersistenceController.swift */; };
 		D973A4E32A495D8200A35202 /* LoadImageFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D973A4E22A495D8200A35202 /* LoadImageFunction.swift */; };
+		D9CA28902A4E638900D12D07 /* CategoryExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CA288F2A4E638900D12D07 /* CategoryExpense.swift */; };
+		D9CA28922A4E66A100D12D07 /* ReportContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CA28912A4E66A000D12D07 /* ReportContent.swift */; };
+		D9CA28952A4E702C00D12D07 /* ReportHorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CA28942A4E702C00D12D07 /* ReportHorizontalScrollView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +149,9 @@
 		D9283D7F2A495922000E934A /* CoreDataViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataViewModel.swift; sourceTree = "<group>"; };
 		D9283D812A495991000E934A /* PersistenceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		D973A4E22A495D8200A35202 /* LoadImageFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadImageFunction.swift; sourceTree = "<group>"; };
+		D9CA288F2A4E638900D12D07 /* CategoryExpense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryExpense.swift; sourceTree = "<group>"; };
+		D9CA28912A4E66A000D12D07 /* ReportContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportContent.swift; sourceTree = "<group>"; };
+		D9CA28942A4E702C00D12D07 /* ReportHorizontalScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportHorizontalScrollView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -347,6 +353,7 @@
 		D74679352A4434D5009C712B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D9CA28932A4E6FDE00D12D07 /* ReportView-related */,
 				D7B8C2C12A4DFA9B000AF7A9 /* OnBoarding-Related */,
 				D70475B12A48905500BAC7F1 /* Camera-Related */,
 				D74679362A4434E4009C712B /* Components */,
@@ -438,6 +445,16 @@
 				D7B8C2C42A4E0B65000AF7A9 /* AddManuallyOnBoardingView.swift */,
 			);
 			path = "OnBoarding-Related";
+			sourceTree = "<group>";
+		};
+		D9CA28932A4E6FDE00D12D07 /* ReportView-related */ = {
+			isa = PBXGroup;
+			children = (
+				D9CA28912A4E66A000D12D07 /* ReportContent.swift */,
+				D9CA288F2A4E638900D12D07 /* CategoryExpense.swift */,
+				D9CA28942A4E702C00D12D07 /* ReportHorizontalScrollView.swift */,
+			);
+			path = "ReportView-related";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -608,10 +625,12 @@
 				D746790E2A442F0B009C712B /* ContentView.swift in Sources */,
 				2684C85D2A497FE4001CDE33 /* ExpensesViewModel.swift in Sources */,
 				D74679532A44AC74009C712B /* DoneButton.swift in Sources */,
+				D9CA28922A4E66A100D12D07 /* ReportContent.swift in Sources */,
 				262976CD2A47232C007E2595 /* ExpensesView.swift in Sources */,
 				D74679B52A44C15D009C712B /* ExpenseDataModel.swift in Sources */,
 				D7B8C2C32A4DFAAE000AF7A9 /* AddMomentOnBoardingView.swift in Sources */,
 				D778941E2A4ABA9D00688887 /* StringHelper.swift in Sources */,
+				D9CA28902A4E638900D12D07 /* CategoryExpense.swift in Sources */,
 				D746790C2A442F0B009C712B /* MC2_United_HandsApp.swift in Sources */,
 				26A72D102A459D23008AC025 /* AddMomentRenameView.swift in Sources */,
 				2684E20B2A49AAC2000B775F /* DatePickerItem.swift in Sources */,
@@ -622,6 +641,7 @@
 				D704759D2A46D9C100BAC7F1 /* TabBarPlusButton.swift in Sources */,
 				2662ED992A48B28E002FB7E9 /* FormatterExtension.swift in Sources */,
 				D74679562A44B035009C712B /* ColorExtension.swift in Sources */,
+				D9CA28952A4E702C00D12D07 /* ReportHorizontalScrollView.swift in Sources */,
 				2684E2092A49AA7F000B775F /* DatePickerTitle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

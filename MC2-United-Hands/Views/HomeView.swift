@@ -15,6 +15,7 @@ struct HomeView: View {
     @State var monthIndex: Int = 0
     @State var yearIndex: Int = 10
     @State var totalExpenses: Int = 0
+    @State var totalReportExpenses: Int = 0
     @EnvironmentObject var sheetManager: SheetManager
     @EnvironmentObject var coredataVm : CoreDataViewModel
     @EnvironmentObject var expenseVm : ExpensesViewModel
@@ -28,7 +29,7 @@ struct HomeView: View {
                 }
                 else{
                     //TODO: Report View
-                    ReportView(width: width, height: height, date: date, pageNavigator: $pageNavigator, totalExpenses: $totalExpenses)
+                    ReportView(width: width, height: height, date: date, pageNavigator: $pageNavigator, totalExpenses: $coredataVm.totalReportExpense)
                         .frame(width: width, height: height * 0.9)
                 }
                 
@@ -36,10 +37,17 @@ struct HomeView: View {
             }
             .onAppear{
                 coredataVm.getExpensesByDateNoArray()
+                coredataVm.getExpensesByMonthAndYear(date: coredataVm.reportDate)
                 totalExpenses = coredataVm.userExpenses.map({$0.amount ?? 0}).reduce(0, +)
+                
+                coredataVm.totalReportExpense = coredataVm.reportExpenses.map({$0.amount ?? 0}).reduce(0, +)
             }
             .onChange(of: coredataVm.userExpenses.count, perform: { newValue in
-                totalExpenses = coredataVm.userExpenses.map({$0.amount ?? 0}).reduce(0, +)
+                coredataVm.getExpensesByMonthAndYear(date: coredataVm.reportDate)
+                coredataVm.getExpensesByDateNoArray()
+                coredataVm.totalReportExpense = coredataVm.userExpenses.map({$0.amount ?? 0}).reduce(0, +)
+//                totalReportExpenses = coredataVm.reportExpenses.map({$0.amount ?? 0}).reduce(0, +)
+                coredataVm.totalReportExpense = coredataVm.reportExpenses.map({$0.amount ?? 0}).reduce(0, +)
             })
             .frame(width: width, height: height)
             

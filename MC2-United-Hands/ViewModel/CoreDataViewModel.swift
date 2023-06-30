@@ -13,8 +13,12 @@ class CoreDataViewModel: ObservableObject {
     @Published var expenseArray: [ExpenseEntity] = []
     @Published var userExpenses: [ExpenseData] = []
     @Published var expenseToBeEdited : ExpenseData?
+    @Published var reportDate: Date = Date()
+    @Published var reportExpenses: [ExpenseData] = []
+    @Published var totalReportExpense: Int = 0
     init() {
         fetchExpenseData()
+        getExpensesByMonthAndYear(date: reportDate)
     }
     
     func fetchExpenseData() {
@@ -43,6 +47,7 @@ class CoreDataViewModel: ObservableObject {
 
             save()
             getExpensesByDateNoArray()
+
         } catch {
             print("Failed to save expense: \(error.localizedDescription)")
             
@@ -131,6 +136,32 @@ class CoreDataViewModel: ObservableObject {
             print("Failed to fetch expenses by date: \(error.localizedDescription)")
         }
     }
+    
+    func getExpensesByMonthAndYear(date: Date){
+        let calendar = Calendar.current
+        let startOfMonth = calendar.date(from: calendar.dateComponents([.year, .month], from: date))
+        let endOfMonth = calendar.date(byAdding: DateComponents(month: 1, day: 0), to: startOfMonth!)
+        
+        let request = NSFetchRequest<ExpenseEntity>(entityName: "ExpenseEntity")
+        request.predicate = NSPredicate(format: "(timestamp >= %@) AND (timestamp <= %@)", startOfMonth! as NSDate, endOfMonth! as NSDate)
+        
+        do {
+            let fetchedExpenses = try viewContext.fetch(request)
+            let expenseDataArray = fetchedExpenses.map { expenseEntity in
+                ExpenseData(
+                    id: expenseEntity.id ?? UUID(),
+                    image: loadImageFromPath(expenseEntity.imageFilePath!),
+                    category: expenseEntity.category,
+                    amount: Int(expenseEntity.amount),
+                    timestamp: expenseEntity.timestamp
+                )
+            }
+            reportExpenses = expenseDataArray
+        } catch {
+            print("Failed to fetch expenses by month and year: \(error.localizedDescription)")
+        }
+    }
+
     
     func getExpensesByCategory(category: String) -> [ExpenseData] {
         let request = NSFetchRequest<ExpenseEntity>(entityName: "ExpenseEntity")

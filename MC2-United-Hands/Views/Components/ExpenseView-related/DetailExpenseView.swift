@@ -100,6 +100,8 @@ struct DetailExpenseView: View {
                         //TODO: Delete expense
                         coreDataVm.deleteExpense(withUUID: coreDataVm.expenseToBeEdited?.id ?? UUID())
                         coreDataVm.getExpensesByDateNoArray()
+                        coreDataVm.getExpensesByMonthAndYear(date: coreDataVm.reportDate)
+                        coreDataVm.totalReportExpense = coreDataVm.reportExpenses.map({$0.amount ?? 0}).reduce(0, +)
                         withAnimation {
                             expenseVm.isDetailExpense.toggle()
                             

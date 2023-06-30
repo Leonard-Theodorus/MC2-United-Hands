@@ -18,6 +18,7 @@ struct ReportView: View {
     var body: some View {
         VStack {
             TopBarView(width: width, height: height, date: Formatter.monthFormatter.string(from: date), pageNavigator: $pageNavigator, totalExpenses: $totalExpenses)
+            ReportContent().padding()
             Spacer()
         }
     }

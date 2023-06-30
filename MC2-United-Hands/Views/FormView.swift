@@ -51,7 +51,8 @@ struct FormView: View {
                                 }
                                 
                             }
-                            
+                            coreDataViewModel.totalReportExpense = coreDataViewModel.reportExpenses.map({$0.amount ?? 0}).reduce(0, +)
+                            coreDataViewModel.getExpensesByMonthAndYear(date: coreDataViewModel.reportDate)
                         }
                     }
                     if !isManualInput{
