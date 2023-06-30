@@ -43,6 +43,7 @@ struct ExpenseContent: View {
                 DailyExpenseView(date: Calendar.current.date(byAdding: .day, value: -6, to: Date()) ?? Date(), nominal: coreDataVm.userExpenses.filter({dayOfDate(for: $0.timestamp ?? Date()) == dayOfDate(for: Calendar.current.date(byAdding: .day, value: -6, to: Date.now) ?? Date())}).map({$0.amount ?? 0}).reduce(0, +))
             }
         }
+        .edgesIgnoringSafeArea(.horizontal)
         
         
     }
