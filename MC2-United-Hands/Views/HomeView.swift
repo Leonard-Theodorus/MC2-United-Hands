@@ -21,10 +21,10 @@ struct HomeView: View {
     @EnvironmentObject var expenseVm : ExpensesViewModel
     var body: some View {
         ZStack(alignment: .bottom) {
-            VStack {
+            VStack (spacing: .zero) {
                 if pageNavigator == .expenses{
                     ExpensesView(width: width, height: height, pageNavigator: $pageNavigator, totalExpenses: $totalExpenses)
-                        .frame(width: width, height: height * 0.9)
+                        .frame(width: width, height: height * 0.92)
                 }
                 else{
                     //TODO: Report View

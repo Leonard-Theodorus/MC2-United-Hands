@@ -22,7 +22,7 @@ struct ExpensesView: View {
             else {
                 TopBarView(width: width, height: height, date: expensesVM.dateInterval(), pageNavigator: $pageNavigator, totalExpenses: $totalExpenses)
                 ExpenseContent()
-                    .padding()
+                    .padding(.top)
                 Spacer()
             }
         }
