@@ -62,6 +62,7 @@ struct AddMomentRenameView: View {
                             RoundedRectangle(cornerRadius: 50)
                                 .stroke(.blue, lineWidth: 3)
                         )
+                        .padding(.bottom, 20)
                     }
                 }
                 .frame(width: width, height: height * 0.2)

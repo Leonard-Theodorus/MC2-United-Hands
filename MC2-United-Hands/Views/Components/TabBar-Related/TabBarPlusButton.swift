@@ -43,10 +43,11 @@ struct TabBarPlusButton: View {
                             ActionSheet.Button.default(Text("Add Manually"), action: {
                                 showManualOnboarding = onBoardingVm.addManuallyAlreadyLaunchedOnce()
                                 isAddManuallyViewSelected.toggle()
-                            }),
-                            ActionSheet.Button.default(Text("Add Quick Access"), action: {
-                                isAddQuickAccessViewSelected.toggle()
-                            }),
+                            })
+                            ,
+//                            ActionSheet.Button.default(Text("Add Quick Access"), action: {
+//                                isAddQuickAccessViewSelected.toggle()
+//                            }),
                             ActionSheet.Button.cancel()
                         ])
         }

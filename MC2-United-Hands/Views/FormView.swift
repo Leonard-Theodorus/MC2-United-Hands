@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 struct FormView: View {
     @Binding var isManualInput : Bool
     @State var editingMode : Bool = false
@@ -16,6 +17,8 @@ struct FormView: View {
     @State var categorySelected : CategoryModel = CategoryModel()
     @State var expenseDate : Date = Date()
     @State var amountValid : Bool = true
+    @State var selectedItemFromPhotos: PhotosPickerItem? = nil
+    @State var selectedImageDataFromPhotos: Data? = nil
     var capturedImage : UIImage?
     var body: some View {
         if isManualInput{
@@ -23,7 +26,7 @@ struct FormView: View {
                 VStack(spacing: 24) {
                     Group{
                         ForEach(formTypes, id: \.fieldName){field in
-                            FormField(fieldType: field, expenseAmount: $expenseAmount, categorySelected: $categorySelected, expenseDate: $expenseDate, amountValid: $amountValid, capturedImage: capturedImage)
+                            FormField(fieldType: field, expenseAmount: $expenseAmount, categorySelected: $categorySelected, expenseDate: $expenseDate, selectedItemFromPhotos: $selectedItemFromPhotos, selectedImageDataFromPhotos: $selectedImageDataFromPhotos, expenseImage: capturedImage ?? UIImage(), showDate: isManualInput, amountValid: $amountValid)
                             
                         }
                     }
@@ -86,12 +89,12 @@ struct FormView: View {
                 }
             }
         }
-
+        
         else{
             VStack(spacing: 24) {
                 Group{
                     ForEach(formTypes, id: \.fieldName){field in
-                        FormField(fieldType: field, expenseAmount: $expenseAmount, categorySelected: $categorySelected, expenseDate: $expenseDate, amountValid: $amountValid)
+                        FormField(fieldType: field, expenseAmount: $expenseAmount, categorySelected: $categorySelected, expenseDate: $expenseDate, selectedItemFromPhotos: $selectedItemFromPhotos, selectedImageDataFromPhotos: $selectedImageDataFromPhotos, expenseImage: capturedImage ?? UIImage(), showDate: isManualInput, amountValid: $amountValid)
                         
                     }
                 }

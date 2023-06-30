@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 extension FormField{
     enum fieldType : Int{
@@ -109,31 +110,20 @@ extension FormField{
                 }
             }
         case .photo:
-            Menu {
-                NavigationLink{
-                    AddMomentView(isManualInput: true, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, shouldShowCamera: false, expenseAmount: expenseAmount, categorySelected: categorySelected, expenseDate: expenseDate)
-                } label: {
-                    Label("Take Photo", systemImage: "photo")
-                }
-                Button{
-                    print("photo library")
-                } label: {
-                    Label("Photo Library", systemImage: "photo.on.rectangle")
-                }
+            NavigationLink{
+                AddMomentView(isManualInput: true, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, shouldShowCamera: false, expenseAmount: expenseAmount, categorySelected: categorySelected, expenseDate: expenseDate)
             } label: {
                 HStack {
                     Text("Add Image").foregroundColor(formForegroundColor)
                     Spacer()
-                    Image(uiImage: capturedImage ?? UIImage())
+                    Image(uiImage: expenseImage)
                         .resizable()
                         .scaledToFit()
                         .frame(height: 30)
                 }
-                .onTapGesture {
-                    showContextMenu.toggle()
-                }
                 .modifier(BorderedFieldStyle(cornerRadius: 8, strokeColor: formForegroundColor))
             }
+            
         case .date:
             HStack {
                 ZStack(alignment: .leading){
