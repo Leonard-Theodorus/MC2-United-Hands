@@ -15,12 +15,10 @@ struct CategoryExpenseView: View {
     @State var expenseAtCategory: String
     var body: some View {
         VStack(alignment: .leading){
-            
             Text("\(category)")
                 .font(.subheadline).foregroundColor(.secondary)
             Text("Rp. " + (Formatter.currencyFormatter.string(from: nominal as NSNumber) ?? "0"))
                 .bold()
-                .padding(.top, 2)
             ScrollView(.horizontal, showsIndicators: false) {
                 ReportHorizontalScrollView(expenseAtCategory: $expenseAtCategory)
             }
