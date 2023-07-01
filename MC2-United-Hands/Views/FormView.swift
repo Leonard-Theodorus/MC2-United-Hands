@@ -45,12 +45,12 @@ struct FormView: View {
                                 
                             }
                             else{
-                                if let imageData = capturedImage?.pngData(){
+                                if let imageData = capturedImage?.jpegData(compressionQuality: 1){
                                     coreDataViewModel.addExpenseNoArray(image: imageData, amount: expenseAmountFromString(for: expenseAmount), category: categorySelected.category, timestamp: expenseDate, startDate: expenseVm.startDate, endDate: expenseVm.endDate)
                                     NavigationUtil.popToRootView()
                                 }
                                 else{
-                                    coreDataViewModel.addExpenseNoArray(image: UIImage().pngData() ?? Data(), amount: expenseAmountFromString(for: expenseAmount), category: categorySelected.category, timestamp: expenseDate, startDate: expenseVm.startDate, endDate: expenseVm.endDate)
+                                    coreDataViewModel.addExpenseNoArray(image: UIImage().jpegData(compressionQuality: 1) ?? Data(), amount: expenseAmountFromString(for: expenseAmount), category: categorySelected.category, timestamp: expenseDate, startDate: expenseVm.startDate, endDate: expenseVm.endDate)
                                     NavigationUtil.popToRootView()
                                 }
                                 
@@ -119,12 +119,12 @@ struct FormView: View {
                             
                         }
                         else{
-                            if let imageData = capturedImage?.pngData(){
+                            if let imageData = capturedImage?.jpegData(compressionQuality: 1){
                                 coreDataViewModel.addExpenseNoArray(image: imageData, amount: expenseAmountFromString(for: expenseAmount), category: categorySelected.category, timestamp: Date(), startDate: expenseVm.startDate, endDate: expenseVm.endDate)
                                 NavigationUtil.popToRootView()
                             }
                             else{
-                                coreDataViewModel.addExpenseNoArray(image: UIImage(systemName: "photo.on.rectangle.angled")?.pngData() ?? Data(), amount: expenseAmountFromString(for: expenseAmount), category: categorySelected.category, timestamp: Date.now, startDate: expenseVm.startDate, endDate: expenseVm.endDate)
+                                coreDataViewModel.addExpenseNoArray(image: UIImage(systemName: "photo.on.rectangle.angled")?.jpegData(compressionQuality: 1) ?? Data(), amount: expenseAmountFromString(for: expenseAmount), category: categorySelected.category, timestamp: Date.now, startDate: expenseVm.startDate, endDate: expenseVm.endDate)
                             }
                             
                         }

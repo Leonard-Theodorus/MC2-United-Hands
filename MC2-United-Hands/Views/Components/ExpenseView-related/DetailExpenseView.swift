@@ -52,7 +52,6 @@ struct DetailExpenseView: View {
                         .scaledToFill()
                         .frame(width: width * 0.4, height: width * 0.4)
                         .clipShape(Circle())
-                        .rotationEffect(.degrees(90))
                         .background(
                             Image(systemName: "photo.on.rectangle.angled")
                                 .resizable()

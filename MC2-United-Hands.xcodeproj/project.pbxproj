@@ -801,7 +801,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC2-United-Hands/Preview Content\"";
-				DEVELOPMENT_TEAM = 6H4427J3SZ;
+				DEVELOPMENT_TEAM = HABTZ65X44;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Take Photo for Moments";
@@ -833,7 +833,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC2-United-Hands/Preview Content\"";
-				DEVELOPMENT_TEAM = 6H4427J3SZ;
+				DEVELOPMENT_TEAM = HABTZ65X44;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Take Photo for Moments";
