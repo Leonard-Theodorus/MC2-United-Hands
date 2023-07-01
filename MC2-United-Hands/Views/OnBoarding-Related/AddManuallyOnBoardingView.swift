@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AddManuallyOnBoardingView: View {
+    @State var isManualInput : Bool = true
     var body: some View {
         VStack{
             Spacer()
@@ -29,7 +30,7 @@ struct AddManuallyOnBoardingView: View {
                 .padding(.horizontal, 20)
             }
             Spacer()
-            CapsuleConfirmationButton(buttonDescription: "Add Form", width: UIScreen.main.bounds.width, dest: FormView(isManualInput: .constant(true)))
+            CapsuleConfirmationButton(buttonDescription: "Add Form", width: UIScreen.main.bounds.width, dest: FormView(isManualInput: $isManualInput))
         }
     }
 }

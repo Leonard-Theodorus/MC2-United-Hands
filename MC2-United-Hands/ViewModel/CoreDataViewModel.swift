@@ -16,20 +16,7 @@ class CoreDataViewModel: ObservableObject {
     @Published var reportDate: Date = Date()
     @Published var reportExpenses: [ExpenseData] = []
     @Published var totalReportExpense: Int = 0
-    init() {
-        fetchExpenseData()
-        getExpensesByMonthAndYear(date: reportDate)
-    }
-    
-    func fetchExpenseData() {
-        let request = NSFetchRequest<ExpenseEntity>(entityName: "ExpenseEntity")
-        
-        do {
-            expenseArray = try viewContext.fetch(request)
-        }catch {
-            print("Fetch data failed")
-        }
-    }
+    @Published var totalWeeklyExpense: Int = 0
     func addExpenseNoArray(image: Data, amount: Int, category: String, timestamp: Date, startDate : Date, endDate : Date) {
         let expense = ExpenseEntity(context: viewContext)
         

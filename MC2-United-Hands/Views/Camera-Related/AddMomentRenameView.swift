@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct AddMomentRenameView: View {
-    
     @Binding var isEditMomentsViewPresented: Bool
     @Binding var isManualInput : Bool
     

@@ -13,13 +13,12 @@ struct TopBarView: View {
     var date: String
     
     @Binding var pageNavigator : PageNavigation
-    @Binding var totalExpenses: Int
     @State var isCatButtonClicked: Bool = false
     
     var body: some View {
         VStack {
             ZStack {
-                TopBarItem(width: width, height: height, title: pageNavigator.topBarTitle, dateInterval: date, pagenavigator: pageNavigator, totalExpenses: $totalExpenses)
+                TopBarItem(width: width, height: height, title: pageNavigator.topBarTitle, dateInterval: date, pagenavigator: pageNavigator)
                 
                 TopBarSymbol(width: width, height: height, isCatButtonClicked: $isCatButtonClicked, pageNavigator: $pageNavigator)
             }
@@ -32,7 +31,8 @@ struct TopBarView: View {
 
 struct TopBarView_Preview : PreviewProvider{
     static var previews: some View{
-        TopBarView(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, date: "June 2023", pageNavigator: .constant(.expenses), totalExpenses: .constant(4000000))
+        TopBarView(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, date: "June 2023", pageNavigator: .constant(.expenses))
+            .environmentObject(CoreDataViewModel())
     }
     
 }

@@ -34,7 +34,9 @@ struct FormField: View {
             
         }
         .onAppear{
-            focusField = .nominal
+            if shouldShowHelperText{
+                focusField = .nominal
+            }
         }
         .padding(.horizontal)
         

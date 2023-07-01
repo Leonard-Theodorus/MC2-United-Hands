@@ -45,9 +45,6 @@ struct TabBarPlusButton: View {
                                 isAddManuallyViewSelected.toggle()
                             })
                             ,
-//                            ActionSheet.Button.default(Text("Add Quick Access"), action: {
-//                                isAddQuickAccessViewSelected.toggle()
-//                            }),
                             ActionSheet.Button.cancel()
                         ])
         }

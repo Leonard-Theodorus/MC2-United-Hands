@@ -7,9 +7,10 @@
 
 import SwiftUI
 struct RoundedImage: View {
-    @State var expenseImage : UIImage = UIImage(named: "CatExpenses")!
+    @State var expenseImage : UIImage = UIImage()
     var width : CGFloat
     var height : CGFloat
+    var shouldRotate : Bool = false
     var body: some View {
         Image(uiImage: expenseImage)
             .resizable()

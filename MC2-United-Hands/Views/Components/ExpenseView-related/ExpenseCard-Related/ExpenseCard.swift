@@ -14,7 +14,6 @@ struct ExpenseCard: View {
         HStack{
             RoundedImage(expenseImage: expenseData.image ?? UIImage(), width: 80, height: 80)
             VStack(alignment: .leading){
-                //TODO: Expense nominal
                 if let amount = expenseData.amount as? NSNumber{
                     if let nominal = Formatter.currencyFormatter.string(from: amount){
                         Text(nominal == "0" ? "No Input" : "Rp. " + nominal)
@@ -23,14 +22,12 @@ struct ExpenseCard: View {
                             .accessibilityLabel(Text("Expense Nominal"))
                     }
                 }
-                //TODO: Expense Time
                 if let timeStamp = expenseData.timestamp{
                     Text(Formatter.timeFormatter.string(from: timeStamp))
                         .font(.caption)
                         .padding(.trailing)
                         .accessibilityLabel(Text("Time added"))
                 }
-                //TODO: Expense Category
                 CategoryLabel(stringLabel: expenseData.category ?? "")
                     
                     .accessibilityLabel(Text("Expense Category"))
