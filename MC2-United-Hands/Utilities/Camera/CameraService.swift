@@ -11,7 +11,6 @@ import AVFoundation
 public class CameraService {
     var session: AVCaptureSession?
     var delegate: AVCapturePhotoCaptureDelegate?
-    
     let output = AVCapturePhotoOutput()
     let previewLayer = AVCaptureVideoPreviewLayer()
     

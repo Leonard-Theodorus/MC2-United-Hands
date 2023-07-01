@@ -16,7 +16,6 @@ struct AddMomentView: View {
     @State private var selectedItem: PhotosPickerItem? = nil
     @State private var selectedImageData: Data? = nil
     @State var isManualInput : Bool = false
-    
     let cameraService = CameraService()
     var width: CGFloat
     var height: CGFloat
@@ -78,6 +77,7 @@ struct AddMomentView: View {
                                 if let data = try? await newValue?.loadTransferable(type: Data.self) {
                                     capturedImage = UIImage(data: data)
                                     isEditMomentsViewPresented.toggle()
+                                    
                                 }
                             }
                         }

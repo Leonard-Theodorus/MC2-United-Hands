@@ -13,11 +13,10 @@ struct ReportView: View {
     var date: Date
     
     @Binding var pageNavigator: PageNavigation
-    @Binding var totalExpenses: Int
     
     var body: some View {
         VStack {
-            TopBarView(width: width, height: height, date: Formatter.monthFormatter.string(from: date), pageNavigator: $pageNavigator, totalExpenses: $totalExpenses)
+            TopBarView(width: width, height: height, date: Formatter.monthFormatter.string(from: date), pageNavigator: $pageNavigator)
             ReportContent().padding()
             Spacer()
         }
@@ -25,6 +24,6 @@ struct ReportView: View {
 }
 struct ReportView_Previews : PreviewProvider{
     static var previews: some View{
-        ReportView(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, date: Date.now, pageNavigator: .constant(.expenses), totalExpenses: .constant(0))
+        ReportView(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, date: Date.now, pageNavigator: .constant(.expenses))
     }
 }
